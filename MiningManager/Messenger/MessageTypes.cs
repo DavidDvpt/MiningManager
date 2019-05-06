@@ -1,4 +1,4 @@
-﻿namespace MiningManager.Messenger
+﻿namespace MiningManager.Messengers
 {
     /// <summary>
     /// Utilisez une énumération pour les messages pour assurer la cohérence 

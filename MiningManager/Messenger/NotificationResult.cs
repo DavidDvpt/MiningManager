@@ -1,4 +1,4 @@
-﻿namespace MiningManager.Messenger
+﻿namespace MiningManager.Messengers
 {
     public enum NotificationResult
     {
