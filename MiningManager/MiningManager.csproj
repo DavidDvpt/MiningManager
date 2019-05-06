@@ -94,7 +94,10 @@
     <Compile Include="Model\Unstackable.cs" />
     <Compile Include="Repository\MiningContext.cs" />
     <Compile Include="Repository\SeedClass.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\ViewData\BaseViewData.cs" />
     <Compile Include="View\BaseView.cs" />
     <Compile Include="View\IView.cs" />
     <Compile Include="View\ViewWindow.xaml.cs">

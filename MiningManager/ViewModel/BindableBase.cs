@@ -126,7 +126,7 @@ namespace MiningManager.ViewModel
         /// <summary>
         /// Raised when a property on this object has a new value.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;// = delegate { };
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         /// <summary>
         /// Raises this object's PropertyChanged event.
