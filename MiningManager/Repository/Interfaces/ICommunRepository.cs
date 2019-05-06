@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MiningManager.Model;
 
 namespace MiningManager.Repository
 {
     public interface ICommunRepository<T> : IBaseRepository
-        where T : class, new()
+        where T : Commun, new()
     {
         T GetById(int Id);
 

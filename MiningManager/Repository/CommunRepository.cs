@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using MiningManager.Model;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace MiningManager.Repository
 {
     public class CommunRepository<T> : BaseRepository, ICommunRepository<T>
-        where T : class, new()
+        where T : Commun, new()
     {
         #region Proprietes 
 
@@ -59,7 +61,7 @@ namespace MiningManager.Repository
 
         public void Delete(T entity)
         {
-            DbEntityEntry dbEntityEntry = Instance.Entry(entity);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State != EntityState.Deleted)
             {
                 dbEntityEntry.State = EntityState.Deleted;
@@ -75,7 +77,7 @@ namespace MiningManager.Repository
 
         private T AttachEntity(T entity, EntityState state)
         {
-            DbEntityEntry dbEntityEntry = Instance.Entry(entity);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity);
             if (dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = state;
@@ -86,7 +88,7 @@ namespace MiningManager.Repository
 
         public void Commit()
         {
-            Instance.SaveChanges();
+            Context.SaveChanges();
         }
     }
 }

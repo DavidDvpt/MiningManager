@@ -1,11 +1,7 @@
 ﻿using MiningManager.Controller;
 using MiningManager.View;
 using MiningManager.ViewModel.ViewData;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiningManager.ViewModel
 {
@@ -16,7 +12,7 @@ namespace MiningManager.ViewModel
     public delegate void ViewModelClosingEventHandler(bool? dialogResult);
 
     /// <summary>
-    /// Quand un ViewModel pre-exisant est activé, la vue doit s'activer aussi
+    /// Quand un ViewModel pre-exisant est activé, la vue doit s'activer aussi (donne le focus à la fenetre)
     /// </summary>
     public delegate void ViewModelActivatingEventHandler();
 
@@ -59,7 +55,8 @@ namespace MiningManager.ViewModel
             {
                 // Affectation du datacontext ds le code plutot que par le XAML
                 // Afin de pouvoir passer des elemnts au constructeur le cas echeant
-                view.DataContext = this;
+
+                //view.DataContext = this;
                 ViewModelClosing += view.ViewModelClosingHandler;
                 ViewModelActivating += view.ViewModelActivatingHandler;
             }
@@ -74,7 +71,7 @@ namespace MiningManager.ViewModel
         public List<BaseViewModel> ChildViewModels { get; private set; } = new List<BaseViewModel>();
 
         /// <summary>
-        /// Si le viewModel veut faite quelque chose il a besoin du controller
+        /// Controller associé au ViewModel
         /// </summary>
         public IController Controller { get; set; }
 
@@ -100,6 +97,8 @@ namespace MiningManager.ViewModel
         {
             // desenregistre ce viewModel de messenger
             Controller.Messenger.DeRegister(this);
+
+            // ferme les vues
             if (ViewModelClosing != null)
             {
                 ViewModelClosing(dialogResult);
@@ -112,6 +111,7 @@ namespace MiningManager.ViewModel
             }
         }
 
+        // donne le focus à la fenetre
         public void ActivateViewModel()
         {
             if (ViewModelActivating != null)
