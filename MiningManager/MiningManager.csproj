@@ -67,6 +67,11 @@
     <Compile Include="Messenger\MessageTypes.cs" />
     <Compile Include="Messenger\Messenger.cs" />
     <Compile Include="Messenger\NotificationResult.cs" />
+    <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
+    <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
+      <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Categorie.cs" />
     <Compile Include="Model\Commun.cs" />
     <Compile Include="Model\Enhancer.cs" />
@@ -114,6 +119,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201905061510103_FirstAdd.resx">
+      <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
