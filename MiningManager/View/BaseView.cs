@@ -22,10 +22,21 @@ namespace MiningManager.View
     {
         #region Champs
 
-        private ViewWindow viewWindow; // si affiché dans une fenêtre, la voila
-        private OnWindowClose onWindowClosed = null;
+        /// <summary>
+        /// La fenêtre sur laquelle la vue est affichée (si elle est affichée sur une fenêtre)
+        /// La fenêtre sera créée par View on demand (si nécessaire) ou peut être
+        /// fourni par l'application.
+        /// </summary>
+        private ViewWindow viewWindow = new ViewWindow() { Closed += ViewsWindow_Closed }
+        
+		/// <summary>
+		/// Délégué qui autorise le traitement de l'event WindowClosed 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public event EventHandler WindowClosed;
 
-        #endregion
+#endregion
 
         #region Constructeurs
 
@@ -38,7 +49,7 @@ namespace MiningManager.View
         #region Fermeture
 
         /// <summary>
-        /// La fenetre se ferme, on efface les references
+        /// La fenetre se ferme, on efface les references de la vues données au viewModel
         /// </summary>
         public void ViewClosed()
         {
@@ -46,8 +57,10 @@ namespace MiningManager.View
             // nous devons vérifier que le DataContext n'est pas nul (ce qui voudrait dire que ViewClosed a déjà été fait)
             if (DataContext != null)
             {
+				//desabonnement de la vue à l'event du viewmodel
                 ((BaseViewModel)DataContext).ViewModelClosing -= ViewModelClosingHandler;
                 ((BaseViewModel)DataContext).ViewModelActivating -= ViewModelActivatingHandler;
+				
                 this.DataContext = null; // Assurez - vous que nous n'avons plus aucune référence VM
             }
         }
@@ -61,9 +74,10 @@ namespace MiningManager.View
         {
             if (onWindowClosed != null)
             {
+				// REMPLACER PAR ONCLOSEVIEWWINDOW
                 onWindowClosed(sender, e);
             }
-            ((BaseViewModel)DataContext).CloseViewModel(false);
+            ((BaseViewModel)DataContext).OnCloseViewModel(false);
         }
 
         #endregion
@@ -72,52 +86,89 @@ namespace MiningManager.View
 
         public void ViewModelActivatingHandler()
         {
-            throw new NotImplementedException();
+            if(viewWindow != null)
+			{
+				viewWindow.Activate();
+			}
         }
 
         public void ViewModelClosingHandler(bool? dialogResult)
         {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-        #region Window
-
-        /// <summary>
-        /// La fenêtre sur laquelle la vue est affichée (si elle est affichée sur une fenêtre)
-        /// La fenêtre sera créée par View on demand (si nécessaire) ou peut être
-        /// fourni par l'application.
-        /// </summary>
-        private ViewWindow ViewWindow
-        {
-            get
+            if (viewWindow == null)
             {
-                if (viewWindow == null)
+                Panel panel = this.Parent as Panel;
+                if (panel != null)
                 {
-                    viewWindow = new ViewWindow();
-                    viewWindow.Closed += ViewsWindow_Closed;
+                    panel.Children.Remove(this);
+                }
+            }
+            else
+            {
+                viewWindow.Closed -= ViewsWindow_Closed;
+
+                if (viewWindow.IsDialogWindow)
+                {
+                    // si la fenetre est un dialog et non active, elle doit etre dans le processus de fermeture
+                    if (viewWindow.IsActive)
+                    {
+                        viewWindow.DialogResult = dialogResult;
+                    }
+
+                    viewWindow.DialogResult = dialogResult;
+                }
+                else
+                {
+                    viewWindow.Close();
                 }
 
-                return viewWindow;
+                viewWindow = null;
             }
+
+            // Traitez la méthode ViewClosed pour la gérer si cela a été déclenché par l'utilisateur qui ferme une fenêtre plutôt que par
+            //la fermeture étant initiée par un ViewModel
+            ViewClosed();
         }
 
         #endregion
 
         #region Methodes D'affichage
 
-        /// <summary>
-        /// Afficher ce contrôle dans une fenêtre, de la taille voulue, avec ce titre
+		#region Dans une nouvelle fenêtre
+        
+		/// <summary>
+        /// Afficher ce contrôle dans une fenêtre nouvelle fenetre, de la taille voulue, avec ce titre
+		/// ConstructeurVue #1
         /// </summary>
         /// <param name="modal"></param>
         /// <param name="windowTitle"></param>
         public void ShowInWindow(bool modal, string windowTitle)
         {
+			// renoi au constructeurVue #2
             ShowInWindow(modal, windowTitle, 0, 0, Dock.Top, null);
         }
-
-        /// <summary>
+		
+		  /// <summary>
+        /// montre la vue dans la nouvelle fenetre
+		/// Constructeur #2
+        /// </summary>
+        /// <param name="modal"></param>
+        /// <param name="windowTitle">titre de la fenetre</param>
+        /// <param name="windowWidth">largeur de la fenetre</param>
+        /// <param name="windowHeight">hauteur de la fenetre</param>
+        /// <param name="dock">comment la vue doit être dockee</param>
+        /// <param name="onWindowClose">traitement de l'event quand la fenetre est fermee</param>
+        public void ShowInWindow(bool modal, string windowTitle, double windowWidth, double windowHeight, Dock dock, OnWindowClose onWindowClose)
+        {
+			// renvoi au constructeurVue #4
+			// Ajout de la vue de base (new)
+            ShowInWindow(modal, viewWindow, windowTitle, windowWidth, windowHeight, dock, onWindowClose);
+        }
+		
+		#endregion
+		
+		#region Dans une fenêtre existante
+        
+		/// <summary>
         /// Afficher ce contrôle dans une fenêtre existante, par défaut, ancré en haut.
         /// </summary>
         /// <param name="modal"></param>
@@ -126,7 +177,7 @@ namespace MiningManager.View
         {
             ShowInWindow(modal, window, window.Title, window.Width, window.Height, Dock.Top, null);
         }
-
+		
         /// <summary>
         /// Flexibilité maximale de la version Définition de la fenêtre de Show In Window
         /// </summary>
@@ -170,19 +221,7 @@ namespace MiningManager.View
             }
         }
 
-        /// <summary>
-        /// montre la vue dans la nouvelle fenetre
-        /// </summary>
-        /// <param name="modal"></param>
-        /// <param name="windowTitle">titre de la fenetre</param>
-        /// <param name="windowWidth">largeur de la fenetre</param>
-        /// <param name="windowHeight">hauteur de la fenetre</param>
-        /// <param name="dock">comment la vue doit être dockee</param>
-        /// <param name="onWindowClose">traitement de l'event quand la fenetre est fermee</param>
-        public void ShowInWindow(bool modal, string windowTitle, double windowWidth, double windowHeight, Dock dock, OnWindowClose onWindowClose)
-        {
-            ShowInWindow(modal, ViewWindow, windowTitle, windowWidth, windowHeight, dock, onWindowClose);
-        }
+		#endregion
 
         #endregion
 
@@ -198,5 +237,5 @@ namespace MiningManager.View
         }
 
         #endregion
-    }
+   }
 }
