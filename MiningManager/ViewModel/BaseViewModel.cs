@@ -3,35 +3,39 @@ using MiningManager.View;
 using MiningManager.ViewModel.ViewData;
 using System.Collections.Generic;
 
-namespace MiningManager.ViewModel
+namespace BaseClasses
 {
-    /// <summary>
-    /// Quand le VueModel est fermé, les vues associées doivent fermer aussi
-    /// </summary>
-    /// <param name="dialogResult"></param>
-    public delegate void ViewModelClosingEventHandler(bool? dialogResult);
-
-    /// <summary>
-    /// Quand un ViewModel pre-exisant est activé, la vue doit s'activer aussi (donne le focus à la fenetre)
-    /// </summary>
-    public delegate void ViewModelActivatingEventHandler();
-
     /// <summary>
     /// Classe de base pour tous les ViewModel
     /// </summary>
     public class BaseViewModel : BindableBase
     {
-        /// <summary>
-        /// Fermeture des vues associées
-        /// </summary>
-        public event ViewModelClosingEventHandler ViewModelClosing;
-
-        public event ViewModelActivatingEventHandler ViewModelActivating;
-
+		#region Evenements
+		/// <summary>
+		/// Quand le VueModel est fermé, les vues associées doivent fermer aussi
+		/// </summary>
+		/// <param name="dialogResult"></param>
+        public event EventHandler<ViewModelClosingEventArgs> ViewModelClosing;
+    
+		/// <summary>
+		/// Quand un ViewModel pre-exisant est activé, la vue doit s'activer aussi
+		/// </summary>
+        public event EventHandler ViewModelActivating;
+        
+		#region Nested Classe
+		
+		private class ViewModelClosingEventArgs : EventArgs
+		{
+			public bool? DialogResult { get; set; }
+		}
+		
+		#endregion
+		#endregion
+		
         #region Constructeurs
 
         /// <summary>
-        /// un ViewModel a besoin d'un controller
+        /// Constructeur classique quand la view est instanciée via DataTemplate coté XAML (vue dans fenetre existante)
         /// </summary>
         /// <param name="controller"></param>
         public BaseViewModel(IController controller)
@@ -40,11 +44,10 @@ namespace MiningManager.ViewModel
         }
 
         /// <summary>
-        /// Créer le modèle de vue avec un contrôleur et un FrameworkElement(View) injecté
-        /// Notez que nous ne conservons pas de référence à la vue - définissons simplement son contexte de données et
-        /// l'abonne à nos événements d'activation et de clôture ...
-        /// Bien sûr, cela signifie qu'il y a des références - qui doivent être supprimées lorsque la vue se ferme,
-        /// qui est gérée dans BaseView
+        /// Constructeur avec vue associée (donc fenêtre)
+        /// Le ViewModel ne conserve pas de reférence de la vue, 
+        /// le constructeur abonne seulement les gestionnaires d'evenement des vues
+        /// aux events associés du ViewModel
         /// </summary>
         /// <param name="controller"></param>
         /// <param name="view"></param>
@@ -55,26 +58,27 @@ namespace MiningManager.ViewModel
             {
                 // Affectation du datacontext ds le code plutot que par le XAML
                 // Afin de pouvoir passer des elemnts au constructeur le cas echeant
-
-                //view.DataContext = this;
+                view.DataContext = this;
+				
+				// Abonnement des gestionnaires de la vue
                 ViewModelClosing += view.ViewModelClosingHandler;
                 ViewModelActivating += view.ViewModelActivatingHandler;
             }
         }
 
         #endregion
-
+        
         /// <summary>
         /// Conservez une liste de tous les enfants ViewModels afin que nous puissions
         /// les supprimer en toute sécurité lorsque ce ViewModel est fermé.
         /// </summary>
         public List<BaseViewModel> ChildViewModels { get; private set; } = new List<BaseViewModel>();
-
+        
         /// <summary>
-        /// Controller associé au ViewModel
+        /// Si le viewModel veut faite quelque chose il a besoin du controller
         /// </summary>
         public IController Controller { get; set; }
-
+        
         #region Propriétés bindables
 
         public BaseViewData ViewData
@@ -88,35 +92,37 @@ namespace MiningManager.ViewModel
                 }
             }
         }
-
+        
         #endregion
 
-        #region Methodes Publiques
+        #region Declencheurs d'evenements
 
-        public void CloseViewModel(bool? dialogResult)
+        public void OnCloseViewModel(bool? dialogResult)
         {
             // desenregistre ce viewModel de messenger
             Controller.Messenger.DeRegister(this);
-
-            // ferme les vues
             if (ViewModelClosing != null)
             {
-                ViewModelClosing(dialogResult);
+				ViewModelClosingEventArgs e = new ViewModelClosingEventArgs()
+				e.DialogResult = dialogResult;
+				
+				EventHandler<ViewModelClosingEventArgs> handler = ViewModelClosing
+                handler(this, e);
             }
 
-            // ferme tous les viewModel enfants
+            // Declclenche l'evenement chez tous les viewModels enfants
             foreach (var childViewModel in ChildViewModels)
             {
-                childViewModel.CloseViewModel(dialogResult);
+                childViewModel.OnCloseViewModel(dialogResult);
             }
         }
 
-        // donne le focus à la fenetre
-        public void ActivateViewModel()
+        public void OnActivateViewModel()
         {
             if (ViewModelActivating != null)
             {
-                ViewModelActivating();
+				EventHandler<ViewModelClosingEventArgs> handler = ViewModelActivating
+                handler(this, EventArgs.Empty);
             }
         }
 
