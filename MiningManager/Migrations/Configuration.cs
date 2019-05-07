@@ -2,6 +2,7 @@ namespace MiningManager.Migrations
 {
     using System.Data.Entity.Migrations;
     using System.IO;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MiningManager.Repository.MiningContext>
     {
@@ -12,8 +13,12 @@ namespace MiningManager.Migrations
 
         protected override void Seed(MiningManager.Repository.MiningContext context)
         {
-            string script = File.ReadAllText(@"H:\Data\script.sql");
-            context.Database.ExecuteSqlCommand(script);
+            if (context.Communs.Count() == 0)
+            {
+                string script = File.ReadAllText(@"H:\Data\script.sql");
+                context.Database.ExecuteSqlCommand(script);
+            }
+
         }
     }
 }
