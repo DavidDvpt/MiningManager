@@ -8,7 +8,6 @@ namespace MiningManager.Model
     {
         public bool IsLimited { get; set; }
 
-        [Range(0, 9999.999)]
         public decimal Decay { get; set; }
 
         public string Code { get; set; }
