@@ -11,13 +11,10 @@ namespace MiningManager.Model
     [Table("Enhancer")]
     public class Enhancer : InWorld
     {
-        [Range(1, 10)]
         public byte Slot { get; set; }
 
-        [Range(0.01, 99.99)]
         public decimal BonusValue1 { get; set; }
-
-        [Range(0, 99)]
+        
         public short BonusValue2 { get; set; }
     }
 
