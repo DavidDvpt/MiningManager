@@ -6,7 +6,6 @@ namespace MiningManager.Model
     [Table("InWorld")]
     public abstract class InWorld : Commun
     {
-        [Range(0, 9999.99999)]
         public decimal Value { get; set; }
 
         public int ModeleId { get; set; }
