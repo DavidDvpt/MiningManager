@@ -8,24 +8,19 @@ namespace MiningManager.Model
     {
         public int FinderId { get; set; }
 
-        public int FinderAmplifierId { get; set; }
+        public int? FinderAmplifierId { get; set; }
 
         public int SearchModeId { get; set; }
 
-        [Range(0, 10)]
-        public short DepthEnhancerQty { get; set; }
+        public short? DepthEnhancerQty { get; set; }
 
-        [Range(0, 10)]
-        public short RangeEnhancerQty { get; set; }
+        public short? RangeEnhancerQty { get; set; }
 
-        [Range(0, 10)]
-        public short SkillEnhancerQty { get; set; }
+        public short? SkillEnhancerQty { get; set; }
 
-        [Required]
         [ForeignKey("SearchModeId")]
         public virtual SearchMode SearchMode { get; set; }
 
-        [Required]
         [ForeignKey("FinderId")]
         public virtual Finder Finder { get; set; }
 
