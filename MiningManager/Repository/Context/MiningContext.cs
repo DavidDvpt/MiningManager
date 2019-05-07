@@ -53,6 +53,7 @@ namespace MiningManager.Repository
 
             // Unstackable
             modelBuilder.Entity<Unstackable>().Property(e => e.Decay).HasPrecision(7, 3);
+            modelBuilder.Entity<Unstackable>().Property(e => e.Code).HasMaxLength(10);
 
             // Tool
 
