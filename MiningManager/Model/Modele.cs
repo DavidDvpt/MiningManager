@@ -11,7 +11,6 @@ namespace MiningManager.Model
 
         public int CategorieId { get; set; }
 
-        [Required]
         [ForeignKey("CategorieId")]
         public virtual Categorie Categorie { get; set; }
 
