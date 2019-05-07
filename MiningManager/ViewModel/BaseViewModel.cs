@@ -1,9 +1,12 @@
 ﻿using MiningManager.Controller;
 using MiningManager.View;
+using MiningManager.ViewModel;
+using MiningManager.ViewModel.CustomEventArgs;
 using MiningManager.ViewModel.ViewData;
+using System;
 using System.Collections.Generic;
 
-namespace BaseClasses
+namespace ViewModel
 {
     /// <summary>
     /// Classe de base pour tous les ViewModel
@@ -11,25 +14,18 @@ namespace BaseClasses
     public class BaseViewModel : BindableBase
     {
 		#region Evenements
-		/// <summary>
+		
+        /// <summary>
 		/// Quand le VueModel est fermé, les vues associées doivent fermer aussi
 		/// </summary>
 		/// <param name="dialogResult"></param>
-        public event EventHandler<ViewModelClosingEventArgs> ViewModelClosing;
+        public event EventHandler<ViewModelClosedEventArgs> OnViewModelClosed;
     
 		/// <summary>
 		/// Quand un ViewModel pre-exisant est activé, la vue doit s'activer aussi
 		/// </summary>
-        public event EventHandler ViewModelActivating;
+        public event EventHandler OnViewModelActivated;
         
-		#region Nested Classe
-		
-		private class ViewModelClosingEventArgs : EventArgs
-		{
-			public bool? DialogResult { get; set; }
-		}
-		
-		#endregion
 		#endregion
 		
         #region Constructeurs
@@ -61,8 +57,8 @@ namespace BaseClasses
                 view.DataContext = this;
 				
 				// Abonnement des gestionnaires de la vue
-                ViewModelClosing += view.ViewModelClosingHandler;
-                ViewModelActivating += view.ViewModelActivatingHandler;
+                OnViewModelClosed += view.ViewModelClosingHandler;
+                OnViewModelActivated += view.ViewModelActivatingHandler;
             }
         }
 
@@ -95,18 +91,18 @@ namespace BaseClasses
         
         #endregion
 
-        #region Declencheurs d'evenements
+        #region Declencheurs d'évenements
 
         public void OnCloseViewModel(bool? dialogResult)
         {
             // desenregistre ce viewModel de messenger
             Controller.Messenger.DeRegister(this);
-            if (ViewModelClosing != null)
+            if (OnViewModelClosed != null)
             {
-				ViewModelClosingEventArgs e = new ViewModelClosingEventArgs()
+                ViewModelClosedEventArgs e = new ViewModelClosedEventArgs();
 				e.DialogResult = dialogResult;
-				
-				EventHandler<ViewModelClosingEventArgs> handler = ViewModelClosing
+
+                EventHandler<ViewModelClosedEventArgs> handler = OnViewModelClosed;
                 handler(this, e);
             }
 
@@ -119,14 +115,28 @@ namespace BaseClasses
 
         public void OnActivateViewModel()
         {
-            if (ViewModelActivating != null)
+            if (OnViewModelActivated != null)
             {
-				EventHandler<ViewModelClosingEventArgs> handler = ViewModelActivating
+                EventHandler handler = OnViewModelActivated;
                 handler(this, EventArgs.Empty);
             }
         }
 
         #endregion
 
+        #region Gestionnaire d'évenements
+
+        private void OnWindowClosed(object sender, EventArgs e)
+        {
+            OnViewModelClosed -= ((BaseView)sender).ViewModelClosingHandler;
+            OnViewModelActivated -= ((BaseView)sender).ViewModelActivatingHandler;
+
+            foreach (var item in ChildViewModels)
+            {
+                item.OnCloseViewModel(false);
+            }
+        }
+
+        #endregion
     }
 }

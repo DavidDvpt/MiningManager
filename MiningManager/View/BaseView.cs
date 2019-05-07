@@ -1,17 +1,11 @@
-﻿using MiningManager.ViewModel;
+﻿using MiningManager.ViewModel.CustomEventArgs;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using ViewModel;
 
 namespace MiningManager.View
 {
-    /// <summary>
-    /// Délégué qui autorise le traitement de l'event WindowClosed 
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    public delegate void OnWindowClose(Object sender, EventArgs e);
-
     /// <summary>
     /// c'est la classe de base de toutes les vues
     /// elle ne peut pas être abstraite car ca va causer des pb qd "design time"
@@ -27,16 +21,30 @@ namespace MiningManager.View
         /// La fenêtre sera créée par View on demand (si nécessaire) ou peut être
         /// fourni par l'application.
         /// </summary>
-        private ViewWindow viewWindow = new ViewWindow() { Closed += ViewsWindow_Closed }
-        
+        private ViewWindow viewWindow;
+        public ViewWindow ViewWindow
+        {
+            get
+            {
+                if (viewWindow == null)
+                {
+                    viewWindow = new ViewWindow();
+                    viewWindow.Closed += ViewsWindow_Closed;
+                }
+
+                return viewWindow;
+            }
+            private set { viewWindow = value; }
+            
+        }
 		/// <summary>
 		/// Délégué qui autorise le traitement de l'event WindowClosed 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public event EventHandler WindowClosed;
+		public event EventHandler OnWindowClosed;
 
-#endregion
+        #endregion
 
         #region Constructeurs
 
@@ -58,8 +66,8 @@ namespace MiningManager.View
             if (DataContext != null)
             {
 				//desabonnement de la vue à l'event du viewmodel
-                ((BaseViewModel)DataContext).ViewModelClosing -= ViewModelClosingHandler;
-                ((BaseViewModel)DataContext).ViewModelActivating -= ViewModelActivatingHandler;
+                ((BaseViewModel)DataContext).OnViewModelClosed -= ViewModelClosingHandler;
+                ((BaseViewModel)DataContext).OnViewModelActivated -= ViewModelActivatingHandler;
 				
                 this.DataContext = null; // Assurez - vous que nous n'avons plus aucune référence VM
             }
@@ -72,11 +80,9 @@ namespace MiningManager.View
         /// <param name="e"></param>
         void ViewsWindow_Closed(object sender, EventArgs e)
         {
-            if (onWindowClosed != null)
-            {
-				// REMPLACER PAR ONCLOSEVIEWWINDOW
-                onWindowClosed(sender, e);
-            }
+            // REMPLACER PAR ONCLOSEVIEWWINDOW
+            OnWindowClosed?.Invoke(sender, e);
+
             ((BaseViewModel)DataContext).OnCloseViewModel(false);
         }
 
@@ -84,7 +90,7 @@ namespace MiningManager.View
 
         #region Implementation IView
 
-        public void ViewModelActivatingHandler()
+        public void ViewModelActivatingHandler(object sender, EventArgs e)
         {
             if(viewWindow != null)
 			{
@@ -92,7 +98,7 @@ namespace MiningManager.View
 			}
         }
 
-        public void ViewModelClosingHandler(bool? dialogResult)
+        public void ViewModelClosingHandler(object sender, ViewModelClosedEventArgs e)
         {
             if (viewWindow == null)
             {
@@ -104,24 +110,24 @@ namespace MiningManager.View
             }
             else
             {
-                viewWindow.Closed -= ViewsWindow_Closed;
+                ViewWindow.Closed -= ViewsWindow_Closed;
 
                 if (viewWindow.IsDialogWindow)
                 {
                     // si la fenetre est un dialog et non active, elle doit etre dans le processus de fermeture
                     if (viewWindow.IsActive)
                     {
-                        viewWindow.DialogResult = dialogResult;
+                        ViewWindow.DialogResult = e.DialogResult;
                     }
 
-                    viewWindow.DialogResult = dialogResult;
+                    ViewWindow.DialogResult = e.DialogResult;
                 }
                 else
                 {
-                    viewWindow.Close();
+                    ViewWindow.Close();
                 }
 
-                viewWindow = null;
+                ViewWindow = null;
             }
 
             // Traitez la méthode ViewClosed pour la gérer si cela a été déclenché par l'utilisateur qui ferme une fenêtre plutôt que par
@@ -157,11 +163,11 @@ namespace MiningManager.View
         /// <param name="windowHeight">hauteur de la fenetre</param>
         /// <param name="dock">comment la vue doit être dockee</param>
         /// <param name="onWindowClose">traitement de l'event quand la fenetre est fermee</param>
-        public void ShowInWindow(bool modal, string windowTitle, double windowWidth, double windowHeight, Dock dock, OnWindowClose onWindowClose)
+        public void ShowInWindow(bool modal, string windowTitle, double windowWidth, double windowHeight, Dock dock, EventHandler onWindowClose)
         {
 			// renvoi au constructeurVue #4
 			// Ajout de la vue de base (new)
-            ShowInWindow(modal, viewWindow, windowTitle, windowWidth, windowHeight, dock, onWindowClose);
+            ShowInWindow(modal, ViewWindow, windowTitle, windowWidth, windowHeight, dock, onWindowClose);
         }
 		
 		#endregion
@@ -188,12 +194,13 @@ namespace MiningManager.View
         /// <param name="windowHeight">hauteur de la fenetre</param>
         /// <param name="dock">comment la vue doit être dockee</param>
         /// <param name="onWindowClose">traitement de l'event quand la fenetre est fermee</param>
-        public void ShowInWindow(bool modal, ViewWindow window, string windowTitle, double windowWidth, double windowHeight, Dock dock, OnWindowClose onWindowClose)
+        public void ShowInWindow(bool modal, ViewWindow window, string windowTitle, double windowWidth, double windowHeight, Dock dock, EventHandler onWindowClose)
         {
-            this.onWindowClosed = onWindowClose;
+            // OnWindowClose methode de la classe ViewModel
+            this.OnWindowClosed = onWindowClose;
 
-            viewWindow = window;
-            viewWindow.Title = windowTitle;
+            ViewWindow = window;
+            ViewWindow.Title = windowTitle;
             DockPanel.SetDock(this, dock);
 
             // Le viewWindow doit avoir un dockPanel appelé WindowDockPanel. Si vous voulez changer ceci pour utiliser un autre conteneur sur la fenêtre, alors
