@@ -32,21 +32,25 @@ namespace MiningManager
             IStatusController sc = new StatusController(new StatusRepository());
             StatusView sv = new StatusView();
             StatusViewModel svm = new StatusViewModel(sc, mv);
-            sv.ShowInWindow(false, vw, "MiningManager", 800, 450, Dock.Bottom, svm.OnWindowClosed);
+            sv.ShowInWindow(vw, Dock.Bottom, svm.OnWindowClosed);
 
             // Affichage du container
             IContainerController cc = new ContainerController(new ContainerRepository());
             ContainerView cv = new ContainerView();
             ContainerViewModel cvm = new ContainerViewModel(cc, cv);
-            cv.ShowInWindow(false, vw, "MiningManager", 800, 450, Dock.Top, svm.OnWindowClosed);
+            cv.ShowInWindow(vw, null, svm.OnWindowClosed);
 
+            //TestContext();
 
-            //MiningContext ctx = new MiningContext();
-
-            //DbSet<Commun> dbSet = ctx.Communs;
-            //bool b = dbSet.Any(x => x.Nom == "Finder F-101");
-            //bool c = dbSet.Any(x => x.Nom == "Finder F-101mjm");
         }
 
+        private void TestContext()
+        {
+            MiningContext ctx = new MiningContext();
+
+            DbSet<Commun> dbSet = ctx.Communs;
+            bool b = dbSet.Any(x => x.Nom == "Finder F-101");
+            bool c = dbSet.Any(x => x.Nom == "Finder F-101mjm");
+        }
     }
 }
