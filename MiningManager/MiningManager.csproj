@@ -62,19 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\BaseController.cs" />
-    <Compile Include="Controller\StatusController.cs" />
-    <Compile Include="Controller\ContainerController.cs" />
-    <Compile Include="Controller\MenuController.cs" />
-    <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
-    <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
-      <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905072229471_Maj_01.cs" />
-    <Compile Include="Migrations\201905072229471_Maj_01.Designer.cs">
-      <DependentUpon>201905072229471_Maj_01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -94,12 +81,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201905061510103_FirstAdd.resx">
-      <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905072229471_Maj_01.resx">
-      <DependentUpon>201905072229471_Maj_01.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

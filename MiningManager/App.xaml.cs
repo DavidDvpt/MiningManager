@@ -1,12 +1,10 @@
 ﻿using MiningManager.Controller;
-using MiningManager.Model;
 using MiningManager.Repository;
 using MiningManager.View;
 using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
