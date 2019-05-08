@@ -63,8 +63,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\BaseController.cs" />
-    <Compile Include="Repository\ContainerRepository.cs" />
-    <Compile Include="Repository\Interfaces\IContainerRepository.cs" />
     <Compile Include="Controller\StatusController.cs" />
     <Compile Include="Controller\ContainerController.cs" />
     <Compile Include="Controller\MenuController.cs" />
@@ -77,28 +75,6 @@
       <DependentUpon>201905072229471_Maj_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Repository\BaseRepository.cs" />
-    <Compile Include="Repository\Context\MiningContext.cs" />
-    <Compile Include="Repository\Context\SeedClass.cs" />
-    <Compile Include="Repository\IMenuRepository.cs" />
-    <Compile Include="Repository\Interfaces\ICategorieRepository.cs" />
-    <Compile Include="Repository\Interfaces\IEnhancerRepository.cs" />
-    <Compile Include="Repository\Interfaces\IExcavatorRepository.cs" />
-    <Compile Include="Repository\Interfaces\IBaseRepository.cs" />
-    <Compile Include="Repository\Interfaces\ICommunRepository.cs" />
-    <Compile Include="Repository\CommunRepository.cs" />
-    <Compile Include="Repository\Interfaces\IFinderAmplifierRepository.cs" />
-    <Compile Include="Repository\Interfaces\IFinderRepository.cs" />
-    <Compile Include="Repository\Interfaces\IInWorldRepository.cs" />
-    <Compile Include="Repository\Interfaces\IMaterialRepository.cs" />
-    <Compile Include="Repository\Interfaces\IModeleRepository.cs" />
-    <Compile Include="Repository\Interfaces\IPlanetRepository.cs" />
-    <Compile Include="Repository\Interfaces\IRefinerRepository.cs" />
-    <Compile Include="Repository\Interfaces\IToolRepository.cs" />
-    <Compile Include="Repository\Interfaces\IUnstackableRepository.cs" />
-    <Compile Include="Repository\IStatusRepository.cs" />
-    <Compile Include="Repository\MenuRepository.cs" />
-    <Compile Include="Repository\StatusRepository.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -141,6 +117,10 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MiningManager.Controller\MiningManager.Controller.csproj">
+      <Project>{70f11b66-abb2-48e8-9e15-d50a51a03ae3}</Project>
+      <Name>MiningManager.Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiningManager.Messenger\MiningManager.Messenger.csproj">
       <Project>{2fb174ed-42f9-402a-a772-b6c7abb73787}</Project>
       <Name>MiningManager.Messenger</Name>
@@ -148,6 +128,10 @@
     <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
       <Project>{64385109-c153-4d4c-a7fc-92c5e4ffd49b}</Project>
       <Name>MiningManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiningManager.Service\MiningManager.Service.csproj">
+      <Project>{d972e14b-a863-4fa1-989f-2c9e90fe54fa}</Project>
+      <Name>MiningManager.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\MiningManager.ViewModel\MiningManager.ViewModel.csproj">
       <Project>{31da7da3-fb94-4b17-a616-c2f6e6da12a6}</Project>
