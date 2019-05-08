@@ -1,8 +1,8 @@
-﻿using MiningManager.ViewModel.CustomEventArgs;
+﻿using MiningManager.ViewModel;
+using MiningManager.ViewModel.CustomEventArgs;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using ViewModel;
 
 namespace MiningManager.View
 {
@@ -149,7 +149,7 @@ namespace MiningManager.View
         /// <param name="windowTitle"></param>
         public void ShowInWindow(bool modal, string windowTitle)
         {
-			// renoi au constructeurVue #2
+			// renvoi au constructeurVue #2
             ShowInWindow(modal, windowTitle, 0, 0, Dock.Top, null);
         }
 		

@@ -1,12 +1,12 @@
-﻿using MiningManager.Controller;
-using MiningManager.View;
+﻿using MiningManager.View;
 using MiningManager.ViewModel;
+using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.ViewModel.CustomEventArgs;
 using MiningManager.ViewModel.ViewData;
 using System;
 using System.Collections.Generic;
 
-namespace ViewModel
+namespace MiningManager.ViewModel
 {
     /// <summary>
     /// Classe de base pour tous les ViewModel
@@ -126,7 +126,7 @@ namespace ViewModel
 
         #region Gestionnaire d'évenements
 
-        private void OnWindowClosed(object sender, EventArgs e)
+        public void OnWindowClosed(object sender, EventArgs e)
         {
             OnViewModelClosed -= ((BaseView)sender).ViewModelClosingHandler;
             OnViewModelActivated -= ((BaseView)sender).ViewModelActivatingHandler;

@@ -63,7 +63,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\BaseController.cs" />
-    <Compile Include="Controller\IController.cs" />
+    <Compile Include="Repository\ContainerRepository.cs" />
+    <Compile Include="Repository\Interfaces\IContainerRepository.cs" />
+    <Compile Include="ViewModel\ContainerViewModel.cs" />
+    <Compile Include="View\ContainerView.xaml.cs">
+      <DependentUpon>ContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ControllerInterfaces\IContainerController.cs" />
+    <Compile Include="Controller\StatusController.cs" />
+    <Compile Include="Controller\ContainerController.cs" />
+    <Compile Include="ViewModel\ControllerInterfaces\IController.cs" />
+    <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Messenger\Message.cs" />
     <Compile Include="Messenger\MessageHandledStatus.cs" />
     <Compile Include="Messenger\MessageTypes.cs" />
@@ -99,6 +109,7 @@
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\Context\MiningContext.cs" />
     <Compile Include="Repository\Context\SeedClass.cs" />
+    <Compile Include="Repository\IMenuRepository.cs" />
     <Compile Include="Repository\Interfaces\ICategorieRepository.cs" />
     <Compile Include="Repository\Interfaces\IEnhancerRepository.cs" />
     <Compile Include="Repository\Interfaces\IExcavatorRepository.cs" />
@@ -114,13 +125,26 @@
     <Compile Include="Repository\Interfaces\IRefinerRepository.cs" />
     <Compile Include="Repository\Interfaces\IToolRepository.cs" />
     <Compile Include="Repository\Interfaces\IUnstackableRepository.cs" />
+    <Compile Include="Repository\IStatusRepository.cs" />
+    <Compile Include="Repository\MenuRepository.cs" />
+    <Compile Include="Repository\StatusRepository.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
+    <Compile Include="ViewModel\ControllerInterfaces\IMenuController.cs" />
+    <Compile Include="ViewModel\ControllerInterfaces\IStatusController.cs" />
     <Compile Include="ViewModel\CustomEventArgs\ViewModelClosedEventArgs.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\StatusViewModel.cs" />
     <Compile Include="ViewModel\ViewData\BaseViewData.cs" />
     <Compile Include="View\BaseView.cs" />
     <Compile Include="View\IView.cs" />
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatusView.xaml.cs">
+      <DependentUpon>StatusView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>
     </Compile>
@@ -128,6 +152,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

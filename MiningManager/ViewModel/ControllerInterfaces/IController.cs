@@ -1,6 +1,6 @@
 ﻿using MiningManager.Messengers;
 
-namespace MiningManager.Controller
+namespace MiningManager.ViewModel.ControllerInterfaces
 {
     public interface IController
     {
