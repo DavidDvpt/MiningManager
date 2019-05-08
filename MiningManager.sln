@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager", "MiningManager\MiningManager.csproj", "{B4175D3E-6DC2-46AD-8ECE-3A9D26A968A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager.Model", "MiningManager.Model\MiningManager.Model.csproj", "{64385109-C153-4D4C-A7FC-92C5E4FFD49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B4175D3E-6DC2-46AD-8ECE-3A9D26A968A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4175D3E-6DC2-46AD-8ECE-3A9D26A968A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4175D3E-6DC2-46AD-8ECE-3A9D26A968A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64385109-C153-4D4C-A7FC-92C5E4FFD49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64385109-C153-4D4C-A7FC-92C5E4FFD49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64385109-C153-4D4C-A7FC-92C5E4FFD49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64385109-C153-4D4C-A7FC-92C5E4FFD49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

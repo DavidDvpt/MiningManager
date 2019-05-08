@@ -6,6 +6,7 @@ using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -40,17 +41,17 @@ namespace MiningManager
             ContainerViewModel cvm = new ContainerViewModel(cc, cv);
             cv.ShowInWindow(vw, null, svm.OnWindowClosed);
 
-            //TestContext();
+            TestContextAsync();
 
         }
 
-        private void TestContext()
+        private void TestContextAsync()
         {
             MiningContext ctx = new MiningContext();
 
-            DbSet<Commun> dbSet = ctx.Communs;
-            bool b = dbSet.Any(x => x.Nom == "Finder F-101");
-            bool c = dbSet.Any(x => x.Nom == "Finder F-101mjm");
+            ctx.Communs.Load();
+            bool b = ctx.Communs.Any(x => x.Nom == "Finder F-101");
+            bool c = ctx.Communs.Any(x => x.Nom == "Finder F-101mjm");
         }
     }
 }
