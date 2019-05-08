@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager.Model", "Mini
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager.Messenger", "MiningManager.Messenger\MiningManager.Messenger.csproj", "{2FB174ED-42F9-402A-A772-B6C7ABB73787}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager.View", "MiningManager.View\MiningManager.View.csproj", "{F4988962-D11B-4872-B52C-7C448AB3BD1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningManager.ViewModel", "MiningManager.ViewModel\MiningManager.ViewModel.csproj", "{31DA7DA3-FB94-4B17-A616-C2F6E6DA12A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2FB174ED-42F9-402A-A772-B6C7ABB73787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FB174ED-42F9-402A-A772-B6C7ABB73787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FB174ED-42F9-402A-A772-B6C7ABB73787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4988962-D11B-4872-B52C-7C448AB3BD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4988962-D11B-4872-B52C-7C448AB3BD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4988962-D11B-4872-B52C-7C448AB3BD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4988962-D11B-4872-B52C-7C448AB3BD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DA7DA3-FB94-4B17-A616-C2F6E6DA12A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DA7DA3-FB94-4B17-A616-C2F6E6DA12A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DA7DA3-FB94-4B17-A616-C2F6E6DA12A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DA7DA3-FB94-4B17-A616-C2F6E6DA12A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

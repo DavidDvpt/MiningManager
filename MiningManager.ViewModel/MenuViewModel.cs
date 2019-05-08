@@ -1,5 +1,4 @@
 ﻿using MiningManager.Messengers;
-using MiningManager.View;
 using MiningManager.ViewModel.ControllerInterfaces;
 
 namespace MiningManager.ViewModel

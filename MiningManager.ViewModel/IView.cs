@@ -1,7 +1,7 @@
 ﻿using MiningManager.ViewModel.CustomEventArgs;
 using System;
 
-namespace MiningManager.View
+namespace MiningManager.ViewModel
 {
     public interface IView
     {

@@ -1,6 +1,4 @@
-﻿using MiningManager.View;
-using MiningManager.ViewModel;
-using MiningManager.ViewModel.ControllerInterfaces;
+﻿using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.ViewModel.CustomEventArgs;
 using MiningManager.ViewModel.ViewData;
 using System;
@@ -128,8 +126,8 @@ namespace MiningManager.ViewModel
 
         public void OnWindowClosed(object sender, EventArgs e)
         {
-            OnViewModelClosed -= ((BaseView)sender).ViewModelClosingHandler;
-            OnViewModelActivated -= ((BaseView)sender).ViewModelActivatingHandler;
+            OnViewModelClosed -= ((IView)sender).ViewModelClosingHandler;
+            OnViewModelActivated -= ((IView)sender).ViewModelActivatingHandler;
 
             foreach (var item in ChildViewModels)
             {

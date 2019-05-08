@@ -65,14 +65,8 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Repository\ContainerRepository.cs" />
     <Compile Include="Repository\Interfaces\IContainerRepository.cs" />
-    <Compile Include="ViewModel\ContainerViewModel.cs" />
-    <Compile Include="View\ContainerView.xaml.cs">
-      <DependentUpon>ContainerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\ControllerInterfaces\IContainerController.cs" />
     <Compile Include="Controller\StatusController.cs" />
     <Compile Include="Controller\ContainerController.cs" />
-    <Compile Include="ViewModel\ControllerInterfaces\IController.cs" />
     <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
@@ -105,46 +99,10 @@
     <Compile Include="Repository\IStatusRepository.cs" />
     <Compile Include="Repository\MenuRepository.cs" />
     <Compile Include="Repository\StatusRepository.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\BindableBase.cs" />
-    <Compile Include="ViewModel\ControllerInterfaces\IMenuController.cs" />
-    <Compile Include="ViewModel\ControllerInterfaces\IStatusController.cs" />
-    <Compile Include="ViewModel\CustomEventArgs\ViewModelClosedEventArgs.cs" />
-    <Compile Include="ViewModel\MenuViewModel.cs" />
-    <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="ViewModel\StatusViewModel.cs" />
-    <Compile Include="ViewModel\ViewData\BaseViewData.cs" />
-    <Compile Include="View\BaseView.cs" />
-    <Compile Include="View\IView.cs" />
-    <Compile Include="View\MenuView.xaml.cs">
-      <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\StatusView.xaml.cs">
-      <DependentUpon>StatusView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ViewWindow.xaml.cs">
-      <DependentUpon>ViewWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ContainerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\StatusView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ViewWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -190,6 +148,14 @@
     <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
       <Project>{64385109-c153-4d4c-a7fc-92c5e4ffd49b}</Project>
       <Name>MiningManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiningManager.ViewModel\MiningManager.ViewModel.csproj">
+      <Project>{31da7da3-fb94-4b17-a616-c2f6e6da12a6}</Project>
+      <Name>MiningManager.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiningManager.View\MiningManager.View.csproj">
+      <Project>{f4988962-d11b-4872-b52c-7c448ab3bd1a}</Project>
+      <Name>MiningManager.View</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
