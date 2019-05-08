@@ -74,11 +74,6 @@
     <Compile Include="Controller\ContainerController.cs" />
     <Compile Include="ViewModel\ControllerInterfaces\IController.cs" />
     <Compile Include="Controller\MenuController.cs" />
-    <Compile Include="Messenger\Message.cs" />
-    <Compile Include="Messenger\MessageHandledStatus.cs" />
-    <Compile Include="Messenger\MessageTypes.cs" />
-    <Compile Include="Messenger\Messenger.cs" />
-    <Compile Include="Messenger\NotificationResult.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
       <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
@@ -188,6 +183,10 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MiningManager.Messenger\MiningManager.Messenger.csproj">
+      <Project>{2fb174ed-42f9-402a-a772-b6c7abb73787}</Project>
+      <Name>MiningManager.Messenger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
       <Project>{64385109-c153-4d4c-a7fc-92c5e4ffd49b}</Project>
       <Name>MiningManager.Model</Name>
