@@ -5,7 +5,10 @@
     /// </summary>
     public enum MessageTypes
     {
-        MSG_COMMAND_AFFICHAGE_FINDERMGR,	// Envoyé lorsqu choisi FinderMgr dans le menu
+        MSG_COMMAND_MENU_FINDERMGR,	            // Envoyé lorsqu choisi FinderMgr dans le menu
+        MSG_COMMAND_MENU_FINDERAMPLIFIERMGR,	// Envoyé lorsqu choisi FinderAmplifierMgr dans le menu
+        MSG_COMMAND_MENU_REFINERMGR,	        // Envoyé lorsqu choisi RefinerMgr dans le menu
+        MSG_COMMAND_MENU_EXCAVATORMGR,	        // Envoyé lorsqu choisi ExcavatorMgr dans le menu
         MSG_COMMAND_SELECTED_FOR_CREATE,	// Envoyé lorsqu on cree un item
         MSG_COMMAND_SELECTED_FOR_UPDATE,	// Envoyé lorsqu'on modifie un item
         MSG_ITEM_SELECTED_FOR_EDIT,	// Envoyé lorsqu'on modifie un item

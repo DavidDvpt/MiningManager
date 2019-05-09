@@ -1,4 +1,5 @@
 ﻿using MiningManager.Controller;
+using MiningManager.Model;
 using MiningManager.Repository;
 using MiningManager.View;
 using MiningManager.ViewModel;
@@ -18,6 +19,9 @@ namespace MiningManager
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            // Methode de test ddu DbContext
+            //Task t = TestContextAsync();      
+            
             //Vue principale
             ViewWindow vw = new ViewWindow();
 
@@ -41,16 +45,13 @@ namespace MiningManager
             cv.ShowInWindow(vw, null, svm.OnWindowClosed);
 
 
-            //Task t = Task.Run(() => { TestContext(); });
-            //TestContextAsync();
-
         }
 
-        private void TestContext()
+        private async Task TestContextAsync()
         {
             MiningContext ctx = new MiningContext();
 
-            ctx.Communs.Load();
+            await ctx.Communs.LoadAsync();
             bool b = ctx.Communs.Any(x => x.Nom == "Finder F-101");
             bool c = ctx.Communs.Any(x => x.Nom == "Finder F-101mjm");
         }

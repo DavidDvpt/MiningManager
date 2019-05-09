@@ -4,10 +4,9 @@
     {
         void Start();
 
-        MenuViewModel ShowViewMenu();
-
-        StatusViewModel ShowViewStatus();
-
-        //FinderMgrViewModel ShowFinderMgrViewModel();
+        BaseViewModel GetFinderMgrViewModel();
+        BaseViewModel GetExcavatorMgrViewModel();
+        BaseViewModel GetRefinerMgrViewModel();
+        BaseViewModel GetFinderAmplifierMgrViewModel();
     }
 }

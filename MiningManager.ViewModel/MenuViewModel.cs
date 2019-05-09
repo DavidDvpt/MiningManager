@@ -19,7 +19,7 @@ namespace MiningManager.ViewModel
 
         #region Commands
 
-        public RelayCommand FinderMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_FINDERMGR); });
+        public RelayCommand FinderMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_FINDERMGR); });
 
         #endregion
 
