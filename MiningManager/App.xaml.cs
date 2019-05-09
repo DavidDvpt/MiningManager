@@ -5,6 +5,7 @@ using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -39,11 +40,13 @@ namespace MiningManager
             ContainerViewModel cvm = new ContainerViewModel(cc, cv);
             cv.ShowInWindow(vw, null, svm.OnWindowClosed);
 
-            TestContextAsync();
+
+            //Task t = Task.Run(() => { TestContext(); });
+            //TestContextAsync();
 
         }
 
-        private void TestContextAsync()
+        private void TestContext()
         {
             MiningContext ctx = new MiningContext();
 

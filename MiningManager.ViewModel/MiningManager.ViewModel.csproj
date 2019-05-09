@@ -50,18 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseViewModel.cs" />
-    <Compile Include="BindableBase.cs" />
+    <Compile Include="BaseClasses\BaseViewModel.cs" />
+    <Compile Include="BaseClasses\BindableBase.cs" />
     <Compile Include="ContainerViewModel.cs" />
     <Compile Include="ControllerInterfaces\IContainerController.cs" />
     <Compile Include="ControllerInterfaces\IController.cs" />
     <Compile Include="ControllerInterfaces\IMenuController.cs" />
     <Compile Include="ControllerInterfaces\IStatusController.cs" />
     <Compile Include="CustomEventArgs\ViewModelClosedEventArgs.cs" />
-    <Compile Include="IView.cs" />
+    <Compile Include="BaseClasses\IView.cs" />
     <Compile Include="MenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelayCommand.cs" />
+    <Compile Include="BaseClasses\RelayCommand.cs" />
     <Compile Include="StatusViewModel.cs" />
     <Compile Include="ViewData\BaseViewData.cs" />
   </ItemGroup>

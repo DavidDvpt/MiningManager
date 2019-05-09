@@ -53,7 +53,7 @@
     <Compile Include="ContainerRepository.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
-    <Compile Include="IMenuRepository.cs" />
+    <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\ICategorieRepository.cs" />
     <Compile Include="Interfaces\ICommunRepository.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Interfaces\IRefinerRepository.cs" />
     <Compile Include="Interfaces\IToolRepository.cs" />
     <Compile Include="Interfaces\IUnstackableRepository.cs" />
-    <Compile Include="IStatusRepository.cs" />
+    <Compile Include="Interfaces\IStatusRepository.cs" />
     <Compile Include="MenuRepository.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
