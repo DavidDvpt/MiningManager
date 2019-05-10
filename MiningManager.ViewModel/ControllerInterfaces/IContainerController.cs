@@ -4,9 +4,6 @@
     {
         void Start();
 
-        BaseViewModel GetGeneralFinderViewModel();
-        BaseViewModel GetExcavatorMgrViewModel();
-        BaseViewModel GetRefinerMgrViewModel();
-        BaseViewModel GetFinderAmplifierMgrViewModel();
+        BaseViewModel GetItemManagerViewModel(string parameter);
     }
 }

@@ -19,7 +19,7 @@ namespace MiningManager.ViewModel
 
         #region Commands
 
-        public RelayCommand GeneralManager => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, x); });
+        public RelayCommand GeneralManager => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, x); } );
 
         #endregion
 

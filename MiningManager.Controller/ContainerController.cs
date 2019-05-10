@@ -26,25 +26,11 @@ namespace MiningManager.Controller
         {
 
         }
-
-        public BaseViewModel GetExcavatorMgrViewModel()
+        public BaseViewModel GetItemManagerViewModel(string parameter)
         {
-            throw new System.NotImplementedException();
+            IItemManagerController ic = new ItemManagerController();
+            return new ItemManagerViewModel(ic, parameter);
         }
 
-        public BaseViewModel GetFinderAmplifierMgrViewModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public BaseViewModel GetGeneralFinderViewModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public BaseViewModel GetRefinerMgrViewModel()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

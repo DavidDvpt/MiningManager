@@ -1,4 +1,5 @@
-﻿using MiningManager.ViewModel.ControllerInterfaces;
+﻿using MiningManager.Messengers;
+using MiningManager.ViewModel.ControllerInterfaces;
 using System;
 
 namespace MiningManager.ViewModel
@@ -15,6 +16,7 @@ namespace MiningManager.ViewModel
 
         public ContainerViewModel(IController controller) : base(controller)
         {
+            InitMenuLinks();
         }
 
         public ContainerViewModel(IController controller, IView view) : base(controller, view)
@@ -27,7 +29,7 @@ namespace MiningManager.ViewModel
         /// </summary>
         private void InitMenuLinks()
         {
-            ContainerController.Messenger.Register<string>(Messengers.MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, new Action<string>(x => ShowGeneralManager(x)));
+            ContainerController.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, new Action<Message>(ShowGeneralManager));
         }
 
         #endregion
@@ -42,25 +44,9 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        private void ShowGeneralManager(string managerToUse)
+        private void ShowGeneralManager(Message message)
         {
-            switch (managerToUse)
-            {
-         
-                case "finderAmplifier":
-                    CurrentViewModel = ContainerController.GetFinderAmplifierMgrViewModel();
-                    break;
-                case "excavator":
-                    CurrentViewModel = ContainerController.GetExcavatorMgrViewModel();
-                    break;
-                case "refiner":
-                    CurrentViewModel = ContainerController.GetRefinerMgrViewModel();
-                    break;
-                case "finder":
-                default:
-                    CurrentViewModel = ContainerController.GetGeneralFinderViewModel();      
-                    break;
-            }
+            CurrentViewModel = ContainerController.GetItemManagerViewModel(message.Payload.ToString());
         }
     }
 }

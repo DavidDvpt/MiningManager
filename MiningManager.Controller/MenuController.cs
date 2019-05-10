@@ -1,8 +1,5 @@
 ﻿using MiningManager.Repository;
-using MiningManager.View;
-using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
-using System.Windows.Controls;
 
 namespace MiningManager.Controller
 {

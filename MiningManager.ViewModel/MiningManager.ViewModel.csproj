@@ -55,10 +55,13 @@
     <Compile Include="ContainerViewModel.cs" />
     <Compile Include="ControllerInterfaces\IContainerController.cs" />
     <Compile Include="ControllerInterfaces\IController.cs" />
+    <Compile Include="ControllerInterfaces\IItemManagerController.cs" />
     <Compile Include="ControllerInterfaces\IMenuController.cs" />
     <Compile Include="ControllerInterfaces\IStatusController.cs" />
     <Compile Include="CustomEventArgs\ViewModelClosedEventArgs.cs" />
     <Compile Include="BaseClasses\IView.cs" />
+    <Compile Include="DataGridViewModel.cs" />
+    <Compile Include="ItemManagerViewModel.cs" />
     <Compile Include="MenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseClasses\RelayCommand.cs" />

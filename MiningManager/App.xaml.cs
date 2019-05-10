@@ -25,6 +25,7 @@ namespace MiningManager
             //Vue principale
             ViewWindow vw = new ViewWindow();
 
+
             //Affichage du menu
             IMenuController mc = new MenuController(new MenuRepository());
             MenuView mv = new MenuView();
@@ -35,7 +36,7 @@ namespace MiningManager
             // Affichage Status
             IStatusController sc = new StatusController(new StatusRepository());
             StatusView sv = new StatusView();
-            StatusViewModel svm = new StatusViewModel(sc, mv);
+            StatusViewModel svm = new StatusViewModel(sc, sv);
             sv.ShowInWindow(vw, Dock.Bottom, svm.OnWindowClosed);
 
             // Affichage du container
