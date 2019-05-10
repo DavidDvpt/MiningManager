@@ -25,7 +25,7 @@
             <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
             <Separator />
             <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>-->
-            <MenuItem Header="Finder" Command="{Binding FinderMgr}"/>
+            <MenuItem Header="Finder" Command="{Binding GeneralManager}" CommandParameter="finder"/>
             <!--<MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
             <MenuItem Header="Refiner" Command="{Binding NavCommand}" CommandParameter="refiner"/>
             <Separator />

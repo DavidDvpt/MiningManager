@@ -37,7 +37,7 @@ namespace MiningManager.Controller
             throw new System.NotImplementedException();
         }
 
-        public BaseViewModel GetFinderMgrViewModel()
+        public BaseViewModel GetGeneralFinderViewModel()
         {
             throw new System.NotImplementedException();
         }
