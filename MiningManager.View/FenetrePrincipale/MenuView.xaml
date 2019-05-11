@@ -25,11 +25,11 @@
             <Separator />
             <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>-->
             <MenuItem Header="Finder" Command="{Binding FinderMgr}"/>
-            <!--<MenuItem Header="Excavator" Command="{Binding NavCommand}" CommandParameter="excavator"/>
-            <MenuItem Header="Refiner" Command="{Binding NavCommand}" CommandParameter="refiner"/>
+            <MenuItem Header="Excavator" Command="{Binding ExcavatorMgr}"/>
+            <MenuItem Header="Refiner" Command="{Binding RefinerMgr}"/>
             <Separator />
-            <MenuItem Header="Finder Amplifier" Command="{Binding NavCommand}" CommandParameter="finderAmplifier"/>
-            <MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
+            <MenuItem Header="Finder Amplifier" Command="{Binding FinderAmplifierMgr}"/>
+            <!--<MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
             <Separator />
             <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
             <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>

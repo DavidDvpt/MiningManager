@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MiningManager.View"
+             xmlns:view="clr-namespace:MiningManager.View"
+             xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
              mc:Ignorable="d">
+    <UserControl.Resources>
+    </UserControl.Resources>
     <Grid>
-            
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </UserControl>

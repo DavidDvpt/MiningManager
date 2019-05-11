@@ -46,34 +46,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseView.cs" />
-    <Compile Include="ContainerView.xaml.cs">
+    <Compile Include="FenetrePrincipale\ContainerView.xaml.cs">
       <DependentUpon>ContainerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuView.xaml.cs">
+    <Compile Include="FenetrePrincipale\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusView.xaml.cs">
+    <Compile Include="FenetrePrincipale\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="FenetrePrincipale\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ContainerView.xaml">
+    <Page Include="FenetrePrincipale\ContainerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MenuView.xaml">
+    <Page Include="FenetrePrincipale\MenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StatusView.xaml">
+    <Page Include="FenetrePrincipale\StatusView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="FenetrePrincipale\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
