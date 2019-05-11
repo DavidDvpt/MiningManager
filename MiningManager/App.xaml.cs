@@ -20,30 +20,34 @@ namespace MiningManager
             //Vue principale
             ViewWindow vw = new ViewWindow();
 
+            // les 3 controls composant cette fenetre sont totalement indépendants les un des autres
+
             //Affichage du menu
-            IMenuController mc = new MenuController(new MenuRepository());
+            // aucun acces à la base de donnée pour cette entité
+            IMenuController mc = new MenuController();
             MenuView mv = new MenuView();
             MenuViewModel mvm = new MenuViewModel(mc, mv);
             mv.ShowInWindow(false, vw, "MiningManager", 800, 450, Dock.Top, mvm.OnWindowClosed);
-            //mc.Start();
 
             // Affichage Status
-            IStatusController sc = new StatusController(new StatusRepository());
+            // aucun acces à la base de donnée pour cette entité
+            IStatusController sc = new StatusController();
             StatusView sv = new StatusView();
             StatusViewModel svm = new StatusViewModel(sc, mv);
             sv.ShowInWindow(vw, Dock.Bottom, svm.OnWindowClosed);
 
             // Affichage du container
-            IContainerController cc = new ContainerController(new ContainerRepository());
+            // aucun acces à la base de donnée pour cette entité
+            IContainerController cc = new ContainerController();
             ContainerView cv = new ContainerView();
             ContainerViewModel cvm = new ContainerViewModel(cc, cv);
             cv.ShowInWindow(vw, null, svm.OnWindowClosed);
 
-            TestContextAsync();
+            TestContext();
 
         }
 
-        private void TestContextAsync()
+        private void TestContext()
         {
             MiningContext ctx = new MiningContext();
 

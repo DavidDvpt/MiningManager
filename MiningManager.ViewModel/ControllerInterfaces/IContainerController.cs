@@ -3,11 +3,5 @@
     public interface IContainerController : IController
     {
         void Start();
-
-        MenuViewModel ShowViewMenu();
-
-        StatusViewModel ShowViewStatus();
-
-        //FinderMgrViewModel ShowFinderMgrViewModel();
     }
 }
