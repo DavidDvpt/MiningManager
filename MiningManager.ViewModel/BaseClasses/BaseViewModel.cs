@@ -1,7 +1,5 @@
 ﻿using MiningManager.ViewModel.ControllerInterfaces;
-using MiningManager.ViewModel.CustomEventArgs;
 using MiningManager.ViewModel.ViewData;
-using System;
 using System.Collections.Generic;
 
 namespace MiningManager.ViewModel

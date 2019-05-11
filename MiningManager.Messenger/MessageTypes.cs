@@ -5,6 +5,6 @@
     /// </summary>
     public enum MessageTypes
     {
-
+        MSG_COMMAND_AFFICHAGE_FINDERMGR
     };
 }

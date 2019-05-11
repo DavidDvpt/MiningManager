@@ -2,11 +2,9 @@
 using MiningManager.Repository;
 using MiningManager.View;
 using MiningManager.ViewModel;
-using MiningManager.ViewModel.ControllerInterfaces;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace MiningManager
 {
@@ -17,33 +15,12 @@ namespace MiningManager
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //Vue principale
-            ViewWindow vw = new ViewWindow();
+            MainViewModel viewModel = new MainViewModel(new MainController());
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.DataContext = viewModel;
+            MainWindow.Show();
 
-            // les 3 controls composant cette fenetre sont totalement indépendants les un des autres
-
-            //Affichage du menu
-            // aucun acces à la base de donnée pour cette entité
-            IMenuController mc = new MenuController();
-            MenuView mv = new MenuView();
-            MenuViewModel mvm = new MenuViewModel(mc, mv);
-            mv.ShowInWindow(false, vw, "MiningManager", 800, 450, Dock.Top, mvm.OnWindowClosed);
-
-            // Affichage Status
-            // aucun acces à la base de donnée pour cette entité
-            IStatusController sc = new StatusController();
-            StatusView sv = new StatusView();
-            StatusViewModel svm = new StatusViewModel(sc, mv);
-            sv.ShowInWindow(vw, Dock.Bottom, svm.OnWindowClosed);
-
-            // Affichage du container
-            // aucun acces à la base de donnée pour cette entité
-            IContainerController cc = new ContainerController();
-            ContainerView cv = new ContainerView();
-            ContainerViewModel cvm = new ContainerViewModel(cc, cv);
-            cv.ShowInWindow(vw, null, svm.OnWindowClosed);
-
-            TestContext();
+            //TestContext();
 
         }
 

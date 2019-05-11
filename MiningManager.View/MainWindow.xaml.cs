@@ -10,13 +10,7 @@ namespace MiningManager.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region Properties
-
-        public bool IsDialogWindow { get; set; }
-
-        #endregion
-
-        public ViewWindow()
+        public MainWindow()
         {
             InitializeComponent();
         }
