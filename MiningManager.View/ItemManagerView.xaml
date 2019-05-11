@@ -21,9 +21,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid>
-            <Button>test</Button>
-            <!--<ContentControl Content="{Binding CurrentDataGridViewModel}"/>-->
-        </Grid>
+        <DataGrid Name="dgGeneric" 
+                      ItemsSource="{Binding ViewData.Finders, Mode=TwoWay}"
+                      AutoGenerateColumns="False"
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                      Margin="5,3"
+                      IsReadOnly="True"/>
     </Grid>
 </local:BaseView>

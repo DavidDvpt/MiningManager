@@ -53,15 +53,15 @@ namespace MiningManager.ViewModel
                 // Affectation du datacontext ds le code plutot que par le XAML
                 // Afin de pouvoir passer des elemnts au constructeur le cas echeant
                 view.DataContext = this;
-				
-				// Abonnement des gestionnaires de la vue
+
+                // Abonnement des gestionnaires de la vue
                 OnViewModelClosed += view.ViewModelClosingHandler;
                 OnViewModelActivated += view.ViewModelActivatingHandler;
             }
         }
 
         #endregion
-        
+
         /// <summary>
         /// Conservez une liste de tous les enfants ViewModels afin que nous puissions
         /// les supprimer en toute sécurité lorsque ce ViewModel est fermé.

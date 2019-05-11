@@ -44,8 +44,6 @@ namespace MiningManager
             ContainerView cv = new ContainerView();
             ContainerViewModel cvm = new ContainerViewModel(cc, cv);
             cv.ShowInWindow(vw, null, svm.OnWindowClosed);
-
-
         }
 
         private async Task TestContextAsync()

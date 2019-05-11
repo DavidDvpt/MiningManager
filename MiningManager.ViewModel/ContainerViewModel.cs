@@ -29,7 +29,7 @@ namespace MiningManager.ViewModel
         /// </summary>
         private void InitMenuLinks()
         {
-            ContainerController.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, new Action<Message>(ShowGeneralManager));
+            ContainerController.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_GENERALMANAGER, new Action<Message>(ShowItemManager));
         }
 
         #endregion
@@ -44,9 +44,15 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        private void ShowGeneralManager(Message message)
+        private void ShowItemManager(Message message)
         {
-            CurrentViewModel = ContainerController.GetItemManagerViewModel(message.Payload.ToString());
+            switch(message.Payload.ToString())
+            {
+                case "finder":
+                default:
+                    CurrentViewModel = ContainerController.GetFinderManagerViewModel(message.Payload.ToString());
+                    break;
+            }
         }
     }
 }

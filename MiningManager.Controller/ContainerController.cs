@@ -26,7 +26,7 @@ namespace MiningManager.Controller
         {
 
         }
-        public BaseViewModel GetItemManagerViewModel(string parameter)
+        public BaseViewModel GetFinderManagerViewModel(string parameter)
         {
             IItemManagerController ic = new ItemManagerController();
             return new ItemManagerViewModel(ic, parameter);

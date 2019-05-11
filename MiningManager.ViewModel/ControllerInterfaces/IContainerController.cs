@@ -4,6 +4,6 @@
     {
         void Start();
 
-        BaseViewModel GetItemManagerViewModel(string parameter);
+        BaseViewModel GetFinderManagerViewModel(string v);
     }
 }

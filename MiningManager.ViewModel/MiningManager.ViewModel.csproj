@@ -60,7 +60,7 @@
     <Compile Include="ControllerInterfaces\IStatusController.cs" />
     <Compile Include="CustomEventArgs\ViewModelClosedEventArgs.cs" />
     <Compile Include="BaseClasses\IView.cs" />
-    <Compile Include="DataGridViewModel.cs" />
+    <Compile Include="FinderManagerViewModel.cs" />
     <Compile Include="ItemManagerViewModel.cs" />
     <Compile Include="MenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
