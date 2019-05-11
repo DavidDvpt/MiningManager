@@ -1,0 +1,44 @@
+﻿<Window x:Class="MiningManager.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiningManager.View"
+        xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
+        mc:Ignorable="d"
+        Title="ViewWindow" Height="600" Width="900">
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:MenuViewModel}">
+            <local:MenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ContainerViewModel}">
+            <local:ContainerView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:StatusViewModel}">
+            <local:StatusView/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <ContentControl Content="{Binding CurrentMenuViewModel}"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding CurrentContainerViewModel}"/>
+
+        </Grid>
+            
+        <Grid Grid.Row="2">
+            <ContentControl Content="{Binding CurrentStatusViewModel}"/>
+        </Grid>
+    </Grid>
+</Window>

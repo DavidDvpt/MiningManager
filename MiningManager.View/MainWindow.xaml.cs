@@ -8,7 +8,7 @@ namespace MiningManager.View
     /// <summary>
     /// Logique d'interaction pour ViewWindow.xaml
     /// </summary>
-    public partial class ViewWindow : Window
+    public partial class MainWindow : Window
     {
         #region Properties
 
@@ -19,13 +19,6 @@ namespace MiningManager.View
         public ViewWindow()
         {
             InitializeComponent();
-            IsDialogWindow = false;
-        }
-
-        public new bool? ShowDialog()
-        {
-            IsDialogWindow = true;
-            return base.ShowDialog();
         }
     }
 }

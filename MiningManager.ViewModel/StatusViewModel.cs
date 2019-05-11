@@ -9,9 +9,5 @@ namespace MiningManager.ViewModel
         {
         }
 
-        public StatusViewModel(IController controller, IView view)
-            : base(controller, view)
-        {
-        }
     }
 }

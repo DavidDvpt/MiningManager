@@ -12,11 +12,6 @@ namespace MiningManager.ViewModel
         {
         }
 
-        public MenuViewModel(IController controller, IView view)
-            : base(controller, view)
-        {
-        }
-
         #region Commands
 
         public RelayCommand FinderMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_AFFICHAGE_FINDERMGR); });

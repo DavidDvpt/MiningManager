@@ -1,4 +1,4 @@
-﻿<local:BaseView x:Class="MiningManager.View.MenuView"
+﻿<UserControl x:Class="MiningManager.View.MenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -39,4 +39,4 @@
             <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>-->
         </MenuItem>
     </Menu>
-</local:BaseView>
+</UserControl>

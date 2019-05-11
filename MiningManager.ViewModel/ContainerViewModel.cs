@@ -7,9 +7,5 @@ namespace MiningManager.ViewModel
         public ContainerViewModel(IController controller) : base(controller)
         {
         }
-
-        public ContainerViewModel(IController controller, IView view) : base(controller, view)
-        {
-        }
     }
 }
