@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="MiningManager.View.ItemManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:MiningManager.View"
+             xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="dgGeneric" 
+                      ItemsSource="{Binding ViewData.Finders, Mode=TwoWay}"
+                      AutoGenerateColumns="False"
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                      Margin="5,3"
+                      IsReadOnly="True"/>
+
+        <Grid>
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateCommand}" />
+            <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateCommand}"/>
+            <Button Name="btnValider" Content="Sauver" Grid.Column="2" Command="{Binding SubmitCommand}"/>
+            <Button Name="btnAnnuler" Content="Annuler" Grid.Column="3"  Command="{Binding CancelCommand}"/>
+        </Grid>
+    </Grid>
+</UserControl>

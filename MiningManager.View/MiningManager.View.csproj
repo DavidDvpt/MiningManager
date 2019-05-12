@@ -52,6 +52,9 @@
     <Compile Include="FenetrePrincipale\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ItemManagerView.xaml.cs">
+      <DependentUpon>ItemManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FenetrePrincipale\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
@@ -76,6 +79,10 @@
     <Page Include="FenetrePrincipale\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

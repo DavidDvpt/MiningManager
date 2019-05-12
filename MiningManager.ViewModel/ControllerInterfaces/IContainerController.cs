@@ -3,5 +3,7 @@
     public interface IContainerController : IController
     {
         void Start();
+
+        FinderManagerViewModel ConstructFinderMgrViewModel();
     }
 }

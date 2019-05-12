@@ -7,6 +7,9 @@
              xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
              mc:Ignorable="d">
     <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewModel:FinderManagerViewModel}">
+            <view:ItemManagerView/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>

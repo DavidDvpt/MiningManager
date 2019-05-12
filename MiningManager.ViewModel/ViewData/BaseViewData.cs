@@ -15,6 +15,8 @@ namespace MiningManager.ViewModel.ViewData
         {
             foreach (PropertyInfo p in o.GetType().GetProperties())
             {
+                if(this.GetType().GetField("Id") != null)
+
                 if (this.GetType().GetProperty(p.Name) != null)
                 {
                     this.GetType().GetProperty(p.Name).SetValue(this, p.GetValue(o));
