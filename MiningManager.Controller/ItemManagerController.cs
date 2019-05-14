@@ -1,8 +1,7 @@
 ﻿using MiningManager.Model;
 using MiningManager.Repository;
-using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
-using System.Collections.Generic;
+using MiningManager.ViewModel;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -24,12 +23,14 @@ namespace MiningManager.Controller
         {
             ObservableCollection<FinderItemListViewData> oc = new ObservableCollection<FinderItemListViewData>();
             FinderItemListViewData filvd;
-            foreach (var item in ((IFinderRepository)_repository).GetAll().ToList())
+            foreach (Finder item in ((IFinderRepository)_repository).GetAll().ToList())
             {
                 filvd = new FinderItemListViewData();
-                filvd.GetPropertiesValues(item);
+                filvd.ImportPropertiesValuesFromModel(item);
+                oc.Add(filvd);
             }
 
+            return oc;
         }
     }
 }

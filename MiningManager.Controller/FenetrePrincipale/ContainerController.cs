@@ -15,7 +15,7 @@ namespace MiningManager.Controller
         public FinderManagerViewModel ConstructFinderMgrViewModel()
         {
             IFinderRepository ifr = new FinderRepository();
-            IFinderManagerController fmc = new ItemManagerController(ifr);
+            IFinderManagerController fmc = new ItemManagerController((BaseRepository)ifr);
             return new FinderManagerViewModel(fmc);
         }
     }

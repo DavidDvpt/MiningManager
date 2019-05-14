@@ -22,8 +22,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid Name="dgGeneric" 
-                      ItemsSource="{Binding ViewData.Finders, Mode=TwoWay}"
-                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding ViewData.Items, Mode=TwoWay}"
                       SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                       Margin="5,3"
                       IsReadOnly="True"/>

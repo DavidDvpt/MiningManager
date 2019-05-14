@@ -1,5 +1,4 @@
 ﻿using MiningManager.ViewModel.ControllerInterfaces;
-using MiningManager.ViewModel.ViewData;
 using System.Collections.Generic;
 
 namespace MiningManager.ViewModel

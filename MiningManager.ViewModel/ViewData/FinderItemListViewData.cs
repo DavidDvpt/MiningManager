@@ -1,120 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MiningManager.ViewModel.ViewData
+namespace MiningManager.ViewModel
 {
-    public class FinderItemListViewData : BaseViewData  
+    public class FinderItemListViewData : ToolListItemViewData  
     {
-        public int Id;
+        public decimal Depth { get; set; }
+        //{
+        //    get => GetValue(() => Depth);
+        //    set
+        //    {
+        //        if (Depth != value)
+        //        {
+        //            SetValue(() => Depth, value);
+        //        }
+        //    }
+        //}
 
-        public string Nom
-        {
-            get => GetValue(() => Nom);
-            set
-            {
-                if (Nom != value)
-                {
-                    SetValue(() => Nom, value);
-                }
-            }
-        }
+        public decimal Range { get; set; }
+        //{
+        //    get => GetValue(() => Range);
+        //    set
+        //    {
+        //        if (Range != value)
+        //        {
+        //            SetValue(() => Range, value);
+        //        }
+        //    }
+        //}
 
-        public decimal Value
-        {
-            get => GetValue(() => Value);
-            set
-            {
-                if (Value != value)
-                {
-                    SetValue(() => Value, value);
-                }
-            }
-        }
+        public short BasePecSearch { get; set; }
+        //{
+        //    get => GetValue(() => BasePecSearch);
+        //    set
+        //    {
+        //        if (BasePecSearch != value)
+        //        {
+        //            SetValue(() => BasePecSearch, value);
+        //        }
+        //    }
+        //}
 
-        public bool IsLimited
+        public int TotalUse
         {
-            get => GetValue(() => IsLimited);
-            set
+            get
             {
-                if (IsLimited != value)
+                if (Decay != 0)
                 {
-                    SetValue(() => IsLimited, value);
+                    decimal val = Value / (Decay / 100);
+                    return (Int32)val;
                 }
-            }
-        }
 
-        public decimal Decay
-        {
-            get => GetValue(() => Decay);
-            set
-            {
-                if (Decay != value)
-                {
-                    SetValue(() => Decay, value);
-                }
-            }
-        }
-
-        public string Code
-        {
-            get => GetValue(() => Code);
-            set
-            {
-                if (Code != value)
-                {
-                    SetValue(() => Code, value);
-                }
-            }
-        }
-
-        public short UsePerMin
-        {
-            get => GetValue(() => UsePerMin);
-            set
-            {
-                if (UsePerMin != value)
-                {
-                    SetValue(() => UsePerMin, value);
-                }
-            }
-        }
-
-        public decimal Depth
-        {
-            get => GetValue(() => Depth);
-            set
-            {
-                if (Depth != value)
-                {
-                    SetValue(() => Depth, value);
-                }
-            }
-        }
-
-        public decimal Range
-        {
-            get => GetValue(() => Range);
-            set
-            {
-                if (Range != value)
-                {
-                    SetValue(() => Range, value);
-                }
-            }
-        }
-
-        public short BasePecSearch
-        {
-            get => GetValue(() => BasePecSearch);
-            set
-            {
-                if (BasePecSearch != value)
-                {
-                    SetValue(() => BasePecSearch, value);
-                }
+                return 0;
             }
         }
     }

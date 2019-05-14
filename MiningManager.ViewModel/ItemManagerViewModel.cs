@@ -1,7 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using MiningManager.Messengers;
+﻿using MiningManager.Messengers;
 using MiningManager.ViewModel.ControllerInterfaces;
-using MiningManager.ViewModel.ViewData;
 
 namespace MiningManager.ViewModel
 {

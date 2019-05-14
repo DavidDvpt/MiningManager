@@ -1,10 +1,6 @@
 ﻿using MiningManager.ViewModel.ControllerInterfaces;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiningManager.ViewModel
 {
@@ -51,7 +47,9 @@ namespace MiningManager.ViewModel
 
         protected override void RefreshList()
         {
-            ItemsListViewData = _itemManagerController.DataViewFinderList();
+            FinderSelectionManagerViewData selection = new FinderSelectionManagerViewData();
+            selection.Items = _itemManagerController.DataViewFinderList();
+            ViewData = selection;
         }
     }
 }
