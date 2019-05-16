@@ -1,5 +1,6 @@
 ﻿using MiningManager.Messengers;
 using MiningManager.ViewModel.ControllerInterfaces;
+using System;
 
 namespace MiningManager.ViewModel
 {
@@ -11,6 +12,8 @@ namespace MiningManager.ViewModel
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
             SubmitCommand = new RelayCommand(SubmitExecute, SubmitCanExecute);
             CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
+
+            Controller.Messenger.Register(MessageTypes.MSG_MANAGER_EDIT, new Action<Message>(RefreshList));
         }
 
         #region Commands
@@ -28,6 +31,7 @@ namespace MiningManager.ViewModel
         public  void CancelExecute(object parameter = null)
         {
             CurrentEditViewModel = null;
+            SelectedItem = null;
         }
 
         #endregion
@@ -44,7 +48,7 @@ namespace MiningManager.ViewModel
         }
         public bool SubmitCanExecute(object parameter = null)
         {
-            return Errors == 0;
+            return Errors == 0 && CurrentEditViewModel != null;
         }
         public bool CancelCanExecute(object parameter = null)
         {

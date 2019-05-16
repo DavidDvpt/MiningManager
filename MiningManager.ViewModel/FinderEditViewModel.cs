@@ -1,4 +1,5 @@
-﻿using MiningManager.ViewModel.ControllerInterfaces;
+﻿using MiningManager.Messengers;
+using MiningManager.ViewModel.ControllerInterfaces;
 
 namespace MiningManager.ViewModel
 {
@@ -14,11 +15,17 @@ namespace MiningManager.ViewModel
         {
             Controller = controller;
             CreateViewData(selectedId);
+            _finderManagerController.Messenger.Register(MessageTypes.MSG_SAVE_FINDER, SaveItem);
         }
 
         private void CreateViewData(int selectedId)
         {
             ViewData = _finderManagerController.ConstructFinderViewData(selectedId);
+        }
+
+        private void SaveItem()
+        {
+            _finderManagerController.SaveFinder(ViewData);
         }
     }
 }

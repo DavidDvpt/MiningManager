@@ -1,5 +1,5 @@
-﻿using MiningManager.ViewModel.ControllerInterfaces;
-using System;
+﻿using MiningManager.Messengers;
+using MiningManager.ViewModel.ControllerInterfaces;
 using System.Collections.ObjectModel;
 
 namespace MiningManager.ViewModel
@@ -27,12 +27,13 @@ namespace MiningManager.ViewModel
 
         public override void CreateExecute(object parameter = null)
         {
-            throw new NotImplementedException();
+            CurrentEditViewModel = _itemManagerController.ConstructFinderEditViewModel();
         }
 
         public override void SubmitExecute(object parameter = null)
         {
-            throw new NotImplementedException();
+            _itemManagerController.Messenger.NotifyColleagues(MessageTypes.MSG_SAVE_FINDER);
+            CurrentEditViewModel = null;
         }
 
         public override void UpdateExecute(object parameter = null)

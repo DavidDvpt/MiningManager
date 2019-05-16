@@ -1,4 +1,5 @@
 ﻿using MiningManager.Controller;
+using MiningManager.Model;
 using MiningManager.Repository;
 using MiningManager.View;
 using MiningManager.ViewModel;
@@ -28,9 +29,12 @@ namespace MiningManager
         {
             MiningContext ctx = new MiningContext();
 
-            ctx.Communs.Load();
-            bool b = ctx.Communs.Any(x => x.Nom == "Finder F-101");
-            bool c = ctx.Communs.Any(x => x.Nom == "Finder F-101mjm");
+            Finder f = new Finder();
+            ctx.SaveChanges();
+
+            //ctx.Communs.Load();
+            //bool b = ctx.Communs.Any(x => x.Nom == "Finder F-101");
+            //bool c = ctx.Communs.Any(x => x.Nom == "Finder F-101mjm");
         }
     }
 }

@@ -6,9 +6,11 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     {
         ObservableCollection<FinderItemListViewData> DataViewFinderList();
 
-        FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId);
+        FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId = 0);
 
         BaseViewData ConstructFinderViewData(int selectedFinder);
+
+        void SaveFinder(BaseViewData viewData);
     }
 
     

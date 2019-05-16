@@ -4,6 +4,7 @@ using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.ViewModel;
 using System.Collections.ObjectModel;
 using System.Linq;
+using MiningManager.Messengers;
 
 namespace MiningManager.Controller
 {
@@ -19,20 +20,32 @@ namespace MiningManager.Controller
             _repository = repository;
         }
 
-        public FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId)
+        public FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId = 0)
         {
             return new FinderEditViewModel(this, selectedFinderId);
         }
 
-        public BaseViewData ConstructFinderViewData(int selectedFinder)
+        /// <summary>
+        /// crée un viewdata à partir de l'id de l'item selectionné
+        /// </summary>
+        /// <param name="selectedFinder"></param>
+        /// <returns></returns>
+        public BaseViewData ConstructFinderViewData(int selectedFinder = 0)
         {
-            Finder f = ((IFinderRepository)_repository).GetById(selectedFinder);
             FinderEditViewData fevd = new FinderEditViewData();
-            fevd.ImportPropertiesValuesFromModel(f);
+            if (selectedFinder != 0)
+            {
+                Finder f = ((IFinderRepository)_repository).GetById(selectedFinder);
+                fevd.ImportPropertiesValuesFromModel(f);
+            }
 
             return fevd;
         }
 
+        /// <summary>
+        /// Cree une liste observable des item
+        /// </summary>
+        /// <returns></returns>
         public ObservableCollection<FinderItemListViewData> DataViewFinderList()
         {
             ObservableCollection<FinderItemListViewData> oc = new ObservableCollection<FinderItemListViewData>();
@@ -45,6 +58,15 @@ namespace MiningManager.Controller
             }
 
             return oc;
+        }
+
+        public void SaveFinder(BaseViewData viewData)
+        {
+            Finder f = new Finder();
+            viewData.ExportPropertiesValuesToModel(f);
+
+            ((IFinderRepository)_repository).Update(f);
+            Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, f);
         }
     }
 }
