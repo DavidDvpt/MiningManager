@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-
+        <DataTemplate DataType="{x:Type viewModel:FinderEditViewModel}">
+            <view:FinderEditView/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,8 +29,8 @@
                       Margin="5,3"
                       IsReadOnly="True"/>
 
-        <Grid>
-            <ContentControl Content="{Binding CurrentViewModel}"/>
+        <Grid Grid.Column="1">
+            <ContentControl Content="{Binding CurrentEditViewModel}"/>
         </Grid>
         
         <Grid Grid.Row="1" Grid.ColumnSpan="2">

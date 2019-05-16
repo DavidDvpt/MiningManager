@@ -13,7 +13,7 @@ namespace MiningManager.ViewModel
             RefreshList();
         }
 
-        public ObservableCollection<FinderItemListViewData> ItemsListViewData
+        public ObservableCollection<BaseViewData> ItemsListViewData
         {
             get => GetValue(() => ItemsListViewData);
             set
@@ -23,11 +23,6 @@ namespace MiningManager.ViewModel
                     SetValue(() => ItemsListViewData, value);
                 }
             }
-        }
-
-        public override void CancelExecute(object parameter = null)
-        {
-            throw new NotImplementedException();
         }
 
         public override void CreateExecute(object parameter = null)
@@ -42,7 +37,7 @@ namespace MiningManager.ViewModel
 
         public override void UpdateExecute(object parameter = null)
         {
-            throw new NotImplementedException();
+            CurrentEditViewModel = _itemManagerController.ConstructFinderEditViewModel(((FinderItemListViewData)SelectedItem).GetId());
         }
 
         protected override void RefreshList()

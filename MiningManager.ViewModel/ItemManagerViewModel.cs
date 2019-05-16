@@ -25,7 +25,10 @@ namespace MiningManager.ViewModel
         public abstract void UpdateExecute(object parameter = null);
         public abstract void CreateExecute(object parameter = null);
         public abstract void SubmitExecute(object parameter = null);
-        public abstract void CancelExecute(object parameter = null);
+        public  void CancelExecute(object parameter = null)
+        {
+            CurrentEditViewModel = null;
+        }
 
         #endregion
 
@@ -33,7 +36,7 @@ namespace MiningManager.ViewModel
 
         public bool UpdateCanExecute(object parameter = null)
         {
-            return (CurrentSelectedItemForEdit == null) && (SelectedItem != null);
+            return (CurrentEditViewModel == null) && (SelectedItem != null);
         }
         public bool CreateCanExecute(object parameter = null)
         {
@@ -45,7 +48,7 @@ namespace MiningManager.ViewModel
         }
         public bool CancelCanExecute(object parameter = null)
         {
-            return CurrentSelectedItemForEdit != null;
+            return CurrentEditViewModel != null;
         }
 
         #endregion
@@ -66,14 +69,14 @@ namespace MiningManager.ViewModel
             }
         }
 
-        public BaseViewModel CurrentSelectedItemForEdit
+        public BaseViewModel CurrentEditViewModel
         {
-            get => GetValue(() => CurrentSelectedItemForEdit);
+            get => GetValue(() => CurrentEditViewModel);
             set
             {
-                if (CurrentSelectedItemForEdit != value)
+                if (CurrentEditViewModel != value)
                 {
-                    SetValue(() => CurrentSelectedItemForEdit, value);
+                    SetValue(() => CurrentEditViewModel, value);
                 }
             }
         }

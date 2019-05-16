@@ -19,6 +19,20 @@ namespace MiningManager.Controller
             _repository = repository;
         }
 
+        public FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId)
+        {
+            return new FinderEditViewModel(this, selectedFinderId);
+        }
+
+        public BaseViewData ConstructFinderViewData(int selectedFinder)
+        {
+            Finder f = ((IFinderRepository)_repository).GetById(selectedFinder);
+            FinderEditViewData fevd = new FinderEditViewData();
+            fevd.ImportPropertiesValuesFromModel(f);
+
+            return fevd;
+        }
+
         public ObservableCollection<FinderItemListViewData> DataViewFinderList()
         {
             ObservableCollection<FinderItemListViewData> oc = new ObservableCollection<FinderItemListViewData>();

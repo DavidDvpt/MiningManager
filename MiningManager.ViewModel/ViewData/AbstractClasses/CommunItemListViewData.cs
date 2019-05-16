@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel
 {
-    public abstract class CommunItemListViewData
+    public abstract class CommunItemListViewData : BaseViewData
     {
         public int _id;
 
@@ -16,5 +16,9 @@
         //    }
         //}
 
+        public int GetId()
+        {
+            return _id;
+        }
     }
 }

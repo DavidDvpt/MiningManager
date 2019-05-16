@@ -28,8 +28,6 @@ namespace MiningManager.ViewModel
 
         public void ExportPropertiesValuesToModel(object o)
         {
-
-
             foreach (PropertyInfo p in o.GetType().GetProperties())
             {
                 ((Commun)o).Id = (Int32)this.GetType().GetProperty("_id").GetValue(this);
