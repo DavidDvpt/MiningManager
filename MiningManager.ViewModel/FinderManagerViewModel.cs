@@ -1,51 +1,22 @@
-﻿using MiningManager.Messengers;
+﻿using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
-using System.Collections.ObjectModel;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderManagerViewModel : ItemManagerViewModel
+    public class FinderManagerViewModel : BaseViewModel, IItemEditViewModel//ItemManagerViewModel<FinderManagerViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData>
     {
-        protected IFinderManagerController _itemManagerController => (IFinderManagerController)Controller;
-
-        public FinderManagerViewModel(IFinderManagerController controller) : base(controller)
+        public FinderManagerViewModel()
         {
-            RefreshList();
+
         }
 
-        public ObservableCollection<BaseViewData> ItemsListViewData
+        public FinderManagerViewModel(IController controller) : base(controller)
         {
-            get => GetValue(() => ItemsListViewData);
-            set
-            {
-                if (ItemsListViewData != value)
-                {
-                    SetValue(() => ItemsListViewData, value);
-                }
-            }
         }
 
-        public override void CreateExecute(object parameter = null)
+        public void Init(IController controller, int selectedId)
         {
-            CurrentEditViewModel = _itemManagerController.ConstructFinderEditViewModel();
-        }
-
-        public override void SubmitExecute(object parameter = null)
-        {
-            _itemManagerController.Messenger.NotifyColleagues(MessageTypes.MSG_SAVE_FINDER);
-            CurrentEditViewModel = null;
-        }
-
-        public override void UpdateExecute(object parameter = null)
-        {
-            CurrentEditViewModel = _itemManagerController.ConstructFinderEditViewModel(((FinderItemListViewData)SelectedItem).GetId());
-        }
-
-        protected override void RefreshList()
-        {
-            FinderSelectionManagerViewData selection = new FinderSelectionManagerViewData();
-            selection.Items = _itemManagerController.DataViewFinderList();
-            ViewData = selection;
+            throw new System.NotImplementedException();
         }
     }
 }

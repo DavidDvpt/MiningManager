@@ -2,9 +2,10 @@
 
 namespace MiningManager.ViewModel
 {
-    class FinderSelectionManagerViewData : BaseViewData
+    public class ManagerGenericItemListViewData<T> : BaseViewData, ISelectionListVewData<T>
+        where T : BaseViewData
     {
-        public ObservableCollection<FinderItemListViewData> Items
+        public ObservableCollection<T> Items
         {
             get => GetValue(() => Items);
             set
@@ -15,5 +16,6 @@ namespace MiningManager.ViewModel
                 }
             }
         }
+
     }
 }

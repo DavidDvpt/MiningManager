@@ -1,12 +1,29 @@
 ﻿using MiningManager.Messengers;
+using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
 using System;
 
 namespace MiningManager.ViewModel
 {
-    public abstract class ItemManagerViewModel : BaseViewModel
+    /// <summary>
+    /// ViewModel Généric de modification des items Entropia
+    /// </summary>
+    /// <typeparam name="S">ViewModel de l'item à EditerViewData de l'item utilisé dans la liste</typeparam>
+    /// <typeparam name="T">ViewData de l'item à Editer</typeparam>
+    /// <typeparam name="U">Entité Modele</typeparam>
+    /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
+    /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
+    public class GeneralManagerViewModel<S, T, U, V, W> : BaseViewModel
+        where S : BaseViewModel, new()
+        where T : BaseViewData, new()
+        where U : Commun, new()
+        where V : BaseViewData, new()
+        where W : BaseViewData, ISelectionListVewData<V>, new()
     {
-        public ItemManagerViewModel(IController controller) : base(controller)
+        private IItemManagerController<S, T, U, V, W> _itemManagerController
+            => (IItemManagerController < S, T, U, V, W >)Controller;
+
+        public GeneralManagerViewModel(IController controller) : base(controller)
         {
             UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute);
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
@@ -25,10 +42,20 @@ namespace MiningManager.ViewModel
 
         #region ExecuteMethods
 
-        public abstract void UpdateExecute(object parameter = null);
-        public abstract void CreateExecute(object parameter = null);
-        public abstract void SubmitExecute(object parameter = null);
-        public  void CancelExecute(object parameter = null)
+        public void UpdateExecute(object parameter = null)
+        {
+            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((IItemManagerViewData)SelectedItem).GetId());
+        }
+        public void CreateExecute(object parameter = null)
+        {
+            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel();
+        }
+        public void SubmitExecute(object parameter = null)
+        {
+            _itemManagerController.Messenger.NotifyColleagues(MessageTypes.MSG_SAVE_FINDER);
+            CurrentEditViewModel = null;
+        }
+        public void CancelExecute(object parameter = null)
         {
             CurrentEditViewModel = null;
             SelectedItem = null;
@@ -61,7 +88,19 @@ namespace MiningManager.ViewModel
 
         #region Bindables properties
 
-        public BaseViewData SelectedItem
+        public U ItemsListViewData
+        {
+            get => GetValue(() => ItemsListViewData);
+            set
+            {
+                if (ItemsListViewData != value)
+                {
+                    SetValue(() => ItemsListViewData, value);
+                }
+            }
+        }
+
+        public V SelectedItem
         {
             get => GetValue(() => SelectedItem);
             set
@@ -73,7 +112,7 @@ namespace MiningManager.ViewModel
             }
         }
 
-        public BaseViewModel CurrentEditViewModel
+        public S CurrentEditViewModel
         {
             get => GetValue(() => CurrentEditViewModel);
             set
@@ -87,7 +126,12 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        protected abstract void RefreshList();
+        protected void RefreshList()
+        {
+            W selection = new W();
+            selection.Items = _itemManagerController.DataViewGenericList();
+            ViewData = selection;
+        }
         protected void RefreshList(Message message)
         {
             RefreshList();

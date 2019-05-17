@@ -1,17 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿//using System.Collections.ObjectModel;
 
-namespace MiningManager.ViewModel.ControllerInterfaces
-{
-    public interface IFinderManagerController : IItemManagerController
-    {
-        ObservableCollection<FinderItemListViewData> DataViewFinderList();
+//namespace MiningManager.ViewModel.ControllerInterfaces
+//{
+//    public interface IFinderManagerController : IItemManagerController
+//    {
+//        ObservableCollection<FinderItemListViewData> DataViewFinderList();
 
-        FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId = 0);
+//        FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId = 0);
 
-        BaseViewData ConstructFinderViewData(int selectedFinder);
+//        BaseViewData ConstructFinderViewData(int selectedFinder);
 
-        void SaveFinder(BaseViewData viewData);
-    }
+//        void SaveFinder(BaseViewData viewData);
+//    }
 
-    
-}
+
+//}

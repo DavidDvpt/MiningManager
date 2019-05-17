@@ -1,4 +1,5 @@
-﻿using MiningManager.Repository;
+﻿using MiningManager.Model;
+using MiningManager.Repository;
 using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
 
@@ -12,11 +13,14 @@ namespace MiningManager.Controller
         {
         }
 
-        public FinderManagerViewModel ConstructFinderMgrViewModel()
+        public GeneralManagerViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerGenericItemListViewData<FinderItemListViewData>> ConstructFinderMgrViewModel()
         {
-            IFinderRepository ifr = new FinderRepository();
-            IFinderManagerController fmc = new ItemManagerController((BaseRepository)ifr);
-            return new FinderManagerViewModel(fmc);
+            CommunRepository<Finder> ifr = new CommunRepository<Finder>();
+
+            ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerGenericItemListViewData<FinderItemListViewData>> itemManagerController =
+                new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerGenericItemListViewData<FinderItemListViewData>>(ifr);
+
+            return new GeneralManagerViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerGenericItemListViewData<FinderItemListViewData>>(itemManagerController);
         }
     }
 }

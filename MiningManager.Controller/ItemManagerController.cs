@@ -8,51 +8,73 @@ using MiningManager.Messengers;
 
 namespace MiningManager.Controller
 {
-    class ItemManagerController : BaseController, IItemManagerController, IFinderManagerController
+    /// <summary>
+    /// Classe générique de modification de
+    /// </summary>
+    /// <typeparam name="S">ViewModel de l'item à EditerViewData de l'item utilisé dans la liste</typeparam>
+    /// <typeparam name="T">ViewData de l'item à Editer</typeparam>
+    /// <typeparam name="U">Entité Modele</typeparam>
+    /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
+    /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
+    class ItemManagerController<S, T, U, V, W> : BaseController, IItemManagerController<S, T, U, V, W>
+        where S : BaseViewModel, IItemEditViewModel, new()
+        where T : BaseViewData, new()
+        where U : Commun, new()
+        where V : BaseViewData, new()
+        where W : BaseViewData, ISelectionListVewData<V>, new()
     {
+        private CommunRepository<U> _genericRepository => (CommunRepository<U>)_repository;
+
+        #region Constructeurs
+
         public ItemManagerController()
         {
 
         }
 
-        public ItemManagerController(BaseRepository repository)
+        public ItemManagerController(CommunRepository<U> repository)
         {
             _repository = repository;
         }
 
-        public FinderEditViewModel ConstructFinderEditViewModel(int selectedFinderId = 0)
+        #endregion
+
+        public S ConstructGenericEditViewModel(int selectedItemId = 0)
         {
-            return new FinderEditViewModel(this, selectedFinderId);
+            S editViewModel = new S();
+            editViewModel.Init(this, selectedItemId);
+
+            return editViewModel;
         }
 
         /// <summary>
         /// crée un viewdata à partir de l'id de l'item selectionné
         /// </summary>
-        /// <param name="selectedFinder"></param>
+        /// <param name="selectedItemId"></param>
         /// <returns></returns>
-        public BaseViewData ConstructFinderViewData(int selectedFinder = 0)
+        public T ConstructGenericViewData(int selectedItemId = 0)
         {
-            FinderEditViewData fevd = new FinderEditViewData();
-            if (selectedFinder != 0)
+            T viewData = new T();
+            if (selectedItemId != 0)
             {
-                Finder f = ((IFinderRepository)_repository).GetById(selectedFinder);
-                fevd.ImportPropertiesValuesFromModel(f);
+                U model = _genericRepository.GetById(selectedItemId);
+                viewData.ImportPropertiesValuesFromModel(model);
             }
 
-            return fevd;
+            return viewData;
         }
 
         /// <summary>
         /// Cree une liste observable des item
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<FinderItemListViewData> DataViewFinderList()
+        public ObservableCollection<V> DataViewGenericList()
         {
-            ObservableCollection<FinderItemListViewData> oc = new ObservableCollection<FinderItemListViewData>();
-            FinderItemListViewData filvd;
-            foreach (Finder item in ((IFinderRepository)_repository).GetAll().ToList())
+            ObservableCollection<V> oc = new ObservableCollection<V>();
+            V filvd;
+            foreach (U item in _genericRepository.GetAll().ToList())
             {
-                filvd = new FinderItemListViewData();
+                filvd = new V();
                 filvd.ImportPropertiesValuesFromModel(item);
                 oc.Add(filvd);
             }
@@ -60,13 +82,17 @@ namespace MiningManager.Controller
             return oc;
         }
 
-        public void SaveFinder(BaseViewData viewData)
+        /// <summary>
+        /// Sauvegarde l'entité dans la base de donnée
+        /// </summary>
+        /// <param name="viewData">entité sortie du formulaire</param>
+        public void SaveItem(BaseViewData viewData)
         {
-            Finder f = new Finder();
-            viewData.ExportPropertiesValuesToModel(f);
+            U item = new U();
+            viewData.ExportPropertiesValuesToModel(item);
 
-            ((IFinderRepository)_repository).Update(f);
-            Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, f);
+            _genericRepository.Update(item);
+            Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, item);
         }
     }
 }
