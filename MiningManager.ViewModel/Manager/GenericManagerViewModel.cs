@@ -13,7 +13,7 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public class GeneralManagerViewModel<S, T, U, V, W> : BaseViewModel
+    public class GenericManagerViewModel<S, T, U, V, W> : BaseViewModel
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : Commun, new()
@@ -25,7 +25,7 @@ namespace MiningManager.ViewModel
 
         #region Constructeurs
 
-        public GeneralManagerViewModel(IController controller) : base(controller)
+        public GenericManagerViewModel(IController controller) : base(controller)
         {
             UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute);
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);

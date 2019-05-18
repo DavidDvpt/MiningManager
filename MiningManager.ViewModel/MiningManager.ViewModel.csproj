@@ -50,9 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributValidation\MaxEnhancer.cs" />
+    <Compile Include="AttributValidation\MinimalRealCost.cs" />
+    <Compile Include="AttributValidation\Unique.cs" />
     <Compile Include="BaseClasses\BaseViewModel.cs" />
     <Compile Include="BaseClasses\BindableBase.cs" />
-    <Compile Include="FinderEditViewModel.cs" />
+    <Compile Include="Manager\GenericEditViewModel.cs" />
+    <Compile Include="Manager\FinderEditViewModel.cs" />
     <Compile Include="ViewData\IItemManagerViewData.cs" />
     <Compile Include="Manager\IManagerEditClasses.cs" />
     <Compile Include="ViewData\ISelectionListVewData.cs" />
@@ -76,8 +80,8 @@
     <Compile Include="BaseClasses\IView.cs" />
     <Compile Include="FenetrePrincipale\MainViewModel.cs" />
     <Compile Include="FenetrePrincipale\MenuViewModel.cs" />
-    <Compile Include="FinderManagerViewModel.cs" />
-    <Compile Include="Manager\GeneralManagerViewModel.cs" />
+    <Compile Include="Manager\FinderManagerViewModel.cs" />
+    <Compile Include="Manager\GenericManagerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseClasses\RelayCommand.cs" />
     <Compile Include="FenetrePrincipale\StatusViewModel.cs" />
@@ -98,6 +102,10 @@
     <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
       <Project>{64385109-C153-4D4C-A7FC-92C5E4FFD49B}</Project>
       <Name>MiningManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiningManager.Service\MiningManager.Service.csproj">
+      <Project>{D972E14B-A863-4FA1-989F-2C9E90FE54FA}</Project>
+      <Name>MiningManager.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
