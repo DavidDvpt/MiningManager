@@ -20,8 +20,10 @@ namespace MiningManager.ViewModel
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListVewData<V>, new()
     {
-        private IItemManagerController<S, T, U, V, W> _itemManagerController
+        public IItemManagerController<S, T, U, V, W> _itemManagerController
             => (IItemManagerController < S, T, U, V, W >)Controller;
+
+        #region Constructeurs
 
         public GeneralManagerViewModel(IController controller) : base(controller)
         {
@@ -29,9 +31,12 @@ namespace MiningManager.ViewModel
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);
             SubmitCommand = new RelayCommand(SubmitExecute, SubmitCanExecute);
             CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
-
             Controller.Messenger.Register(MessageTypes.MSG_MANAGER_EDIT, new Action<Message>(RefreshList));
+
+            RefreshList();
         }
+
+        #endregion
 
         #region Commands
 
@@ -52,7 +57,7 @@ namespace MiningManager.ViewModel
         }
         public void SubmitExecute(object parameter = null)
         {
-            _itemManagerController.Messenger.NotifyColleagues(MessageTypes.MSG_SAVE_FINDER);
+            _itemManagerController.Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_SAVE);
             CurrentEditViewModel = null;
         }
         public void CancelExecute(object parameter = null)
@@ -137,5 +142,6 @@ namespace MiningManager.ViewModel
             RefreshList();
             message.HandledStatus = MessageHandledStatus.HandledContinue;
         }
+
     }
 }

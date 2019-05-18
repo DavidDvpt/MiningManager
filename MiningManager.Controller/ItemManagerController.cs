@@ -17,7 +17,7 @@ namespace MiningManager.Controller
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
     class ItemManagerController<S, T, U, V, W> : BaseController, IItemManagerController<S, T, U, V, W>
-        where S : BaseViewModel, IItemEditViewModel, new()
+        where S : BaseViewModel, IManagerEditClasses, new()
         where T : BaseViewData, new()
         where U : Commun, new()
         where V : BaseViewData, new()

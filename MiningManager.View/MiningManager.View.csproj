@@ -93,6 +93,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
+      <Project>{64385109-c153-4d4c-a7fc-92c5e4ffd49b}</Project>
+      <Name>MiningManager.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiningManager.ViewModel\MiningManager.ViewModel.csproj">
       <Project>{31da7da3-fb94-4b17-a616-c2f6e6da12a6}</Project>
       <Name>MiningManager.ViewModel</Name>

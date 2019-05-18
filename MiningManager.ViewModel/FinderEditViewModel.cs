@@ -4,10 +4,12 @@ using MiningManager.ViewModel.ControllerInterfaces;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderEditViewModel : BaseViewModel, IItemEditViewModel
+    public class FinderEditViewModel : BaseViewModel, IManagerEditClasses
     {
-        private IItemManagerController<FinderManagerViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData> _finderManagerController
-            => (IItemManagerController< FinderManagerViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData >)Controller;
+        private IItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData> _finderManagerController
+            => (IItemManagerController< FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData >)Controller;
+
+        #region Constructeurs et Init
 
         /// <summary>
         /// Obligation d'initialiser la classe avec l'appel de la méthode Init
@@ -22,15 +24,17 @@ namespace MiningManager.ViewModel
 
         public FinderEditViewModel(IController controller, int selectedId) : base(controller)
         {
-            Controller = controller;
-            CreateViewData(selectedId);
-            _finderManagerController.Messenger.Register(MessageTypes.MSG_SAVE_FINDER, SaveItem);
+            Init(controller, selectedId);
         }
+
         public void Init(IController controller, int selectedId)
         {
             Controller = controller;
             CreateViewData(selectedId);
+            _finderManagerController.Messenger.Register(MessageTypes.MSG_MANAGER_SAVE, SaveItem);
         }
+
+        #endregion
 
         private void CreateViewData(int selectedId)
         {

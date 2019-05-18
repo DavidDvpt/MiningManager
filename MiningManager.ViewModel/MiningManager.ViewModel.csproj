@@ -54,7 +54,7 @@
     <Compile Include="BaseClasses\BindableBase.cs" />
     <Compile Include="FinderEditViewModel.cs" />
     <Compile Include="ViewData\IItemManagerViewData.cs" />
-    <Compile Include="Manager\IItemEditViewModel.cs" />
+    <Compile Include="Manager\IManagerEditClasses.cs" />
     <Compile Include="ViewData\ISelectionListVewData.cs" />
     <Compile Include="ViewData\ManagerFinderListViewData.cs" />
     <Compile Include="ViewData\AbstractClasses\CommunEditViewData.cs" />
