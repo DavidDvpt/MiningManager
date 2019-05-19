@@ -24,10 +24,12 @@
         </Grid.RowDefinitions>
 
         <DataGrid Name="dgGeneric" 
-                      ItemsSource="{Binding ViewData.Items, Mode=TwoWay}"
-                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                      Margin="5,3"
-                      IsReadOnly="True"/>
+                        ItemsSource="{Binding ViewData.Items, Mode=TwoWay}"
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                        Margin="5,3"
+                        IsReadOnly="True"
+                        AutoGeneratingColumn="DgGeneric_AutoGeneratingColumn"
+                        />
 
         <Grid Grid.Column="1">
             <ContentControl Content="{Binding CurrentEditViewModel}"/>

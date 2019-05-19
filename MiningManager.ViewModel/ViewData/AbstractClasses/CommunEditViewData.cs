@@ -5,7 +5,17 @@ namespace MiningManager.ViewModel
 {
     public abstract class CommunEditViewData : BaseViewData
     {
-        public int _id;
+        public int Id
+        {
+            get => GetValue(() => Id);
+            set
+            {
+                if (Id != value)
+                {
+                    SetValue(() => Id, value);
+                }
+            }
+        }
 
         [Unique(ErrorMessage = "Ce nom existe déjà")]
         [Required(ErrorMessage = "Le nom est obligatoire")]
@@ -19,11 +29,6 @@ namespace MiningManager.ViewModel
                     SetValue(() => Nom, value);
                 }
             }
-        }
-
-        public int GetId()
-        {
-            return _id;
         }
     }
 }

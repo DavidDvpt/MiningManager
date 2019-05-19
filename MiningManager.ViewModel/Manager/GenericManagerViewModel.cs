@@ -15,9 +15,9 @@ namespace MiningManager.ViewModel
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
     public class GenericManagerViewModel<S, T, U, V, W> : BaseViewModel
         where S : BaseViewModel, new()
-        where T : BaseViewData, new()
+        where T : CommunEditViewData, new()
         where U : Commun, new()
-        where V : BaseViewData, new()
+        where V : CommunItemListViewData, new()
         where W : BaseViewData, ISelectionListVewData<V>, new()
     {
         public IItemManagerController<S, T, U, V, W> _itemManagerController
@@ -49,7 +49,7 @@ namespace MiningManager.ViewModel
 
         public void UpdateExecute(object parameter = null)
         {
-            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((IItemManagerViewData)SelectedItem).GetId());
+            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((V)SelectedItem).Id);
         }
         public void CreateExecute(object parameter = null)
         {

@@ -15,7 +15,7 @@ namespace MiningManager.ViewModel
         /// <param name="o">Object contenant les valeurs à récupérer</param>
         public void ImportPropertiesValuesFromModel(object o)
         {
-            this.GetType().GetField("_id").SetValue(this, ((Commun)o).Id);
+            //this.GetType().GetField("_id").SetValue(this, ((Commun)o).Id);
 
             foreach (PropertyInfo p in o.GetType().GetProperties())
             {
@@ -28,7 +28,7 @@ namespace MiningManager.ViewModel
 
         public void ExportPropertiesValuesToModel(object o)
         {
-            ((Commun)o).Id = (Int32)this.GetType().GetField("_id").GetValue(this);
+            //((Commun)o).Id = (Int32)this.GetType().GetField("_id").GetValue(this);
 
             foreach (PropertyInfo p in this.GetType().GetProperties())
             {

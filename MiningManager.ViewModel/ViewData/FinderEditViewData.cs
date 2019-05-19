@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel
 {
-    public class FinderEditViewData : ToolEditViewData, IItemManagerViewData
+    public class FinderEditViewData : ToolEditViewData
     {
         public decimal Depth
         {

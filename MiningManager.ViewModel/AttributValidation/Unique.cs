@@ -1,10 +1,7 @@
 ﻿using MiningManager.Repository;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiningManager.ViewModel.AttributValidation
 {
@@ -17,7 +14,7 @@ namespace MiningManager.ViewModel.AttributValidation
             MiningContext ctx = new MiningContext();
             // Recuperation de l'id de l'item
             int actualId;
-            actualId = ((CommunEditViewData)validationContext.ObjectInstance).GetId() > 0 ? ((CommunEditViewData)validationContext.ObjectInstance).GetId() : 0;
+            actualId = ((CommunEditViewData)validationContext.ObjectInstance).Id > 0 ? ((CommunEditViewData)validationContext.ObjectInstance).Id : 0;
 
             //Verification que le Nom n'existe pas avec un id different
             // si on verifie pas l'il, la notification Unique se declenche si simmple modif de l'item

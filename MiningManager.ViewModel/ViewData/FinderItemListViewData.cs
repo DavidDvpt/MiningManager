@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel
 {
-    public class FinderItemListViewData : ToolListItemViewData, IItemManagerViewData
+    public class FinderItemListViewData : ToolListItemViewData
     {
         public decimal Depth { get; set; }
         //{
