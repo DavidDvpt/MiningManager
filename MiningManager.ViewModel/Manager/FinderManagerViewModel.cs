@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
 
@@ -10,33 +12,56 @@ namespace MiningManager.ViewModel
         {
         }
 
-        public int SetColumnIndex(string columnHeader)
+        public void SetValues(DataGridColumn column)
         {
-            int index = 0;
-            switch(columnHeader)
+            switch(column.Header.ToString())
             {
                 case "Nom":
-                    index = 0;
+                    column.DisplayIndex = 0;
+                    column.Width = 200;
                     break;
-
+                case "Code":
+                    column.DisplayIndex = 0;
+                    break;
+                case "IsLimited":
+                    column.DisplayIndex = 1;
+                    break;
+                case "Value":
+                    column.DisplayIndex = 1;
+                    break;
+                case "Decay":
+                    column.DisplayIndex = 1;
+                    break;
+                case "UsePerMin":
+                    column.DisplayIndex = 2;
+                    break;
+                case "Depth":
+                    column.DisplayIndex = 6;
+                    break;
+                case "Range":
+                    column.DisplayIndex = 7;
+                    break;
+                case "BasePecSearch":
+                    column.DisplayIndex = 8;
+                    break;
+                case "TotalUse":
+                    column.DisplayIndex = 10;
+                    break;
+                case "Id":
+                case "ModeleId":
+                case "Error":
+                    column.DisplayIndex = 11;
+                    column.Visibility = Visibility.Hidden;
+                    break;
             }
-
-            return index;
         }
 
-        public Visibility SetColumnVisibility(string columnHeader)
+        public void DataGridColumnManagment(ObservableCollection<DataGridColumn> columns)
         {
-            Visibility v = Visibility.Visible;
-
-            switch (columnHeader)
+            foreach (DataGridColumn c in columns)
             {
-                case "Id":
-                case "Error":
-                    v = Visibility.Hidden;
-                    break;
+                SetValues(c);
             }
-
-            return v;
         }
     }
 }

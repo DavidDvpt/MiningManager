@@ -8,16 +8,12 @@ namespace MiningManager.ViewModel
 {
     public abstract class InWorldItemListViewData : CommunItemListViewData
     {
-       public decimal Value { get; set; }
-        //{
-        //    get => GetValue(() => Value);
-        //    set
-        //    {
-        //        if (Value != value)
-        //        {
-        //            SetValue(() => Value, value);
-        //        }
-        //    }
-        //}
+        private decimal _value;
+       public decimal Value
+        {
+            get => GetGoodDecimalPrecision(_value, 2);
+            set { _value = value; }
+        }
+
     }
 }

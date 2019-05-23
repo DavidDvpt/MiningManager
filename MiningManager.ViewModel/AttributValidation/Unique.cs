@@ -15,19 +15,38 @@ namespace MiningManager.ViewModel.AttributValidation
             // Recuperation de l'id de l'item
             int actualId;
             actualId = ((CommunEditViewData)validationContext.ObjectInstance).Id > 0 ? ((CommunEditViewData)validationContext.ObjectInstance).Id : 0;
-
-            //Verification que le Nom n'existe pas avec un id different
-            // si on verifie pas l'il, la notification Unique se declenche si simmple modif de l'item
-
-            var contains = ctx.Communs.Any(x => x.Nom == value.ToString() && x.Id != actualId);
-            if (contains)
+            
+            if (validationContext.DisplayName == "Code")
             {
-                return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+                // Verification du doublon de code
+                if ((string)value == "" || (string)value == null)
+                    return ValidationResult.Success;
+                var containsCode = ctx.Unstackables.Any(x => x.Code == value.ToString() && x.Id != actualId);
+
+                if (containsCode)
+                {
+                    return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+                }
+                else
+                {
+                    return ValidationResult.Success;
+                }
             }
             else
             {
-                return ValidationResult.Success;
+                // Verification du doublon de nom
+                var contains = ctx.Communs.Any(x => x.Nom == value.ToString() && x.Id != actualId);
+                if (contains)
+                {
+                    return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+                }
+                else
+                {
+                    return ValidationResult.Success;
+                }
             }
-        }
+            }
+
+
     }
 }

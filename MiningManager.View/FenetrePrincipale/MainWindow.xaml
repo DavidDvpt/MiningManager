@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MiningManager.View"
         xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
         mc:Ignorable="d"
-        Title="ViewWindow" Height="600" Width="900">
+        Title="ViewWindow" Height="600" Width="1200">
     
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:MenuViewModel}">

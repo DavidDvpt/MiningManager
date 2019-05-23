@@ -19,6 +19,7 @@ namespace MiningManager.ViewModel
 
         [Unique(ErrorMessage = "Ce nom existe déjà")]
         [Required(ErrorMessage = "Le nom est obligatoire")]
+        [MaxLength(50, ErrorMessage = "La longueur max est de 50 caractères")]
         public string Nom
         {
             get => GetValue(() => Nom);
@@ -27,6 +28,18 @@ namespace MiningManager.ViewModel
                 if (Nom != value)
                 {
                     SetValue(() => Nom, value);
+                }
+            }
+        }
+
+        public bool IsActive
+        {
+            get => GetValue(() => IsActive);
+            set
+            {
+                if (IsActive != value)
+                {
+                    SetValue(() => IsActive, value);
                 }
             }
         }

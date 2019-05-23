@@ -1,7 +1,10 @@
-﻿namespace MiningManager.ViewModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MiningManager.ViewModel
 {
     public class FinderEditViewData : ToolEditViewData
     {
+        [Range(0, 1000, ErrorMessage = "La profondeur doit être comprise entre 0 et 1000")]
         public decimal Depth
         {
             get => GetValue(() => Depth);
@@ -14,6 +17,7 @@
             }
         }
 
+        [Range(0, 60, ErrorMessage = "La profondeur doit être comprise entre 0 et 1000")]
         public decimal Range
         {
             get => GetValue(() => Range);
