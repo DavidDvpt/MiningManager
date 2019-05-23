@@ -59,7 +59,7 @@
     <Compile Include="Manager\GenericEditViewModel.cs" />
     <Compile Include="Manager\FinderEditViewModel.cs" />
     <Compile Include="Manager\IManagerEditClasses.cs" />
-    <Compile Include="ViewData\ISelectionListVewData.cs" />
+    <Compile Include="ViewData\ISelectionListViewData.cs" />
     <Compile Include="ViewData\ManagerFinderListViewData.cs" />
     <Compile Include="ViewData\AbstractClasses\CommunEditViewData.cs" />
     <Compile Include="ViewData\AbstractClasses\InWorldEditViewData.cs" />
@@ -69,7 +69,6 @@
     <Compile Include="ViewData\AbstractClasses\ToolListItemViewData.cs" />
     <Compile Include="ViewData\AbstractClasses\UnstackableItemListViewData.cs" />
     <Compile Include="ViewData\AbstractClasses\CommunItemListViewData.cs" />
-    <Compile Include="ControllerInterfaces\IFinderManagerController.cs" />
     <Compile Include="ControllerInterfaces\IItemManagerController.cs" />
     <Compile Include="FenetrePrincipale\ContainerViewModel.cs" />
     <Compile Include="ControllerInterfaces\IContainerController.cs" />

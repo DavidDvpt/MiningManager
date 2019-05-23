@@ -2,6 +2,7 @@
 using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
 using System;
+using System.Linq;
 
 namespace MiningManager.ViewModel
 {
@@ -16,9 +17,9 @@ namespace MiningManager.ViewModel
     public class GenericManagerViewModel<S, T, U, V, W> : BaseViewModel
         where S : BaseViewModel, new()
         where T : CommunEditViewData, new()
-        where U : Commun, new()
+        where U : InWorld, new()
         where V : CommunItemListViewData, new()
-        where W : BaseViewData, ISelectionListVewData<V>, new()
+        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         public IItemManagerController<S, T, U, V, W> _itemManagerController
             => (IItemManagerController < S, T, U, V, W >)Controller;
@@ -33,7 +34,14 @@ namespace MiningManager.ViewModel
             CancelCommand = new RelayCommand(CancelExecute, CancelCanExecute);
             Controller.Messenger.Register(MessageTypes.MSG_MANAGER_EDIT, new Action<Message>(RefreshList));
 
+            Init();
             RefreshList();
+        }
+
+        private void Init()
+        {
+            W selection = new W();
+            ViewData = selection;
         }
 
         #endregion
@@ -133,9 +141,7 @@ namespace MiningManager.ViewModel
 
         protected void RefreshList()
         {
-            W selection = new W();
-            selection.Items = _itemManagerController.DataViewGenericList();
-            ViewData = selection;
+            ((ISelectionListViewData<V>)ViewData).Items = _itemManagerController.DataViewGenericList();
         }
         protected void RefreshList(Message message)
         {

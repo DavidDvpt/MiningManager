@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel
 {
-    public class ManagerGenericItemListViewData<T> : BaseViewData, ISelectionListVewData<T>
+    public class ManagerGenericItemListViewData<T> : BaseViewData, ISelectionListViewData<T>
         where T : BaseViewData
     {
         public ObservableCollection<T> Items
@@ -16,6 +16,5 @@ namespace MiningManager.ViewModel
                 }
             }
         }
-
     }
 }

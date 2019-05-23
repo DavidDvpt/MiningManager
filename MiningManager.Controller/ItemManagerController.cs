@@ -19,11 +19,11 @@ namespace MiningManager.Controller
     class ItemManagerController<S, T, U, V, W> : BaseController, IItemManagerController<S, T, U, V, W>
         where S : BaseViewModel, IManagerEditClasses, new()
         where T : BaseViewData, new()
-        where U : Commun, new()
+        where U : InWorld, new()
         where V : BaseViewData, new()
-        where W : BaseViewData, ISelectionListVewData<V>, new()
+        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private CommunRepository<U> _genericRepository => (CommunRepository<U>)_repository;
+        private InWorldRepository<U> _genericRepository => (InWorldRepository<U>)_repository;
 
         #region Constructeurs
 
@@ -32,7 +32,7 @@ namespace MiningManager.Controller
 
         }
 
-        public ItemManagerController(CommunRepository<U> repository)
+        public ItemManagerController(InWorldRepository<U> repository)
         {
             _repository = repository;
         }
@@ -72,7 +72,7 @@ namespace MiningManager.Controller
         {
             ObservableCollection<V> oc = new ObservableCollection<V>();
             V filvd;
-            foreach (U item in _genericRepository.GetAll().ToList())
+            foreach (U item in _genericRepository.GetAll().OrderBy(x => x.Nom).ToList())
             {
                 filvd = new V();
                 filvd.ImportPropertiesValuesFromModel(item);
@@ -86,13 +86,27 @@ namespace MiningManager.Controller
         /// Sauvegarde l'entité dans la base de donnée
         /// </summary>
         /// <param name="viewData">entité sortie du formulaire</param>
-        public void SaveItem(BaseViewData viewData)
+        public void SaveItem(BaseViewData viewData, bool nouveau)
         {
             U item = new U();
             viewData.ExportPropertiesValuesToModel(item);
 
-            _genericRepository.Update(item);
+            if (nouveau)
+            {
+                item.Modele = GetItemModele();
+                _genericRepository.Add(item);
+            }
+            else
+            {
+                _genericRepository.Update(item);
+            }
+            
             Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, item);
+        }
+
+        public Modele GetItemModele()
+        {
+            return _genericRepository.GetModele();
         }
     }
 }

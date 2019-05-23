@@ -44,16 +44,16 @@ namespace MiningManager.ViewModel
         public decimal GetGoodDecimalPrecision(decimal number, int precision)
         {
             int i = 0;
-            string txt = number.ToString(System.Globalization.CultureInfo.InvariantCulture).TrimEnd('0');
-            string[] t = txt.Split('.');
-            if (t.Length >1)
+            string[] tab = number.ToString(System.Globalization.CultureInfo.InvariantCulture).TrimEnd('0').Split('.');
+
+            if (tab.Length >1)
             {
-                i = t[1].Length;
+                i = tab[1].Length;
             }
 
             i = i <= precision ? precision : i;
 
-            return Math.Round(number, i);//Math.Round(number, precision);
+            return Math.Round(number, i);
         }
     }
 }

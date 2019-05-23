@@ -15,9 +15,9 @@ namespace MiningManager.ViewModel
     public class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerEditClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
-        where U : Commun, new()
+        where U : InWorld, new()
         where V : BaseViewData, new()
-        where W : BaseViewData, ISelectionListVewData<V>, new()
+        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         private IItemManagerController<S, T, U, V, W> _genericManagerController
             => (IItemManagerController< S, T, U, V, W >)Controller;
@@ -56,7 +56,8 @@ namespace MiningManager.ViewModel
 
         private void SaveItem()
         {
-            _genericManagerController.SaveItem(ViewData);
+            bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
+            _genericManagerController.SaveItem(ViewData, nouveau);
             _genericManagerController.Messenger.DeRegister(this);
         }
 

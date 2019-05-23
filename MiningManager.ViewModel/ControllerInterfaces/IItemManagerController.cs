@@ -14,9 +14,9 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     public interface IItemManagerController<S, T, U, V, W> : IController
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
-        where U : Commun
+        where U : InWorld
         where V : BaseViewData, new()
-        where W : BaseViewData, ISelectionListVewData<V>, new()
+        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         S ConstructGenericEditViewModel(int selectedItemId = 0);
 
@@ -24,6 +24,8 @@ namespace MiningManager.ViewModel.ControllerInterfaces
 
         ObservableCollection<V> DataViewGenericList();
 
-        void SaveItem(BaseViewData viewData);
+        void SaveItem(BaseViewData viewData, bool nouveau);
+
+        Modele GetItemModele();
     }
 }

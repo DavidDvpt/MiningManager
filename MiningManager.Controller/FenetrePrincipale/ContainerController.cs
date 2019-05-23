@@ -15,7 +15,7 @@ namespace MiningManager.Controller
 
         public FinderManagerViewModel ConstructFinderMgrViewModel()
         {
-            CommunRepository<Finder> ifr = new CommunRepository<Finder>();
+            InWorldRepository<Finder> ifr = new InWorldRepository<Finder>();
 
             IItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData> itemManagerController =
                 new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData>(ifr);
