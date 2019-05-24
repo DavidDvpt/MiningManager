@@ -11,5 +11,7 @@ namespace MiningManager.ViewModel.ControllerInterfaces
 
         RefinerMgrViewModel ConstructRefinerMgrViewModel();
 
+        FinderAmplifierMgrViewModel ConstructFinderAmplifierMgrViewModel();
+
     }
 }

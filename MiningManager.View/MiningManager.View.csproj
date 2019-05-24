@@ -55,6 +55,9 @@
     <Compile Include="FenetrePrincipale\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FinderAmplifierView.xaml.cs">
+      <DependentUpon>FinderAmplifierView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FinderEditView.xaml.cs">
       <DependentUpon>FinderEditView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
     <Page Include="FenetrePrincipale\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FinderAmplifierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FinderEditView.xaml">
       <SubType>Designer</SubType>

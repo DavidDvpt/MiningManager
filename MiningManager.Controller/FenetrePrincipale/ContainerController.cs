@@ -43,5 +43,15 @@ namespace MiningManager.Controller
 
             return new RefinerMgrViewModel(itemManagerController);
         }
+
+        public FinderAmplifierMgrViewModel ConstructFinderAmplifierMgrViewModel()
+        {
+            InWorldRepository<FinderAmplifier> ifr = new InWorldRepository<FinderAmplifier>();
+
+            IItemManagerController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData> itemManagerController =
+                new ItemManagerController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData>(ifr);
+
+            return new FinderAmplifierMgrViewModel(itemManagerController);
+        }
     }
 }

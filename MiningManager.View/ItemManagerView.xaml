@@ -20,6 +20,11 @@
             <view:RefinerEditView/>
         </DataTemplate>
         
+        <DataTemplate DataType="{x:Type viewModel:FinderAmplifierEditViewModel}">
+            <view:FinderAmplifierEditView/>
+        </DataTemplate>
+        
+        
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

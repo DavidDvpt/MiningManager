@@ -1,4 +1,4 @@
-﻿<local:ValidationErrorView x:Class="MiningManager.View.ExcavatorEditView"
+﻿<local:ValidationErrorView x:Class="MiningManager.View.FinderAmplifierEditView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -62,17 +62,10 @@
                 <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDecay}"/>
             </StackPanel>
 
-            <!-- USE PER MIN -->
-            <StackPanel Name="spUsePerMin" Style="{StaticResource spBlocControl}">
-                <Label Name="lbUsePerMin" Content="Use per Minute : "/>
-                <TextBox Name="tbxUsePerMin" Text="{Binding ViewData.UsePerMin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
-                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxUsePerMin}"/>
-            </StackPanel>
-
-            <StackPanel Name="spEfficienty" Style="{StaticResource spBlocControl}">
-                <Label Name="lbEfficienty" Content="Efficienty :"/>
-                <TextBox Name="tbxEfficienty" Text="{Binding ViewData.Efficienty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
-                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxEfficienty}"/>
+            <StackPanel Name="spCoefficient" Style="{StaticResource spBlocControl}">
+                <Label Name="lbCoefficient" Content="Coefficient :"/>
+                <TextBox Name="tbxCoefficient" Text="{Binding ViewData.Coefficient, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxCoefficient}"/>
             </StackPanel>
 
         </StackPanel>
