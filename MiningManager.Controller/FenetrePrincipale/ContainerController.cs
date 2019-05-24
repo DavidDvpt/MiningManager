@@ -2,6 +2,7 @@
 using MiningManager.Repository;
 using MiningManager.ViewModel;
 using MiningManager.ViewModel.ControllerInterfaces;
+using MiningManager.ViewModel.ViewData;
 
 namespace MiningManager.Controller
 {
@@ -21,6 +22,16 @@ namespace MiningManager.Controller
                 new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData>(ifr);
 
             return new FinderMgrViewModel(itemManagerController);
+        }
+
+        public ExcavatorMgrViewModel ConstructExcavatorMgrViewModel()
+        {
+            InWorldRepository<Excavator> ifr = new InWorldRepository<Excavator>();
+
+            IItemManagerController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData> itemManagerController =
+                new ItemManagerController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData>(ifr);
+
+            return new ExcavatorMgrViewModel(itemManagerController);
         }
     }
 }

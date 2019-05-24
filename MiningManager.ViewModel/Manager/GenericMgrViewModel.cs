@@ -100,18 +100,6 @@ namespace MiningManager.ViewModel
 
         #region Bindables properties
 
-        //public U ItemsListViewData
-        //{
-        //    get => GetValue(() => ItemsListViewData);
-        //    set
-        //    {
-        //        if (ItemsListViewData != value)
-        //        {
-        //            SetValue(() => ItemsListViewData, value);
-        //        }
-        //    }
-        //}
-
         public V SelectedItem
         {
             get => GetValue(() => SelectedItem);

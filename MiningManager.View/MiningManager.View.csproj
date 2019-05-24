@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseView.cs" />
+    <Compile Include="ExcavatorEditView.xaml.cs">
+      <DependentUpon>ExcavatorEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FenetrePrincipale\ContainerView.xaml.cs">
       <DependentUpon>ContainerView.xaml</DependentUpon>
     </Compile>
@@ -65,8 +68,13 @@
     <Compile Include="FenetrePrincipale\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidationErrorView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ExcavatorEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FenetrePrincipale\ContainerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

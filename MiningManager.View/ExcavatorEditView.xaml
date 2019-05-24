@@ -1,4 +1,4 @@
-﻿<local:ValidationErrorView x:Class="MiningManager.View.FinderEditView"
+﻿<local:ValidationErrorView x:Class="MiningManager.View.ExcavatorEditView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -69,25 +69,12 @@
                 <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxUsePerMin}"/>
             </StackPanel>
 
-            <StackPanel Name="spDepth" Style="{StaticResource spBlocControl}">
-                <Label Name="lbDepth" Content="Depth (m) :"/>
-                <TextBox Name="tbxDepth" Text="{Binding ViewData.Depth, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
+            <StackPanel Name="spEfficienty" Style="{StaticResource spBlocControl}">
+                <Label Name="lbEfficienty" Content="Depth (m) :"/>
+                <TextBox Name="tbxEfficienty" Text="{Binding ViewData.Efficienty, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
                 <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxDepth}"/>
             </StackPanel>
 
-            <!-- RANGE -->
-            <StackPanel Name="spRange" Style="{StaticResource spBlocControl}">
-                <Label Name="lbRange" Content="Range (m) :"/>
-                <TextBox Name="tbxRange" Text="{Binding ViewData.Range, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
-                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxRange}"/>
-            </StackPanel>
-
-            <!-- BASE PEC SEARCH -->
-            <StackPanel Name="spBasePecSearch" Style="{StaticResource spBlocControl}">
-                <Label Name="lbBasePecSearch" Content="Base Probe (Pec) :"/>
-                <TextBox Name="tbxBasePecSearch" Text="{Binding ViewData.BasePecSearch, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Width="60" Validation.Error="Validation_Error"/>
-                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxBasePecSearch}"/>
-            </StackPanel>
         </StackPanel>
     </Grid>
 </local:ValidationErrorView>

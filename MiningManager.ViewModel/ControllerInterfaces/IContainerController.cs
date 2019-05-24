@@ -6,5 +6,8 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     {
         void Start();
         FinderMgrViewModel ConstructFinderMgrViewModel();
+
+        ExcavatorMgrViewModel ConstructExcavatorMgrViewModel();
+
     }
 }

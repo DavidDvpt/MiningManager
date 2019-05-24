@@ -10,6 +10,7 @@ namespace MiningManager.ViewModel
         public ContainerViewModel(IController controller) : base(controller)
         {
             Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_FINDERMGR, GetFinderMgr);
+            Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_EXCAVATORMGR, GetExcavatorMgr);
         }
 
 
@@ -24,5 +25,10 @@ namespace MiningManager.ViewModel
         {
             CurrentViewModel = ContainerController.ConstructFinderMgrViewModel();
         }
+        private void GetExcavatorMgr()
+        {
+            CurrentViewModel = ContainerController.ConstructExcavatorMgrViewModel();
+        }
+
     }
 }

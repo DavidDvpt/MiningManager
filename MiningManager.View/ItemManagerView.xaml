@@ -11,6 +11,10 @@
         <DataTemplate DataType="{x:Type viewModel:FinderEditViewModel}">
             <view:FinderEditView/>
         </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModel:ExcavatorEditViewModel}">
+            <view:ExcavatorEditView/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

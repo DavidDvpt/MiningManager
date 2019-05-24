@@ -12,7 +12,7 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
+    public abstract class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
@@ -54,7 +54,9 @@ namespace MiningManager.ViewModel
             ViewData = _genericManagerController.ConstructGenericEditViewData(selectedId);
         }
 
-        private void SaveItem()
+        protected abstract void SaveItem();
+
+        protected void SaveUnstackable()
         {
             bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
             _genericManagerController.SaveItem(ViewData, nouveau);
