@@ -7,7 +7,7 @@
              xmlns:viewModel="clr-namespace:MiningManager.ViewModel;assembly=MiningManager.ViewModel"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type viewModel:FinderManagerViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:FinderMgrViewModel}">
             <view:ItemManagerView/>
         </DataTemplate>
     </UserControl.Resources>

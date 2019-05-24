@@ -12,15 +12,15 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerEditClasses
+    public class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IItemManagerController<S, T, U, V, W> _genericManagerController
-            => (IItemManagerController< S, T, U, V, W >)Controller;
+        private IItemManagerController<S, T, U, V> _genericManagerController
+            => (IItemManagerController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
 
@@ -51,7 +51,7 @@ namespace MiningManager.ViewModel
 
         private void CreateViewData(int selectedId)
         {
-            ViewData = _genericManagerController.ConstructGenericViewData(selectedId);
+            ViewData = _genericManagerController.ConstructGenericEditViewData(selectedId);
         }
 
         private void SaveItem()

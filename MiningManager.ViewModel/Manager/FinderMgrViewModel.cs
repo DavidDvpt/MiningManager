@@ -6,9 +6,9 @@ using MiningManager.ViewModel.ControllerInterfaces;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderManagerViewModel : GenericManagerViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData>, IDatagridGeneratingColumns
+    public class FinderMgrViewModel : GenericMgrViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, FinderListMgrViewData>, IDatagridGeneratingColumns
     {
-        public FinderManagerViewModel(IController controller) : base(controller)
+        public FinderMgrViewModel(IController controller) : base(controller)
         {
         }
 

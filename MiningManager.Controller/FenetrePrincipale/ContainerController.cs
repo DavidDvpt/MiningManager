@@ -13,14 +13,14 @@ namespace MiningManager.Controller
         {
         }
 
-        public FinderManagerViewModel ConstructFinderMgrViewModel()
+        public FinderMgrViewModel ConstructFinderMgrViewModel()
         {
             InWorldRepository<Finder> ifr = new InWorldRepository<Finder>();
 
-            IItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData> itemManagerController =
-                new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, ManagerFinderListViewData>(ifr);
+            IItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData> itemManagerController =
+                new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData>(ifr);
 
-            return new FinderManagerViewModel(itemManagerController);
+            return new FinderMgrViewModel(itemManagerController);
         }
     }
 }

@@ -11,13 +11,11 @@ namespace MiningManager.ViewModel
     public class BaseViewData : BindableBase
     {
         /// <summary>
-        /// Récupère les valeurs de propriétés publiques d'un objet
+        /// exporte les valeurs de propriétés publiques d'un objet
         /// </summary>
         /// <param name="o">Object contenant les valeurs à récupérer</param>
         public void ImportPropertiesValuesFromModel(object o)
         {
-            //this.GetType().GetField("_id").SetValue(this, ((Commun)o).Id);
-
             foreach (PropertyInfo p in o.GetType().GetProperties())
             {
                 if (this.GetType().GetProperty(p.Name) != null)
@@ -27,10 +25,12 @@ namespace MiningManager.ViewModel
             }
         }
 
+        /// <summary>
+        /// Importe les valeurs de propriétés publiques d'un objet
+        /// </summary>
+        /// <param name="o">Object destinataire des valeurs</param>
         public void ExportPropertiesValuesToModel(object o)
         {
-            //((Commun)o).Id = (Int32)this.GetType().GetField("_id").GetValue(this);
-
             foreach (PropertyInfo p in this.GetType().GetProperties())
             {
                 if (o.GetType().GetProperty(p.Name) != null)
@@ -41,6 +41,12 @@ namespace MiningManager.ViewModel
             }
         }
 
+        /// <summary>
+        /// Détermine la précision nécessaire d'une valeur décimale pour son affichage
+        /// </summary>
+        /// <param name="number">Nombre decimal à traiter</param>
+        /// <param name="precision">Précision voulue par default</param>
+        /// <returns></returns>
         public decimal GetGoodDecimalPrecision(decimal number, int precision)
         {
             int i = 0;

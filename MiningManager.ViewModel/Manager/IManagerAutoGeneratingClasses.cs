@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel
 {
-    public interface IManagerEditClasses
+    public interface IManagerAutoGeneratingClasses
     {
         void Init(IController controller, int selectedId);
     }

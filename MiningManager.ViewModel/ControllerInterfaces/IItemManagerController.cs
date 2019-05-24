@@ -11,21 +11,18 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public interface IItemManagerController<S, T, U, V, W> : IController
+    public interface IItemManagerController<S, T, U, V> : IController
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld
         where V : BaseViewData, new()
-        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         S ConstructGenericEditViewModel(int selectedItemId = 0);
 
-        T ConstructGenericViewData(int selectedItemId = 0);
+        T ConstructGenericEditViewData(int selectedItemId = 0);
 
         ObservableCollection<V> DataViewGenericList();
 
         void SaveItem(BaseViewData viewData, bool nouveau);
-
-        Modele GetItemModele();
     }
 }

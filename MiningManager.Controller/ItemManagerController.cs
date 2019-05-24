@@ -16,12 +16,11 @@ namespace MiningManager.Controller
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    class ItemManagerController<S, T, U, V, W> : BaseController, IItemManagerController<S, T, U, V, W>
-        where S : BaseViewModel, IManagerEditClasses, new()
+    class ItemManagerController<S, T, U, V> : BaseController, IItemManagerController<S, T, U, V>
+        where S : BaseViewModel, IManagerAutoGeneratingClasses, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
         where V : BaseViewData, new()
-        where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         private InWorldRepository<U> _genericRepository => (InWorldRepository<U>)_repository;
 
@@ -29,7 +28,6 @@ namespace MiningManager.Controller
 
         public ItemManagerController()
         {
-
         }
 
         public ItemManagerController(InWorldRepository<U> repository)
@@ -39,6 +37,13 @@ namespace MiningManager.Controller
 
         #endregion
 
+        #region Edition Generique d'item
+
+        /// <summary>
+        /// Cree le viewModel d'edition de l'item selectionné
+        /// </summary>
+        /// <param name="selectedItemId">Id de l'item selectionné</param>
+        /// <returns></returns>
         public S ConstructGenericEditViewModel(int selectedItemId = 0)
         {
             S editViewModel = new S();
@@ -50,11 +55,12 @@ namespace MiningManager.Controller
         /// <summary>
         /// crée un viewdata à partir de l'id de l'item selectionné
         /// </summary>
-        /// <param name="selectedItemId"></param>
+        /// <param name="selectedItemId">Id de l'item selectionné</param>
         /// <returns></returns>
-        public T ConstructGenericViewData(int selectedItemId = 0)
+        public T ConstructGenericEditViewData(int selectedItemId = 0)
         {
             T viewData = new T();
+
             if (selectedItemId != 0)
             {
                 U model = _genericRepository.GetById(selectedItemId);
@@ -63,6 +69,8 @@ namespace MiningManager.Controller
 
             return viewData;
         }
+
+        #endregion
 
         /// <summary>
         /// Cree une liste observable des item
@@ -93,7 +101,7 @@ namespace MiningManager.Controller
 
             if (nouveau)
             {
-                item.Modele = GetItemModele();
+                item.Modele = _genericRepository.GetModele();
                 _genericRepository.Add(item);
             }
             else
@@ -102,11 +110,6 @@ namespace MiningManager.Controller
             }
             
             Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, item);
-        }
-
-        public Modele GetItemModele()
-        {
-            return _genericRepository.GetModele();
         }
     }
 }
