@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MiningManager.ViewModel
+namespace MiningManager.ViewModel.ViewData
 {    
      /// <summary>
      /// Classe utilisee pour l'affichage dans une liste. n'implemente pas la validation

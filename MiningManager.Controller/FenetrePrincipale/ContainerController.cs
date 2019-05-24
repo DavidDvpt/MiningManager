@@ -33,5 +33,15 @@ namespace MiningManager.Controller
 
             return new ExcavatorMgrViewModel(itemManagerController);
         }
+
+        public RefinerMgrViewModel ConstructRefinerMgrViewModel()
+        {
+            InWorldRepository<Refiner> ifr = new InWorldRepository<Refiner>();
+
+            IItemManagerController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData> itemManagerController =
+                new ItemManagerController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData>(ifr);
+
+            return new RefinerMgrViewModel(itemManagerController);
+        }
     }
 }

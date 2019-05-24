@@ -68,6 +68,9 @@
     <Compile Include="FenetrePrincipale\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RefinerEditView.xaml.cs">
+      <DependentUpon>RefinerEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidationErrorView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +99,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ItemManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RefinerEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

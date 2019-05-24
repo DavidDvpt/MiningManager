@@ -14,6 +14,10 @@
         <DataTemplate DataType="{x:Type viewModel:ExcavatorMgrViewModel}">
             <view:ItemManagerView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:RefinerMgrViewModel}">
+            <view:ItemManagerView/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>

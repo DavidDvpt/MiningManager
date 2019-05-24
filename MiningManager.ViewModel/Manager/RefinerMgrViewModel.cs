@@ -1,21 +1,21 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
-using MiningManager.Model;
+﻿using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.ViewModel.ViewData;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderMgrViewModel : GenericMgrViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData, FinderListMgrViewData>, IDatagridGeneratingColumns
+    public class RefinerMgrViewModel : GenericMgrViewModel<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData, RefinerListMgrViewData>, IDatagridGeneratingColumns
     {
-        public FinderMgrViewModel(IController controller) : base(controller)
+        public RefinerMgrViewModel(IController controller) : base(controller)
         {
         }
 
         public void SetValues(DataGridColumn column)
         {
-            switch(column.Header.ToString())
+            switch (column.Header.ToString())
             {
                 case "Nom":
                     column.DisplayIndex = 0;
@@ -36,22 +36,13 @@ namespace MiningManager.ViewModel
                 case "UsePerMin":
                     column.DisplayIndex = 2;
                     break;
-                case "Depth":
-                    column.DisplayIndex = 6;
-                    break;
-                case "Range":
-                    column.DisplayIndex = 7;
-                    break;
-                case "BasePecSearch":
-                    column.DisplayIndex = 8;
-                    break;
                 case "TotalUse":
-                    column.DisplayIndex = 10;
+                    column.DisplayIndex = 6;
                     break;
                 case "Id":
                 case "ModeleId":
                 case "Error":
-                    column.DisplayIndex = 11;
+                    column.DisplayIndex = 7;
                     column.Visibility = Visibility.Hidden;
                     break;
             }
@@ -66,3 +57,4 @@ namespace MiningManager.ViewModel
         }
     }
 }
+

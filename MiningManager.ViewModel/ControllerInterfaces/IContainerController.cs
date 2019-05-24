@@ -9,5 +9,7 @@ namespace MiningManager.ViewModel.ControllerInterfaces
 
         ExcavatorMgrViewModel ConstructExcavatorMgrViewModel();
 
+        RefinerMgrViewModel ConstructRefinerMgrViewModel();
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MiningManager.ViewModel
+namespace MiningManager.ViewModel.ViewData
 {
     public class FinderEditViewData : ToolEditViewData
     {
