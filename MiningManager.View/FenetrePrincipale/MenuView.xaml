@@ -20,22 +20,22 @@
         </MenuItem>
 
         <MenuItem Header="Manager">
-            <!-- <MenuItem Header="Categorie" Command="{Binding CategorieMgr}"/>
-            <MenuItem Header="Modele" Command="{Binding NavCommand}" CommandParameter="modele"/>
+            <!--<MenuItem Header="Categorie" Command="{Binding CategorieMgr}"/>
+            <MenuItem Header="Modele" Command="{Binding ModeleMgr}"/>
             <Separator />
-            <MenuItem Header="Planet" Command="{Binding NavCommand}" CommandParameter="planet"/>-->
+            <MenuItem Header="Planet" Command="{Binding PlanetMgr}"/>-->
             <MenuItem Header="Finder" Command="{Binding FinderMgr}"/>
             <MenuItem Header="Excavator" Command="{Binding ExcavatorMgr}"/>
             <MenuItem Header="Refiner" Command="{Binding RefinerMgr}"/>
             <Separator />
             <MenuItem Header="Finder Amplifier" Command="{Binding FinderAmplifierMgr}"/>
-            <!--<MenuItem Header="Enhancer" Command="{Binding NavCommand}" CommandParameter="enhancer"/>
+            <MenuItem Header="Enhancer" Command="{Binding EnhancerMgr}"/>
             <Separator />
-            <MenuItem Header="SearchMode" Command="{Binding NavCommand}" CommandParameter="searchMode"/>
-            <MenuItem Header="Setup" Command="{Binding NavCommand}" CommandParameter="setup"/>
-            <Separator />
-            <MenuItem Header="Material" Command="{Binding NavCommand}" CommandParameter="material"/>
-            <MenuItem Header="TradeState" Command="{Binding NavCommand}" CommandParameter="tradeState"/>-->
+            <!--<MenuItem Header="SearchMode" Command="{Binding SearchModeMgr}"/>-->
+            <!--<MenuItem Header="Setup" Command="{Binding SetupMgr}"/>-->
+            <!--<Separator />-->
+            <!--<MenuItem Header="Material" Command="{Binding MaterialMgr}"/>-->
+            <!--<MenuItem Header="TradeState" Command="{Binding TradeStateMgr}"/>-->
         </MenuItem>
     </Menu>
 </UserControl>
