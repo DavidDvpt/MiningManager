@@ -1,9 +1,10 @@
-﻿namespace MiningManager.ViewModel.ControllerInterfaces
+﻿using MiningManager.Model;
+
+namespace MiningManager.ViewModel.ControllerInterfaces
 {
     public interface IContainerController : IController
     {
         void Start();
-
-        BaseViewModel GetFinderManagerViewModel(string v);
+        FinderMgrViewModel ConstructFinderMgrViewModel();
     }
 }

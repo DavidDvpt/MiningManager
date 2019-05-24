@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MiningManager.Model
 {
     [Table("Commun")]
-    public abstract class Commun
+    public abstract class Commun : BaseModel
     {
         [Key]
         public int Id { get; set; }

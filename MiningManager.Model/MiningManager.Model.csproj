@@ -48,25 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entropia\Categorie.cs" />
-    <Compile Include="Entropia\Commun.cs" />
-    <Compile Include="Entropia\Enhancer.cs" />
-    <Compile Include="Entropia\Excavator.cs" />
-    <Compile Include="Entropia\Finder.cs" />
-    <Compile Include="Entropia\FinderAmplifier.cs" />
-    <Compile Include="Entropia\InWorld.cs" />
-    <Compile Include="Entropia\Material.cs" />
-    <Compile Include="Entropia\Modele.cs" />
-    <Compile Include="Entropia\Planet.cs" />
-    <Compile Include="Entropia\PlanetMaterial.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="Categorie.cs" />
+    <Compile Include="Commun.cs" />
+    <Compile Include="Enhancer.cs" />
+    <Compile Include="Excavator.cs" />
+    <Compile Include="Finder.cs" />
+    <Compile Include="FinderAmplifier.cs" />
+    <Compile Include="InWorld.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="Modele.cs" />
+    <Compile Include="Planet.cs" />
+    <Compile Include="PlanetMaterial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entropia\Refinable.cs" />
-    <Compile Include="Entropia\Refiner.cs" />
+    <Compile Include="Refinable.cs" />
+    <Compile Include="Refiner.cs" />
     <Compile Include="SearchMode.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Entropia\Tool.cs" />
-    <Compile Include="Entropia\ToolAccessoire.cs" />
-    <Compile Include="Entropia\Unstackable.cs" />
+    <Compile Include="Tool.cs" />
+    <Compile Include="ToolAccessoire.cs" />
+    <Compile Include="Unstackable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

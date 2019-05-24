@@ -46,32 +46,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseView.cs" />
-    <Compile Include="ContainerView.xaml.cs">
+    <Compile Include="FenetrePrincipale\ContainerView.xaml.cs">
       <DependentUpon>ContainerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataGridView.xaml.cs">
-      <DependentUpon>DataGridView.xaml</DependentUpon>
+    <Compile Include="FenetrePrincipale\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinderEditView.xaml.cs">
+      <DependentUpon>FinderEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ItemManagerView.xaml.cs">
       <DependentUpon>ItemManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuView.xaml.cs">
-      <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusView.xaml.cs">
+    <Compile Include="FenetrePrincipale\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BaseClasses\ViewWindow.xaml.cs">
-      <DependentUpon>ViewWindow.xaml</DependentUpon>
+    <Compile Include="FenetrePrincipale\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ContainerView.xaml">
+    <Page Include="FenetrePrincipale\ContainerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DataGridView.xaml">
+    <Page Include="FenetrePrincipale\MenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FenetrePrincipale\StatusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FenetrePrincipale\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FinderEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,20 +91,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="StatusView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="BaseClasses\ViewWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
+      <Project>{64385109-c153-4d4c-a7fc-92c5e4ffd49b}</Project>
+      <Name>MiningManager.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiningManager.ViewModel\MiningManager.ViewModel.csproj">
       <Project>{31da7da3-fb94-4b17-a616-c2f6e6da12a6}</Project>
       <Name>MiningManager.ViewModel</Name>

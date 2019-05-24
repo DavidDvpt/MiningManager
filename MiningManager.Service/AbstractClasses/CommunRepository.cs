@@ -27,7 +27,12 @@ namespace MiningManager.Repository
 
         public T Add(T entity)
         {
-            AttachEntity(entity, EntityState.Added);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
+
             DbSet.Add(entity);
             Commit();
 
@@ -36,18 +41,22 @@ namespace MiningManager.Repository
 
         public void AddRange(List<T> entities)
         {
-            List<T> list = new List<T>();
-            foreach (T entity in entities)
-            {
-                DbSet.Add(AttachEntity(entity, EntityState.Added));
-            }
+            DbSet.AddRange(entities);
 
             Commit();
         }
 
         public void Update(T entity)
         {
-            AttachEntity(entity, EntityState.Modified);
+            DbEntityEntry dbEntityEntry = Context.Entry(entity);
+
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                T item = DbSet.SingleOrDefault(x => x.Id == entity.Id);
+                Context.Entry(item).State = EntityState.Detached;
+            }
+
+            dbEntityEntry.State = EntityState.Modified;
 
             Commit();
         }
@@ -73,17 +82,6 @@ namespace MiningManager.Repository
             }
 
             Commit();
-        }
-
-        private T AttachEntity(T entity, EntityState state)
-        {
-            DbEntityEntry dbEntityEntry = Context.Entry(entity);
-            if (dbEntityEntry.State != EntityState.Detached)
-            {
-                dbEntityEntry.State = state;
-            }
-
-            return entity;
         }
 
         public void Commit()

@@ -47,16 +47,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseController.cs" />
-    <Compile Include="ContainerController.cs" />
+    <Compile Include="FenetrePrincipale\ContainerController.cs" />
+    <Compile Include="FenetrePrincipale\MainController.cs" />
+    <Compile Include="FenetrePrincipale\MenuController.cs" />
     <Compile Include="ItemManagerController.cs" />
-    <Compile Include="MenuController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusController.cs" />
+    <Compile Include="FenetrePrincipale\StatusController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiningManager.Messenger\MiningManager.Messenger.csproj">
       <Project>{2fb174ed-42f9-402a-a772-b6c7abb73787}</Project>
       <Name>MiningManager.Messenger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiningManager.Model\MiningManager.Model.csproj">
+      <Project>{64385109-C153-4D4C-A7FC-92C5E4FFD49B}</Project>
+      <Name>MiningManager.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\MiningManager.Service\MiningManager.Service.csproj">
       <Project>{d972e14b-a863-4fa1-989f-2c9e90fe54fa}</Project>

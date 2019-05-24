@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="CommunRepository.cs" />
-    <Compile Include="ContainerRepository.cs" />
+    <Compile Include="AbstractClasses\BaseRepository.cs" />
+    <Compile Include="AbstractClasses\CommunRepository.cs" />
+    <Compile Include="FenetrePrincipale\ContainerRepository.cs" />
     <Compile Include="Context\MiningContext.cs" />
     <Compile Include="Context\SeedClass.cs" />
+    <Compile Include="FinderRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\ICategorieRepository.cs" />
@@ -70,7 +71,8 @@
     <Compile Include="Interfaces\IToolRepository.cs" />
     <Compile Include="Interfaces\IUnstackableRepository.cs" />
     <Compile Include="Interfaces\IStatusRepository.cs" />
-    <Compile Include="MenuRepository.cs" />
+    <Compile Include="FenetrePrincipale\MenuRepository.cs" />
+    <Compile Include="AbstractClasses\InWorldRepository.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.cs" />
     <Compile Include="Migrations\201905061510103_FirstAdd.Designer.cs">
       <DependentUpon>201905061510103_FirstAdd.cs</DependentUpon>
@@ -81,7 +83,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusRepository.cs" />
+    <Compile Include="FenetrePrincipale\StatusRepository.cs" />
+    <Compile Include="AbstractClasses\UnstackableRepository.cs" />
+    <Compile Include="AbstractClasses\ToolRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
