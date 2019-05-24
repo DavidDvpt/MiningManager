@@ -17,7 +17,13 @@ namespace MiningManager.ViewModel.ControllerInterfaces
         where U : InWorld
         where V : BaseViewData, new()
     {
-        S ConstructGenericEditViewModel(int selectedItemId = 0);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selectedItemId">id de l'item selectionné</param>
+        /// <param name="nouveau">nouvel item ou non</param>
+        /// <returns></returns>
+        S ConstructGenericEditViewModel(int selectedItemId = 0, bool nouveau = false);
 
         T ConstructGenericEditViewData(int selectedItemId = 0);
 

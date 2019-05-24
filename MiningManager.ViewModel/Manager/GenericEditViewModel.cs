@@ -35,16 +35,17 @@ namespace MiningManager.ViewModel
         {
         }
 
-        public GenericEditViewModel(IController controller, int selectedId) : base(controller)
+        public GenericEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
         {
-            Init(controller, selectedId);
+            Init(controller, selectedId, nouveau);
         }
 
-        public void Init(IController controller, int selectedId)
+        public void Init(IController controller, int selectedId, bool nouveau)
         {
             Controller = controller;
             CreateViewData(selectedId);
             _genericManagerController.Messenger.Register(MessageTypes.MSG_MANAGER_SAVE, SaveItem);
+            NomFormEnabled = nouveau;
         }
 
         #endregion
@@ -53,6 +54,22 @@ namespace MiningManager.ViewModel
         {
             ViewData = _genericManagerController.ConstructGenericEditViewData(selectedId);
         }
+
+        #region Methodes bindées
+
+        public bool NomFormEnabled
+        {
+            get => GetValue(() => NomFormEnabled);
+            set
+            {
+                if (NomFormEnabled != value)
+                {
+                    SetValue(() => NomFormEnabled, value);
+                }
+            }
+        }
+
+        #endregion
 
         protected abstract void SaveItem();
 

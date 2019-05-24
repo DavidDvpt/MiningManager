@@ -4,6 +4,12 @@ namespace MiningManager.ViewModel
 {
     public interface IManagerAutoGeneratingClasses
     {
-        void Init(IController controller, int selectedId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="selectedId"></param>
+        /// <param name="nouveau"></param>
+        void Init(IController controller, int selectedId, bool nouveau);
     }
 }

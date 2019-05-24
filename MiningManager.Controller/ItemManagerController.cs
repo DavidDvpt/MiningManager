@@ -44,11 +44,10 @@ namespace MiningManager.Controller
         /// </summary>
         /// <param name="selectedItemId">Id de l'item selectionné</param>
         /// <returns></returns>
-        public S ConstructGenericEditViewModel(int selectedItemId = 0)
+        public S ConstructGenericEditViewModel(int selectedItemId, bool nouveau)
         {
             S editViewModel = new S();
-            editViewModel.Init(this, selectedItemId);
-
+            editViewModel.Init(this, selectedItemId, nouveau);
             return editViewModel;
         }
 

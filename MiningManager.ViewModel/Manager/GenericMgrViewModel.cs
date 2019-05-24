@@ -55,12 +55,12 @@ namespace MiningManager.ViewModel
         #region ExecuteMethods
 
         public void UpdateExecute(object parameter = null)
-        {
-            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((V)SelectedItem).Id);
+        {            
+            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((V)SelectedItem).Id, false);
         }
         public void CreateExecute(object parameter = null)
         {
-            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel();
+            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(0, true);
         }
         public void SubmitExecute(object parameter = null)
         {
