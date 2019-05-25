@@ -11,7 +11,7 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public interface IItemManagerController<S, T, U, V> : IController
+    public interface IInWorldManagerController<S, T, U, V> : IController
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld

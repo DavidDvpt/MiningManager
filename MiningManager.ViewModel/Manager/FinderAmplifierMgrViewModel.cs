@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderAmplifierMgrViewModel : GenericMgrViewModel<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData, FinderAmplifierListMgrViewData>, IDatagridGeneratingColumns
+    public class FinderAmplifierMgrViewModel : InWorldMgrViewModel<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData, FinderAmplifierListMgrViewData>, IDatagridGeneratingColumns
     {
         public FinderAmplifierMgrViewModel(IController controller) : base(controller)
         {

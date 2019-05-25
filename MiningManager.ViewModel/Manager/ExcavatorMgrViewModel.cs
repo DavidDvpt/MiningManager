@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace MiningManager.ViewModel
 {
-    public class ExcavatorMgrViewModel : GenericMgrViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData, ExcavatorListMgrViewData>, IDatagridGeneratingColumns
+    public class ExcavatorMgrViewModel : InWorldMgrViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData, ExcavatorListMgrViewData>, IDatagridGeneratingColumns
     {
         public ExcavatorMgrViewModel(IController controller) : base(controller)
         {

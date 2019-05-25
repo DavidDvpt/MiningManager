@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel
 {
-    public abstract class GenericItemListMgrViewData<T> : BaseViewData, ISelectionListViewData<T>
+    public abstract class GenericListMgrViewData<T> : BaseViewData, ISelectionListViewData<T>
         where T : BaseViewData
     {
         public ObservableCollection<T> Items

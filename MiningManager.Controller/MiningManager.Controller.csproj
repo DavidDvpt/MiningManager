@@ -47,10 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseController.cs" />
+    <Compile Include="CommunManagerController.cs" />
     <Compile Include="FenetrePrincipale\ContainerController.cs" />
     <Compile Include="FenetrePrincipale\MainController.cs" />
     <Compile Include="FenetrePrincipale\MenuController.cs" />
-    <Compile Include="ItemManagerController.cs" />
+    <Compile Include="InWorldManagerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FenetrePrincipale\StatusController.cs" />
   </ItemGroup>

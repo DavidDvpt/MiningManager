@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace MiningManager.ViewModel
 {
-    public class RefinerMgrViewModel : GenericMgrViewModel<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData, RefinerListMgrViewData>, IDatagridGeneratingColumns
+    public class RefinerMgrViewModel : InWorldMgrViewModel<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData, RefinerListMgrViewData>, IDatagridGeneratingColumns
     {
         public RefinerMgrViewModel(IController controller) : base(controller)
         {

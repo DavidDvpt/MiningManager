@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel.ViewData
 {
-    public class ExcavatorListMgrViewData : GenericItemListMgrViewData<ExcavatorItemListViewData>
+    public class ExcavatorListMgrViewData : GenericListMgrViewData<ExcavatorItemListViewData>
     {
     }
 }

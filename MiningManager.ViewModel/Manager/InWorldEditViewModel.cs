@@ -12,30 +12,30 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public abstract class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
+    public abstract class InWorldEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IItemManagerController<S, T, U, V> _genericManagerController
-            => (IItemManagerController< S, T, U, V>)Controller;
+        private IInWorldManagerController<S, T, U, V> _genericManagerController
+            => (IInWorldManagerController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
 
         /// <summary>
         /// Obligation d'initialiser la classe avec l'appel de la méthode Init
         /// </summary>
-        public GenericEditViewModel()
+        public InWorldEditViewModel()
         {
         }
 
-        public GenericEditViewModel(IController controller) : base(controller)
+        public InWorldEditViewModel(IController controller) : base(controller)
         {
         }
 
-        public GenericEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
+        public InWorldEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
         {
             Init(controller, selectedId, nouveau);
         }

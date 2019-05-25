@@ -16,7 +16,7 @@ namespace MiningManager.Controller
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    class ItemManagerController<S, T, U, V> : BaseController, IItemManagerController<S, T, U, V>
+    class InWorldManagerController<S, T, U, V> : BaseController, IInWorldManagerController<S, T, U, V>
         where S : BaseViewModel, IManagerAutoGeneratingClasses, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
@@ -26,11 +26,11 @@ namespace MiningManager.Controller
 
         #region Constructeurs
 
-        public ItemManagerController()
+        public InWorldManagerController()
         {
         }
 
-        public ItemManagerController(InWorldRepository<U> repository)
+        public InWorldManagerController(InWorldRepository<U> repository)
         {
             _repository = repository;
         }
