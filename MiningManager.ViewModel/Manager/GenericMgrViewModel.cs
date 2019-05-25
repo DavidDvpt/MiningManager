@@ -20,8 +20,8 @@ namespace MiningManager.ViewModel
         where V : CommunItemListViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        public IItemManagerController<S, T, U, V> _itemManagerController
-            => (IItemManagerController < S, T, U, V>)Controller;
+        public IEntityMgrController<S, T, U, V> _itemManagerController
+            => (IEntityMgrController < S, T, U, V>)Controller;
 
         #region Constructeurs
 
@@ -56,11 +56,11 @@ namespace MiningManager.ViewModel
 
         public void UpdateExecute(object parameter = null)
         {            
-            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(((V)SelectedItem).Id, false);
+            CurrentEditViewModel = _itemManagerController.ViewModelGenericEdit(((V)SelectedItem).Id, false);
         }
         public void CreateExecute(object parameter = null)
         {
-            CurrentEditViewModel = _itemManagerController.ConstructGenericEditViewModel(0, true);
+            CurrentEditViewModel = _itemManagerController.ViewModelGenericEdit(0, true);
         }
         public void SubmitExecute(object parameter = null)
         {
@@ -128,7 +128,7 @@ namespace MiningManager.ViewModel
 
         protected void RefreshList()
         {
-            ((W)ViewData).Items = _itemManagerController.DataViewGenericList();
+            ((W)ViewData).Items = _itemManagerController.ObservableEntityList();
         }
         protected void RefreshList(Message message)
         {

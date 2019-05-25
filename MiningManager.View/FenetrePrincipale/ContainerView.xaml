@@ -8,19 +8,19 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type viewModel:FinderMgrViewModel}">
-            <view:ItemManagerView/>
+            <view:EntityMgrView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModel:ExcavatorMgrViewModel}">
-            <view:ItemManagerView/>
+            <view:EntityMgrView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModel:RefinerMgrViewModel}">
-            <view:ItemManagerView/>
+            <view:EntityMgrView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModel:FinderAmplifierMgrViewModel}">
-            <view:ItemManagerView/>
+            <view:EntityMgrView/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>

@@ -16,21 +16,17 @@ namespace MiningManager.Controller
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    class ItemManagerController<S, T, U, V> : BaseController, IItemManagerController<S, T, U, V>
+    public class EntityMgrController<S, T, U, V> : BaseController, IEntityMgrController<S, T, U, V>
         where S : BaseViewModel, IManagerAutoGeneratingClasses, new()
         where T : BaseViewData, new()
-        where U : InWorld, new()
+        where U : Commun, new()
         where V : BaseViewData, new()
     {
-        private InWorldRepository<U> _genericRepository => (InWorldRepository<U>)_repository;
+        private CommunRepository<U> _genericRepository => (CommunRepository<U>)_repository;
 
         #region Constructeurs
 
-        public ItemManagerController()
-        {
-        }
-
-        public ItemManagerController(InWorldRepository<U> repository)
+        public EntityMgrController(IBaseRepository repository)
         {
             _repository = repository;
         }
@@ -44,29 +40,11 @@ namespace MiningManager.Controller
         /// </summary>
         /// <param name="selectedItemId">Id de l'item selectionné</param>
         /// <returns></returns>
-        public S ConstructGenericEditViewModel(int selectedItemId, bool nouveau)
+        public S ViewModelGenericEdit(int selectedItemId, bool nouveau)
         {
             S editViewModel = new S();
             editViewModel.Init(this, selectedItemId, nouveau);
             return editViewModel;
-        }
-
-        /// <summary>
-        /// crée un viewdata à partir de l'id de l'item selectionné
-        /// </summary>
-        /// <param name="selectedItemId">Id de l'item selectionné</param>
-        /// <returns></returns>
-        public T ConstructGenericEditViewData(int selectedItemId = 0)
-        {
-            T viewData = new T();
-
-            if (selectedItemId != 0)
-            {
-                U model = _genericRepository.GetById(selectedItemId);
-                viewData.ImportPropertiesValuesFromModel(model);
-            }
-
-            return viewData;
         }
 
         #endregion
@@ -75,7 +53,7 @@ namespace MiningManager.Controller
         /// Cree une liste observable des item
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<V> DataViewGenericList()
+        public ObservableCollection<V> ObservableEntityList()
         {
             ObservableCollection<V> oc = new ObservableCollection<V>();
             V filvd;
@@ -87,28 +65,6 @@ namespace MiningManager.Controller
             }
 
             return oc;
-        }
-
-        /// <summary>
-        /// Sauvegarde l'entité dans la base de donnée
-        /// </summary>
-        /// <param name="viewData">entité sortie du formulaire</param>
-        public void SaveItem(BaseViewData viewData, bool nouveau)
-        {
-            U item = new U();
-            viewData.ExportPropertiesValuesToModel(item);
-
-            if (nouveau)
-            {
-                item.Modele = _genericRepository.GetModele();
-                _genericRepository.Add(item);
-            }
-            else
-            {
-                _genericRepository.Update(item);
-            }
-            
-            Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, item);
         }
     }
 }

@@ -19,8 +19,8 @@ namespace MiningManager.ViewModel
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IItemManagerController<S, T, U, V> _genericManagerController
-            => (IItemManagerController< S, T, U, V>)Controller;
+        private IEntityMgrController<S, T, U, V> _genericManagerController
+            => (IEntityMgrController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
 

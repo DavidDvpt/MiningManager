@@ -1,5 +1,4 @@
-﻿using MiningManager.Model;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace MiningManager.ViewModel.ControllerInterfaces
 {
@@ -10,12 +9,7 @@ namespace MiningManager.ViewModel.ControllerInterfaces
     /// <typeparam name="T">ViewData de l'item à Editer</typeparam>
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
-    /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public interface IItemManagerController<S, T, U, V> : IController
-        where S : BaseViewModel, new()
-        where T : BaseViewData, new()
-        where U : InWorld
-        where V : BaseViewData, new()
+    public interface IEntityMgrController<S, T, U, V> : IController
     {
         /// <summary>
         /// 
@@ -23,12 +17,10 @@ namespace MiningManager.ViewModel.ControllerInterfaces
         /// <param name="selectedItemId">id de l'item selectionné</param>
         /// <param name="nouveau">nouvel item ou non</param>
         /// <returns></returns>
-        S ConstructGenericEditViewModel(int selectedItemId = 0, bool nouveau = false);
+        S ViewModelGenericEdit(int selectedItemId = 0, bool nouveau = false);
 
-        T ConstructGenericEditViewData(int selectedItemId = 0);
+        ObservableCollection<V> ObservableEntityList();
 
-        ObservableCollection<V> DataViewGenericList();
 
-        void SaveItem(BaseViewData viewData, bool nouveau);
     }
 }
