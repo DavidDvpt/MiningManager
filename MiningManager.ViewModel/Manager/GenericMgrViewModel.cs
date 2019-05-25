@@ -20,8 +20,8 @@ namespace MiningManager.ViewModel
         where V : CommunItemListViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        public IItemManagerController<S, T, U, V> _itemManagerController
-            => (IItemManagerController < S, T, U, V>)Controller;
+        public IInWorldMgrController<S, T, U, V> _itemManagerController
+            => (IInWorldMgrController < S, T, U, V>)Controller;
 
         #region Constructeurs
 

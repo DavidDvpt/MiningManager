@@ -19,8 +19,8 @@ namespace MiningManager.ViewModel
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IItemManagerController<S, T, U, V> _genericManagerController
-            => (IItemManagerController< S, T, U, V>)Controller;
+        private IInWorldMgrController<S, T, U, V> _genericManagerController
+            => (IInWorldMgrController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
 
@@ -76,7 +76,7 @@ namespace MiningManager.ViewModel
         protected void SaveUnstackable()
         {
             bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
-            _genericManagerController.SaveItem(ViewData, nouveau);
+            _genericManagerController.SaveInWorld(ViewData, nouveau);
             _genericManagerController.Messenger.DeRegister(this);
         }
 

@@ -16,7 +16,7 @@ namespace MiningManager.Controller
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    class ItemManagerController<S, T, U, V> : BaseController, IItemManagerController<S, T, U, V>
+    class ItemManagerController<S, T, U, V> : BaseController, IInWorldMgrController<S, T, U, V>
         where S : BaseViewModel, IManagerAutoGeneratingClasses, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
@@ -93,7 +93,7 @@ namespace MiningManager.Controller
         /// Sauvegarde l'entité dans la base de donnée
         /// </summary>
         /// <param name="viewData">entité sortie du formulaire</param>
-        public void SaveItem(BaseViewData viewData, bool nouveau)
+        public void SaveInWorld(BaseViewData viewData, bool nouveau)
         {
             U item = new U();
             viewData.ExportPropertiesValuesToModel(item);
