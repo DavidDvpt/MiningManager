@@ -61,7 +61,7 @@
     <Compile Include="Manager\ExcavatorMgrViewModel.cs" />
     <Compile Include="Manager\ExcavatorEditViewModel.cs" />
     <Compile Include="Manager\IDatagridGeneratingColumns.cs" />
-    <Compile Include="Manager\GenericEditViewModel.cs" />
+    <Compile Include="Manager\EntityEditViewModel.cs" />
     <Compile Include="Manager\FinderEditViewModel.cs" />
     <Compile Include="Manager\IManagerAutoGeneratingClasses.cs" />
     <Compile Include="Manager\RefinerEditViewModel.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="FenetrePrincipale\MainViewModel.cs" />
     <Compile Include="FenetrePrincipale\MenuViewModel.cs" />
     <Compile Include="Manager\FinderMgrViewModel.cs" />
-    <Compile Include="Manager\GenericMgrViewModel.cs" />
+    <Compile Include="Manager\EntityMgrViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseClasses\RelayCommand.cs" />
     <Compile Include="FenetrePrincipale\StatusViewModel.cs" />

@@ -17,7 +17,15 @@ namespace MiningManager.ViewModel.ControllerInterfaces
         /// <param name="selectedItemId">id de l'item selectionné</param>
         /// <param name="nouveau">nouvel item ou non</param>
         /// <returns></returns>
-        S ViewModelGenericEdit(int selectedItemId = 0, bool nouveau = false);
+        S ViewModelInWorldEdit(int selectedItemId = 0, bool nouveau = false);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selectedItemId">id de l'item selectionné</param>
+        /// <param name="nouveau">nouvel item ou non</param>
+        /// <returns></returns>
+        S ViewModelCommunEdit(int selectedItemId = 0, bool nouveau = false);
 
         ObservableCollection<V> ObservableEntityList();
 

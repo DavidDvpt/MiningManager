@@ -12,30 +12,30 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public abstract class GenericEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
+    public abstract class EntityEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
         where U : InWorld, new()
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IEntityMgrController<S, T, U, V> _genericManagerController
-            => (IEntityMgrController< S, T, U, V>)Controller;
+        private IEntityEditMgrController<S, T, U, V> _genericManagerController
+            => (IEntityEditMgrController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
 
         /// <summary>
         /// Obligation d'initialiser la classe avec l'appel de la méthode Init
         /// </summary>
-        public GenericEditViewModel()
+        public EntityEditViewModel()
         {
         }
 
-        public GenericEditViewModel(IController controller) : base(controller)
+        public EntityEditViewModel(IController controller) : base(controller)
         {
         }
 
-        public GenericEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
+        public EntityEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
         {
             Init(controller, selectedId, nouveau);
         }
@@ -76,7 +76,7 @@ namespace MiningManager.ViewModel
         protected void SaveUnstackable()
         {
             bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
-            _genericManagerController.SaveItem(ViewData, nouveau);
+            _genericManagerController.SaveEntity(ViewData, nouveau);
             _genericManagerController.Messenger.DeRegister(this);
         }
 

@@ -15,7 +15,6 @@ namespace MiningManager.Controller
     /// <typeparam name="T">ViewData de l'item à Editer</typeparam>
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
-    /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
     public class EntityMgrController<S, T, U, V> : BaseController, IEntityMgrController<S, T, U, V>
         where S : BaseViewModel, IManagerAutoGeneratingClasses, new()
         where T : BaseViewData, new()
@@ -40,11 +39,23 @@ namespace MiningManager.Controller
         /// </summary>
         /// <param name="selectedItemId">Id de l'item selectionné</param>
         /// <returns></returns>
-        public S ViewModelGenericEdit(int selectedItemId, bool nouveau)
+        public S ViewModelInWorldEdit(int selectedItemId, bool nouveau)
         {
             S editViewModel = new S();
+            IInWorldRepository<U> r = new InWorldRepository<U>();
+            IEntityEditMgrController<S, T, U, V> c = new InWorldEditMgrController<S, T, U, V>();
             editViewModel.Init(this, selectedItemId, nouveau);
             return editViewModel;
+        }
+
+        /// <summary>
+        /// Cree le viewModel d'edition de l'item selectionné
+        /// </summary>
+        /// <param name="selectedItemId">Id de l'item selectionné</param>
+        /// <returns></returns>
+        public S ViewModelCommunEdit(int selectedItemId = 0, bool nouveau = false)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
@@ -66,5 +77,6 @@ namespace MiningManager.Controller
 
             return oc;
         }
+
     }
 }

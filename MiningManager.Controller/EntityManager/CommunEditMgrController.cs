@@ -1,22 +1,22 @@
-﻿using MiningManager.ViewModel;
+﻿using MiningManager.Messengers;
 using MiningManager.Model;
-using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.Repository;
-using MiningManager.Messengers;
+using MiningManager.ViewModel;
+using MiningManager.ViewModel.ControllerInterfaces;
 
 namespace MiningManager.Controller
 {
-    public class InWorldEditMgrController<S, T, U, V> : BaseController, IEntityEditMgrController<S, T, U, V>
+    public class CommunEditMgrController<S, T, U, V> : BaseController, IEntityEditMgrController<S, T, U, V>
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
-        where U : InWorld, new()
+        where U : Commun, new()
         where V : BaseViewData, new()
     {
-        private InWorldRepository<U> _genericRepository => (InWorldRepository<U>)_repository;
+        private CommunRepository<U> _genericRepository => (CommunRepository<U>)_repository;
 
         #region Constructeurs
 
-        public InWorldEditMgrController(IBaseRepository repository)
+        public CommunEditMgrController(IBaseRepository repository)
         {
             _repository = repository;
         }
@@ -46,14 +46,13 @@ namespace MiningManager.Controller
         /// </summary>
         /// <param name="viewData"></param>
         /// <param name="nouveau"></param>
-        public void SaveItem(BaseViewData viewData, bool nouveau)
+        public void SaveEntity(BaseViewData viewData, bool nouveau)
         {
             U item = new U();
             viewData.ExportPropertiesValuesToModel(item);
 
             if (nouveau)
             {
-                item.Modele = _genericRepository.GetModele();
                 _genericRepository.Add(item);
             }
             else

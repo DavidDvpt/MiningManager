@@ -12,6 +12,6 @@
 
         T ConstructGenericEditViewData(int selectedItemId = 0);
 
-        void SaveItem(BaseViewData viewData, bool nouveau);
+        void SaveEntity(BaseViewData viewData, bool nouveau);
     }
 }

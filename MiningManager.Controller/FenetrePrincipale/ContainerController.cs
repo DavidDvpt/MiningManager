@@ -8,15 +8,13 @@ namespace MiningManager.Controller
 {
     public class ContainerController : BaseController, IContainerController
     {
-
-
         public void Start()
         {
         }
 
         public FinderMgrViewModel ConstructFinderMgrViewModel()
         {
-            InWorldRepository<Finder> ifr = new InWorldRepository<Finder>();
+            CommunRepository<Finder> ifr = new CommunRepository<Finder>();
 
             IEntityMgrController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData> itemManagerController =
                 new EntityMgrController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData>(ifr);
@@ -26,7 +24,7 @@ namespace MiningManager.Controller
 
         public ExcavatorMgrViewModel ConstructExcavatorMgrViewModel()
         {
-            InWorldRepository<Excavator> ifr = new InWorldRepository<Excavator>();
+            CommunRepository<Excavator> ifr = new CommunRepository<Excavator>();
 
             IEntityMgrController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData> itemManagerController =
                 new EntityMgrController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData>(ifr);
@@ -36,7 +34,7 @@ namespace MiningManager.Controller
 
         public RefinerMgrViewModel ConstructRefinerMgrViewModel()
         {
-            InWorldRepository<Refiner> ifr = new InWorldRepository<Refiner>();
+            CommunRepository<Refiner> ifr = new CommunRepository<Refiner>();
 
             IEntityMgrController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData> itemManagerController =
                 new EntityMgrController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData>(ifr);
@@ -46,7 +44,7 @@ namespace MiningManager.Controller
 
         public FinderAmplifierMgrViewModel ConstructFinderAmplifierMgrViewModel()
         {
-            InWorldRepository<FinderAmplifier> ifr = new InWorldRepository<FinderAmplifier>();
+            CommunRepository<FinderAmplifier> ifr = new CommunRepository<FinderAmplifier>();
 
             IEntityMgrController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData> itemManagerController =
                 new EntityMgrController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData>(ifr);
