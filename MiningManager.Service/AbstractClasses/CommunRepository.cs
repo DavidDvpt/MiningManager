@@ -88,5 +88,12 @@ namespace MiningManager.Repository
         {
             Context.SaveChanges();
         }
+
+        public int GetModeleId()
+        {
+            T modele = DbSet.First();
+
+            return (int)modele.GetType().GetProperty("ModeleId").GetValue(modele);
+        }
     }
 }

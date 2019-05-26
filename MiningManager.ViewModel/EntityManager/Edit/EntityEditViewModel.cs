@@ -44,7 +44,7 @@ namespace MiningManager.ViewModel
         {
             Controller = controller;
             CreateViewData(selectedId);
-            _genericManagerController.Messenger.Register(MessageTypes.MSG_MANAGER_SAVE, SaveItem);
+            _genericManagerController.Messenger.Register(MessageTypes.MSG_MANAGER_SAVE, SaveEntity);
             NomFormEnabled = nouveau;
         }
 
@@ -71,12 +71,12 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        protected abstract void SaveItem();
+        protected abstract void SaveEntity();
 
         protected void SaveUnstackable()
         {
             bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
-            _genericManagerController.SaveItem(ViewData, nouveau);
+            _genericManagerController.SaveEntity(ViewData, nouveau);
             _genericManagerController.Messenger.DeRegister(this);
         }
 

@@ -24,6 +24,6 @@ namespace MiningManager.ViewModel.ControllerInterfaces
 
         ObservableCollection<V> DataViewGenericList();
 
-        void SaveItem(BaseViewData viewData, bool nouveau);
+        void SaveEntity(BaseViewData viewData, bool nouveau);
     }
 }

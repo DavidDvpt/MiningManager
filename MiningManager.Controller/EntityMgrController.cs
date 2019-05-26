@@ -92,14 +92,15 @@ namespace MiningManager.Controller
         /// Sauvegarde l'entité dans la base de donnée
         /// </summary>
         /// <param name="viewData">entité sortie du formulaire</param>
-        public void SaveItem(BaseViewData viewData, bool nouveau)
+        public void SaveEntity(BaseViewData viewData, bool nouveau)
         {
             U item = new U();
             viewData.ExportPropertiesValuesToModel(item);
 
             if (nouveau)
             {
-                item.Modele = _genericRepository.GetModele();
+                // utilisation de la reflexion pour asigner la valeur au ModeleId
+                item.GetType().GetProperty("ModeleId").SetValue(item, (int)_genericRepository.GetModeleId());
                 _genericRepository.Add(item);
             }
             else

@@ -9,6 +9,8 @@ namespace MiningManager.Repository
     {
         T GetById(int Id);
 
+        int GetModeleId();
+
         IQueryable<T> GetAll();
 
         T Add(T entity);

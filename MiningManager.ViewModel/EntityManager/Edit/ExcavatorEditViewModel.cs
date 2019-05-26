@@ -5,7 +5,7 @@ namespace MiningManager.ViewModel
 {
     public class ExcavatorEditViewModel : EntityEditViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorListItemViewData, ExcavatorListViewData>
     {
-        protected override void SaveItem()
+        protected override void SaveEntity()
         {
             SaveUnstackable();
         }

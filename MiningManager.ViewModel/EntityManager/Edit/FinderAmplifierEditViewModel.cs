@@ -5,7 +5,7 @@ namespace MiningManager.ViewModel
 {
     public class FinderAmplifierEditViewModel : EntityEditViewModel<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierListItemViewData, FinderAmplifierListViewData>
     {
-        protected override void SaveItem()
+        protected override void SaveEntity()
         {
             SaveUnstackable();
         }
