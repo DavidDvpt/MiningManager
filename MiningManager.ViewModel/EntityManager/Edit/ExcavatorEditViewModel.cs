@@ -3,7 +3,7 @@ using MiningManager.ViewModel.ViewData;
 
 namespace MiningManager.ViewModel
 {
-    public class ExcavatorEditViewModel : GenericEditViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData, ExcavatorListMgrViewData>
+    public class ExcavatorEditViewModel : EntityEditViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorListItemViewData, ExcavatorListViewData>
     {
         protected override void SaveItem()
         {

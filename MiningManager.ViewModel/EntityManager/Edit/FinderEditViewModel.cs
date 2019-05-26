@@ -3,7 +3,7 @@ using MiningManager.ViewModel.ViewData;
 
 namespace MiningManager.ViewModel
 {
-    public class FinderAmplifierEditViewModel : GenericEditViewModel<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData, FinderAmplifierListMgrViewData>
+    public class FinderEditViewModel : EntityEditViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderListItemViewData, FinderListViewData>
     {
         protected override void SaveItem()
         {

@@ -1,15 +1,16 @@
 ﻿using MiningManager.Model;
 using MiningManager.ViewModel.ControllerInterfaces;
 using MiningManager.ViewModel.ViewData;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace MiningManager.ViewModel
 {
-    public class RefinerMgrViewModel : GenericMgrViewModel<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData, RefinerListMgrViewData>, IDatagridGeneratingColumns
+    public class ExcavatorMgrViewModel : EntityMgrViewModel<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorListItemViewData, ExcavatorListViewData>, IDatagridGeneratingColumns
     {
-        public RefinerMgrViewModel(IController controller) : base(controller)
+        public ExcavatorMgrViewModel(IController controller) : base(controller)
         {
         }
 
@@ -36,13 +37,16 @@ namespace MiningManager.ViewModel
                 case "UsePerMin":
                     column.DisplayIndex = 2;
                     break;
-                case "TotalUse":
+                case "Efficienty":
                     column.DisplayIndex = 6;
+                    break;
+                case "TotalUse":
+                    column.DisplayIndex = 7;
                     break;
                 case "Id":
                 case "ModeleId":
                 case "Error":
-                    column.DisplayIndex = 7;
+                    column.DisplayIndex = 8;
                     column.Visibility = Visibility.Hidden;
                     break;
             }
@@ -57,4 +61,3 @@ namespace MiningManager.ViewModel
         }
     }
 }
-

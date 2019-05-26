@@ -18,8 +18,8 @@ namespace MiningManager.Controller
         {
             InWorldRepository<Finder> ifr = new InWorldRepository<Finder>();
 
-            IItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData> itemManagerController =
-                new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderItemListViewData>(ifr);
+            IEntityMgrController<FinderEditViewModel, FinderEditViewData, Finder, FinderListItemViewData> itemManagerController =
+                new ItemManagerController<FinderEditViewModel, FinderEditViewData, Finder, FinderListItemViewData>(ifr);
 
             return new FinderMgrViewModel(itemManagerController);
         }
@@ -28,8 +28,8 @@ namespace MiningManager.Controller
         {
             InWorldRepository<Excavator> ifr = new InWorldRepository<Excavator>();
 
-            IItemManagerController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData> itemManagerController =
-                new ItemManagerController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorItemListViewData>(ifr);
+            IEntityMgrController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorListItemViewData> itemManagerController =
+                new ItemManagerController<ExcavatorEditViewModel, ExcavatorEditViewData, Excavator, ExcavatorListItemViewData>(ifr);
 
             return new ExcavatorMgrViewModel(itemManagerController);
         }
@@ -38,8 +38,8 @@ namespace MiningManager.Controller
         {
             InWorldRepository<Refiner> ifr = new InWorldRepository<Refiner>();
 
-            IItemManagerController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData> itemManagerController =
-                new ItemManagerController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerItemListViewData>(ifr);
+            IEntityMgrController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerListItemViewData> itemManagerController =
+                new ItemManagerController<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerListItemViewData>(ifr);
 
             return new RefinerMgrViewModel(itemManagerController);
         }
@@ -48,8 +48,8 @@ namespace MiningManager.Controller
         {
             InWorldRepository<FinderAmplifier> ifr = new InWorldRepository<FinderAmplifier>();
 
-            IItemManagerController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData> itemManagerController =
-                new ItemManagerController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierItemListViewData>(ifr);
+            IEntityMgrController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierListItemViewData> itemManagerController =
+                new ItemManagerController<FinderAmplifierEditViewModel, FinderAmplifierEditViewData, FinderAmplifier, FinderAmplifierListItemViewData>(ifr);
 
             return new FinderAmplifierMgrViewModel(itemManagerController);
         }

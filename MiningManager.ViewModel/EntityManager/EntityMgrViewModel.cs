@@ -13,19 +13,19 @@ namespace MiningManager.ViewModel
     /// <typeparam name="U">Entité Modele</typeparam>
     /// <typeparam name="V">ViewData de l'item ds la list</typeparam>
     /// <typeparam name="W">Viewdata de la liste d'items/typeparam>
-    public class GenericMgrViewModel<S, T, U, V, W> : BaseViewModel
+    public class EntityMgrViewModel<S, T, U, V, W> : BaseViewModel
         where S : BaseViewModel, new()
         where T : CommunEditViewData, new()
         where U : InWorld, new()
         where V : CommunItemListViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        public IItemManagerController<S, T, U, V> _itemManagerController
-            => (IItemManagerController < S, T, U, V>)Controller;
+        public IEntityMgrController<S, T, U, V> _itemManagerController
+            => (IEntityMgrController < S, T, U, V>)Controller;
 
         #region Constructeurs
 
-        public GenericMgrViewModel(IController controller) : base(controller)
+        public EntityMgrViewModel(IController controller) : base(controller)
         {
             UpdateCommand = new RelayCommand(UpdateExecute, UpdateCanExecute);
             CreateCommand = new RelayCommand(CreateExecute, CreateCanExecute);

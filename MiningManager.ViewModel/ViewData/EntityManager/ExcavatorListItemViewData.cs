@@ -3,7 +3,7 @@
     /// <summary>
     /// Classe utilisee pour l'affichage dans une liste. n'implemente pas la validation
     /// </summary>
-    public class ExcavatorItemListViewData : ToolListItemViewData
+    public class ExcavatorListItemViewData : ToolListItemViewData
     {
 
         public decimal Efficienty { get; set; }
