@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel.ViewData
 {
-    public class FinderListViewData : GenericItemListMgrViewData<FinderListItemViewData>
+    public class FinderListViewData : GenericListViewData<FinderListItemViewData>
     {
     }
 }

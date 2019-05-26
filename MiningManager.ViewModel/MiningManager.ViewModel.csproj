@@ -65,6 +65,8 @@
     <Compile Include="EntityManager\Edit\IManagerAutoGeneratingClasses.cs" />
     <Compile Include="EntityManager\Edit\RefinerEditViewModel.cs" />
     <Compile Include="EntityManager\RefinerMgrViewModel.cs" />
+    <Compile Include="EntityManager\Edit\ModeleEditViewModel.cs" />
+    <Compile Include="EntityManager\ModeleMgrViewModel.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierEditViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierListItemViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierListViewData.cs" />
@@ -101,8 +103,11 @@
     <Compile Include="FenetrePrincipale\StatusViewModel.cs" />
     <Compile Include="ViewData\BaseClasses\BaseViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderEditViewData.cs" />
-    <Compile Include="ViewData\EntityManager\GenericItemMgrListViewData.cs" />
+    <Compile Include="ViewData\EntityManager\GenericListViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderListItemViewData.cs" />
+    <Compile Include="ViewData\EntityManager\ModeleEditViewData.cs" />
+    <Compile Include="ViewData\EntityManager\ModeleListItemViewData.cs" />
+    <Compile Include="ViewData\EntityManager\ModeleListViewData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

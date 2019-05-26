@@ -13,6 +13,7 @@ namespace MiningManager.ViewModel
             Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_EXCAVATORMGR, GetExcavatorMgr);
             Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_REFINERMGR, GetRefinerMgr);
             Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_FINDERAMPLIFIERMGR, GetFinderAmplifierMgr);
+            Controller.Messenger.Register(Messengers.MessageTypes.MSG_COMMAND_MENU_MODELEMGR, GetModeleMgr);
         }
 
 
@@ -39,6 +40,11 @@ namespace MiningManager.ViewModel
         private void GetFinderAmplifierMgr()
         {
             CurrentViewModel = ContainerController.ConstructFinderAmplifierMgrViewModel();
+        }
+
+        private void GetModeleMgr()
+        {
+            CurrentViewModel = ContainerController.ConstructModeleMgrViewModel();
         }
 
 

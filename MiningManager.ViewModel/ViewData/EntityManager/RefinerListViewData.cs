@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel.ViewData
 {
-    public class RefinerListMgrViewData : GenericItemListMgrViewData<RefinerListItemViewData>
+    public class RefinerListMgrViewData : GenericListViewData<RefinerListItemViewData>
     {
     }
 }

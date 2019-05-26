@@ -18,6 +18,7 @@ namespace MiningManager.ViewModel
         public RelayCommand ExcavatorMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_EXCAVATORMGR); });
         public RelayCommand RefinerMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_REFINERMGR); });
         public RelayCommand FinderAmplifierMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_FINDERAMPLIFIERMGR); });
+        public RelayCommand ModeleMgr => new RelayCommand(x => { Controller.Messenger.NotifyColleagues(MessageTypes.MSG_COMMAND_MENU_MODELEMGR); });
 
         #endregion
 

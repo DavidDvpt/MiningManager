@@ -55,14 +55,17 @@
     <Compile Include="FenetrePrincipale\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FinderAmplifierView.xaml.cs">
-      <DependentUpon>FinderAmplifierView.xaml</DependentUpon>
+    <Compile Include="FinderAmplifierEditView.xaml.cs">
+      <DependentUpon>FinderAmplifierEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="FinderEditView.xaml.cs">
       <DependentUpon>FinderEditView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ItemManagerView.xaml.cs">
-      <DependentUpon>ItemManagerView.xaml</DependentUpon>
+    <Compile Include="EntityMgrView.xaml.cs">
+      <DependentUpon>EntityMgrView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModeleEditView.xaml.cs">
+      <DependentUpon>ModeleEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FenetrePrincipale\StatusView.xaml.cs">
@@ -97,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="FinderAmplifierView.xaml">
+    <Page Include="FinderAmplifierEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,7 +108,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ItemManagerView.xaml">
+    <Page Include="EntityMgrView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModeleEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

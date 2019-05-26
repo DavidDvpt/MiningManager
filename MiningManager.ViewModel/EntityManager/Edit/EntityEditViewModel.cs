@@ -15,7 +15,7 @@ namespace MiningManager.ViewModel
     public abstract class EntityEditViewModel<S, T, U, V, W> : BaseViewModel, IManagerAutoGeneratingClasses
         where S : BaseViewModel, new()
         where T : BaseViewData, new()
-        where U : InWorld, new()
+        where U : Commun, new()
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {

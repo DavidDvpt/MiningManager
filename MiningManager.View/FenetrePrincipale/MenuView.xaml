@@ -20,16 +20,16 @@
         </MenuItem>
 
         <MenuItem Header="Manager">
-            <!--<MenuItem Header="Categorie" Command="{Binding CategorieMgr}"/>
+            <!--<MenuItem Header="Categorie" Command="{Binding CategorieMgr}"/>-->
             <MenuItem Header="Modele" Command="{Binding ModeleMgr}"/>
             <Separator />
-            <MenuItem Header="Planet" Command="{Binding PlanetMgr}"/>-->
+            <!--<MenuItem Header="Planet" Command="{Binding PlanetMgr}"/>-->
             <MenuItem Header="Finder" Command="{Binding FinderMgr}"/>
             <MenuItem Header="Excavator" Command="{Binding ExcavatorMgr}"/>
             <MenuItem Header="Refiner" Command="{Binding RefinerMgr}"/>
             <Separator />
             <MenuItem Header="Finder Amplifier" Command="{Binding FinderAmplifierMgr}"/>
-            <MenuItem Header="Enhancer" Command="{Binding EnhancerMgr}"/>
+            <!--<MenuItem Header="Enhancer" Command="{Binding EnhancerMgr}"/>-->
             <Separator />
             <!--<MenuItem Header="SearchMode" Command="{Binding SearchModeMgr}"/>-->
             <!--<MenuItem Header="Setup" Command="{Binding SetupMgr}"/>-->
