@@ -19,7 +19,7 @@ namespace MiningManager.ViewModel
         where V : BaseViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
-        private IEntityMgrController<S, T, U, V> _genericManagerController
+        protected IEntityMgrController<S, T, U, V> _genericManagerController
             => (IEntityMgrController< S, T, U, V>)Controller;
 
         #region Constructeurs et Init
@@ -40,7 +40,7 @@ namespace MiningManager.ViewModel
             Init(controller, selectedId, nouveau);
         }
 
-        public void Init(IController controller, int selectedId, bool nouveau)
+        public virtual void Init(IController controller, int selectedId, bool nouveau)
         {
             Controller = controller;
             CreateViewData(selectedId);
@@ -50,7 +50,7 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        private void CreateViewData(int selectedId)
+        protected void CreateViewData(int selectedId)
         {
             ViewData = _genericManagerController.ConstructGenericEditViewData(selectedId);
         }
@@ -71,9 +71,7 @@ namespace MiningManager.ViewModel
 
         #endregion
 
-        protected abstract void SaveEntity();
-
-        protected void SaveUnstackable()
+        protected void SaveEntity()
         {
             bool nouveau = ((CommunEditViewData)ViewData).Id == 0 ? true : false;
             _genericManagerController.SaveEntity(ViewData, nouveau);

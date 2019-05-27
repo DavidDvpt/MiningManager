@@ -1,4 +1,5 @@
 ﻿using MiningManager.Model;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace MiningManager.ViewModel.ControllerInterfaces
@@ -23,6 +24,8 @@ namespace MiningManager.ViewModel.ControllerInterfaces
         T ConstructGenericEditViewData(int selectedItemId = 0);
 
         ObservableCollection<V> DataViewGenericList();
+
+        List<Categorie> GetCategories();
 
         void SaveEntity(BaseViewData viewData, bool nouveau);
     }

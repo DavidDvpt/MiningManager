@@ -35,6 +35,14 @@
                                  Width="220" IsEnabled="{Binding NomFormEnabled}" Validation.Error="Validation_Error"/>
                 <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=tbxNom}"/>
             </StackPanel>
+
+            <StackPanel Name="spCategorie" Style="{StaticResource spBlocControl}">
+                <Label Name="lbCategorie" Content="Categorie : "/>
+                <ComboBox ItemsSource="{ Binding Categories }"
+                         SelectedItem="{Binding ViewData.Categorie}"
+                         DisplayMemberPath="Nom"
+                          Width="100"/>
+            </StackPanel>
         </StackPanel>            
     </Grid>
 </local:ValidationErrorView>

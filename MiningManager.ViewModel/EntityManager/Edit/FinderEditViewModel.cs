@@ -5,9 +5,5 @@ namespace MiningManager.ViewModel
 {
     public class FinderEditViewModel : EntityEditViewModel<FinderEditViewModel, FinderEditViewData, Finder, FinderListItemViewData, FinderListViewData>
     {
-        protected override void SaveEntity()
-        {
-            SaveUnstackable();
-        }
     }
 }

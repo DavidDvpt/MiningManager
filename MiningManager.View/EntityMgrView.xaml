@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateCommand}" />
+            <Button Name="btnUpdate" Content="Modifier" Command="{Binding UpdateCommand}"/>
             <Button Name="btnCreate" Content="Créer" Grid.Column="1" Command="{Binding CreateCommand}"/>
             <Button Name="btnValider" Content="Sauver" Grid.Column="2" Command="{Binding SubmitCommand}"/>
             <Button Name="btnAnnuler" Content="Annuler" Grid.Column="3"  Command="{Binding CancelCommand}"/>

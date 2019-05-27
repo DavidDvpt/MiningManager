@@ -5,9 +5,6 @@ namespace MiningManager.ViewModel
 {
     public class RefinerEditViewModel : EntityEditViewModel<RefinerEditViewModel, RefinerEditViewData, Refiner, RefinerListItemViewData, RefinerListMgrViewData>
     {
-        protected override void SaveEntity()
-        {
-            SaveUnstackable();
-        }
+
     }
 }

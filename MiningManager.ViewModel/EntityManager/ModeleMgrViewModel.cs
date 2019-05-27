@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using MiningManager.Model;
@@ -38,5 +39,11 @@ namespace MiningManager.ViewModel
                 SetValues(c);
             }
         }
+
+        public override bool UpdateCanExecute(object parameter = null)
+        {
+            return false;
+        }
+
     }
 }

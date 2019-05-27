@@ -77,7 +77,7 @@ namespace MiningManager.ViewModel
 
         #region CanExecute Methods
 
-        public bool UpdateCanExecute(object parameter = null)
+        public virtual bool UpdateCanExecute(object parameter = null)
         {
             return (CurrentEditViewModel == null) && (SelectedItem != null);
         }

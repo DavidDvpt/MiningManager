@@ -5,6 +5,7 @@ using MiningManager.ViewModel;
 using System.Collections.ObjectModel;
 using System.Linq;
 using MiningManager.Messengers;
+using System.Collections.Generic;
 
 namespace MiningManager.Controller
 {
@@ -100,7 +101,9 @@ namespace MiningManager.Controller
             if (nouveau)
             {
                 // utilisation de la reflexion pour asigner la valeur au ModeleId
-                item.GetType().GetProperty("ModeleId").SetValue(item, (int)_genericRepository.GetModeleId());
+                if (item.GetType().GetProperty("ModeleId") != null)
+                    item.GetType().GetProperty("ModeleId").SetValue(item, (int)_genericRepository.GetModeleId());
+
                 _genericRepository.Add(item);
             }
             else
@@ -109,6 +112,11 @@ namespace MiningManager.Controller
             }
             
             Messenger.NotifyColleagues(MessageTypes.MSG_MANAGER_EDIT, item);
+        }
+
+        public List<Categorie> GetCategories()
+        {
+            return _genericRepository.Context.Categories.ToList();
         }
     }
 }
