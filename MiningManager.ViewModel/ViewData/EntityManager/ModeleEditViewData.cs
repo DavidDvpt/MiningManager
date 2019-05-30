@@ -1,9 +1,11 @@
 ﻿using MiningManager.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace MiningManager.ViewModel.ViewData
 {
     public class ModeleEditViewData : CommunEditViewData
     {
+        [Required]
         public Categorie Categorie
         {
             get { return GetValue(() => Categorie); }

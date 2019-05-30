@@ -23,9 +23,13 @@ namespace MiningManager.ViewModel
                     column.DisplayIndex = 0;
                     column.Width = 200;
                     break;
-
+                case "CategorieNom":
+                    column.DisplayIndex = 0;
+                    //column.CellStyle. = 200;
+                    break;
                 case "Id":
                 case "Error":
+                case "Categorie":
                     column.DisplayIndex = 1;
                     column.Visibility = Visibility.Hidden;
                     break;

@@ -39,9 +39,12 @@
             <StackPanel Name="spCategorie" Style="{StaticResource spBlocControl}">
                 <Label Name="lbCategorie" Content="Categorie : "/>
                 <ComboBox ItemsSource="{ Binding Categories }"
-                         SelectedItem="{Binding ViewData.Categorie}"
-                         DisplayMemberPath="Nom"
-                          Width="100"/>
+                          Name="cbxCategories"
+                          SelectedItem="{Binding ViewData.Categorie, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                          DisplayMemberPath="Nom"
+                          Width="100"
+                          Validation.Error="Validation_Error"/>
+                <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=cbxCategories}"/>
             </StackPanel>
         </StackPanel>            
     </Grid>

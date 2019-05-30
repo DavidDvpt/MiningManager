@@ -31,14 +31,14 @@ namespace MiningManager.ViewModel
         {
         }
 
-        public EntityEditViewModel(IController controller) : base(controller)
-        {
-        }
+        //public EntityEditViewModel(IController controller) : base(controller)
+        //{
+        //}
 
-        public EntityEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
-        {
-            Init(controller, selectedId, nouveau);
-        }
+        //public EntityEditViewModel(IController controller, int selectedId, bool nouveau) : base(controller)
+        //{
+        //    Init(controller, selectedId, nouveau);
+        //}
 
         public virtual void Init(IController controller, int selectedId, bool nouveau)
         {
