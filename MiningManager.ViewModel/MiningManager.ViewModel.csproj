@@ -67,6 +67,7 @@
     <Compile Include="EntityManager\RefinerMgrViewModel.cs" />
     <Compile Include="EntityManager\Edit\ModeleEditViewModel.cs" />
     <Compile Include="EntityManager\ModeleMgrViewModel.cs" />
+    <Compile Include="ViewData\EnhancerListItemViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierEditViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierListItemViewData.cs" />
     <Compile Include="ViewData\EntityManager\FinderAmplifierListViewData.cs" />
@@ -82,10 +83,10 @@
     <Compile Include="ViewData\BaseClasses\InWorldEditViewData.cs" />
     <Compile Include="ViewData\BaseClasses\ToolEditViewData.cs" />
     <Compile Include="ViewData\BaseClasses\UnstackableEditViewData.cs" />
-    <Compile Include="ViewData\BaseClasses\InWorldItemListViewData.cs" />
+    <Compile Include="ViewData\BaseClasses\InWorldListItemViewData.cs" />
     <Compile Include="ViewData\BaseClasses\ToolListItemViewData.cs" />
-    <Compile Include="ViewData\BaseClasses\UnstackableItemListViewData.cs" />
-    <Compile Include="ViewData\BaseClasses\CommunItemListViewData.cs" />
+    <Compile Include="ViewData\BaseClasses\UnstackableListItemViewData.cs" />
+    <Compile Include="ViewData\BaseClasses\CommunListItemViewData.cs" />
     <Compile Include="ControllerInterfaces\IEntityMgrController.cs" />
     <Compile Include="FenetrePrincipale\ContainerViewModel.cs" />
     <Compile Include="ControllerInterfaces\IContainerController.cs" />

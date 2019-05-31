@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel
 {
-    public abstract class UnstackableItemListViewData : InWorldItemListViewData
+    public abstract class UnstackableListItemViewData : InWorldListItemViewData
     {
         private decimal _decay;
         public bool IsLimited { get; set; }    

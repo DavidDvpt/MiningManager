@@ -1,6 +1,6 @@
 ﻿namespace MiningManager.ViewModel.ViewData
 {
-    public class FinderAmplifierListItemViewData : UnstackableItemListViewData
+    public class FinderAmplifierListItemViewData : UnstackableListItemViewData
     {
         public decimal Coefficient { get; set; }
     }

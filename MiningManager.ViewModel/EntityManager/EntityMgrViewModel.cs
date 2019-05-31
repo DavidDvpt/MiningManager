@@ -17,7 +17,7 @@ namespace MiningManager.ViewModel
         where S : BaseViewModel, new()
         where T : CommunEditViewData, new()
         where U : Commun, new()
-        where V : CommunItemListViewData, new()
+        where V : CommunListItemViewData, new()
         where W : BaseViewData, ISelectionListViewData<V>, new()
     {
         public IEntityMgrController<S, T, U, V> _itemManagerController

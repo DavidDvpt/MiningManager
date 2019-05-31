@@ -29,7 +29,7 @@
             <MenuItem Header="Refiner" Command="{Binding RefinerMgr}"/>
             <Separator />
             <MenuItem Header="Finder Amplifier" Command="{Binding FinderAmplifierMgr}"/>
-            <!--<MenuItem Header="Enhancer" Command="{Binding EnhancerMgr}"/>-->
+            <MenuItem Header="Enhancer" Command="{Binding EnhancerMgr}"/>
             <Separator />
             <!--<MenuItem Header="SearchMode" Command="{Binding SearchModeMgr}"/>-->
             <!--<MenuItem Header="Setup" Command="{Binding SetupMgr}"/>-->

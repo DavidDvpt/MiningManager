@@ -2,7 +2,7 @@
 
 namespace MiningManager.ViewModel.ViewData
 {
-    public class ModeleListItemViewData : CommunItemListViewData
+    public class ModeleListItemViewData : CommunListItemViewData
     {
         public Categorie Categorie
         {
